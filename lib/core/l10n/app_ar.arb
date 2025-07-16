@@ -1,9 +1,40 @@
-
 {
-    
-    "@@locale": "ar",
-    "appName" : "امتحانات اونلاين"
-    
-    
-    
-} 
+  "@@locale": "ar",
+
+  "appName": "امتحانات اونلاين",
+  "signup": "إنشاء حساب جديد",
+
+  "userNameLabel": "اسم المستخدم",
+  "userNameHint": "ادخل اسم المستخدم",
+  "userNameError": "اسم المستخدم غير صالح",
+
+  "firstNameLabel": "الاسم الأول",
+  "firstNameHint": "ادخل الاسم الأول",
+  "firstNameError": "الاسم الأول غير صالح",
+
+  "lastNameLabel": "اسم العائلة",
+  "lastNameHint": "ادخل اسم العائلة",
+  "lastNameError": "اسم العائلة غير صالح",
+
+  "emailLabel": "البريد الإلكتروني",
+  "emailHint": "ادخل البريد الإلكتروني",
+  "emailError": "البريد الإلكتروني غير صالح",
+
+  "passwordLabel": "كلمة المرور",
+  "passwordHint": "ادخل كلمة المرور",
+  "passwordError": "كلمة المرور غير صالحة",
+
+  "confirmPasswordLabel": "تأكيد كلمة المرور",
+  "confirmPasswordHint": "أعد إدخال كلمة المرور",
+  "confirmPasswordError": "كلمتا المرور غير متطابقتين",
+
+  "phoneLabel": "رقم الهاتف",
+  "phoneHint": "ادخل رقم الهاتف",
+  "phoneError": "رقم الهاتف غير صالح",
+
+  "signupButtonText": "تسجيل حساب",
+  "alreadyHaveAccount": "هل لديك حساب بالفعل؟",
+  "login": "تسجيل الدخول",
+  "wait": "يرجى الانتظار...",
+  "welcome": "مرحبًا بك "
+}

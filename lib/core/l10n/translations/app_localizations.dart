@@ -103,6 +103,168 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Exam App'**
   String get appName;
+
+  /// No description provided for @signup.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign Up'**
+  String get signup;
+
+  /// No description provided for @userNameLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Username'**
+  String get userNameLabel;
+
+  /// No description provided for @userNameHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter username'**
+  String get userNameHint;
+
+  /// No description provided for @userNameError.
+  ///
+  /// In en, this message translates to:
+  /// **'Username is not valid'**
+  String get userNameError;
+
+  /// No description provided for @firstNameLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'First Name'**
+  String get firstNameLabel;
+
+  /// No description provided for @firstNameHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter first name'**
+  String get firstNameHint;
+
+  /// No description provided for @firstNameError.
+  ///
+  /// In en, this message translates to:
+  /// **'First name is not valid'**
+  String get firstNameError;
+
+  /// No description provided for @lastNameLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Last Name'**
+  String get lastNameLabel;
+
+  /// No description provided for @lastNameHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter last name'**
+  String get lastNameHint;
+
+  /// No description provided for @lastNameError.
+  ///
+  /// In en, this message translates to:
+  /// **'Last name is not valid'**
+  String get lastNameError;
+
+  /// No description provided for @emailLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get emailLabel;
+
+  /// No description provided for @emailHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter email'**
+  String get emailHint;
+
+  /// No description provided for @emailError.
+  ///
+  /// In en, this message translates to:
+  /// **'Email is not valid'**
+  String get emailError;
+
+  /// No description provided for @passwordLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Password'**
+  String get passwordLabel;
+
+  /// No description provided for @passwordHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter password'**
+  String get passwordHint;
+
+  /// No description provided for @passwordError.
+  ///
+  /// In en, this message translates to:
+  /// **'Password is not valid'**
+  String get passwordError;
+
+  /// No description provided for @confirmPasswordLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm Password'**
+  String get confirmPasswordLabel;
+
+  /// No description provided for @confirmPasswordHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm password'**
+  String get confirmPasswordHint;
+
+  /// No description provided for @confirmPasswordError.
+  ///
+  /// In en, this message translates to:
+  /// **'Passwords do not match'**
+  String get confirmPasswordError;
+
+  /// No description provided for @phoneLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone'**
+  String get phoneLabel;
+
+  /// No description provided for @phoneHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter phone number'**
+  String get phoneHint;
+
+  /// No description provided for @phoneError.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone number is not valid'**
+  String get phoneError;
+
+  /// No description provided for @signupButtonText.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign Up'**
+  String get signupButtonText;
+
+  /// No description provided for @alreadyHaveAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Already have an account?'**
+  String get alreadyHaveAccount;
+
+  /// No description provided for @login.
+  ///
+  /// In en, this message translates to:
+  /// **'Login'**
+  String get login;
+
+  /// No description provided for @wait.
+  ///
+  /// In en, this message translates to:
+  /// **'Please wait...'**
+  String get wait;
+
+  /// No description provided for @welcome.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome'**
+  String get welcome;
 }
 
 class _AppLocalizationsDelegate

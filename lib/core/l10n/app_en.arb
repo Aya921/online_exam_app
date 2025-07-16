@@ -1,6 +1,40 @@
 {
+  "@@locale": "en",
 
-    "@@locale": "en",
-    "appName" : "Exam App"
-    
+  "appName": "Exam App",
+  "signup": "Sign Up",
+
+  "userNameLabel": "Username",
+  "userNameHint": "Enter username",
+  "userNameError": "Username is not valid",
+
+  "firstNameLabel": "First Name",
+  "firstNameHint": "Enter first name",
+  "firstNameError": "First name is not valid",
+
+  "lastNameLabel": "Last Name",
+  "lastNameHint": "Enter last name",
+  "lastNameError": "Last name is not valid",
+
+  "emailLabel": "Email",
+  "emailHint": "Enter email",
+  "emailError": "Email is not valid",
+
+  "passwordLabel": "Password",
+  "passwordHint": "Enter password",
+  "passwordError": "Password is not valid",
+
+  "confirmPasswordLabel": "Confirm Password",
+  "confirmPasswordHint": "Confirm password",
+  "confirmPasswordError": "Passwords do not match",
+
+  "phoneLabel": "Phone",
+  "phoneHint": "Enter phone number",
+  "phoneError": "Phone number is not valid",
+
+  "signupButtonText": "Sign Up",
+  "alreadyHaveAccount": "Already have an account?",
+  "login": "Login",
+  "wait":"Please wait...",
+  "welcome": "Welcome"
 }

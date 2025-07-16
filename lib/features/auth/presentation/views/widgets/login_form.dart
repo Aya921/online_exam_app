@@ -1,4 +1,5 @@
 
+import 'package:exam_app/core/l10n/translations/app_localizations.dart';
 import 'package:exam_app/features/auth/presentation/view_model/signin_cubit/signin_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:exam_app/core/theme/app_colors.dart';
@@ -57,9 +58,9 @@ class _LoginFormState extends State<LoginForm> {
         }
         if (state is SigninFailure) {
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
+            SnackBar(
               backgroundColor: AppColors.red,
-              content: Text('invalid email or password'),
+              content: Text(state.failure.message),
             ),
           );
           isLoading = false;
@@ -77,8 +78,8 @@ class _LoginFormState extends State<LoginForm> {
                 decoration: InputDecoration(
                   floatingLabelBehavior: FloatingLabelBehavior.always,
                   labelStyle: textTheme.bodyMedium,
-                  labelText: 'Email',
-                  hintText: 'Enter your email',
+                  labelText: AppLocalizations.of(context)!.email,
+                  hintText: AppLocalizations.of(context)!.enterYourEmail,
                   hintStyle: textTheme.bodyMedium?.copyWith(
                     color: AppColors.gray,
                   ),
@@ -86,10 +87,10 @@ class _LoginFormState extends State<LoginForm> {
                 ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please enter your email';
+                    return AppLocalizations.of(context)!.pleaseEnterYourEmail;
                   }
                   if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
-                    return 'Enter a valid email';
+                    return AppLocalizations.of(context)!.pleaseEnterValidEmail;
                   }
                   return null;
                 },
@@ -101,8 +102,8 @@ class _LoginFormState extends State<LoginForm> {
                 decoration: InputDecoration(
                   floatingLabelBehavior: FloatingLabelBehavior.always,
                   labelStyle: textTheme.bodyMedium,
-                  labelText: 'Password',
-                  hintText: 'Enter your password',
+                  labelText: AppLocalizations.of(context)!.password,
+                  hintText: AppLocalizations.of(context)!.enterYourPassword,
                   hintStyle: textTheme.bodyMedium?.copyWith(
                     color: AppColors.gray,
                   ),
@@ -110,10 +111,10 @@ class _LoginFormState extends State<LoginForm> {
                 ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please enter your password';
+                    return  AppLocalizations.of(context)!.enterYourPassword;
                   }
                   if (value.length < 6) {
-                    return 'Password must be at least 6 characters';
+                    return AppLocalizations.of(context)!.passwordMinLengthError;
                   }
                   return null;
                 },
@@ -127,14 +128,14 @@ class _LoginFormState extends State<LoginForm> {
                     value: _rememberMe,
                     onChanged: (val) => setState(() => _rememberMe = val!),
                   ),
-                  Text('Remember me', style: textTheme.bodyMedium),
+                  Text(AppLocalizations.of(context)!.rememberMe, style: textTheme.bodyMedium),
                   const Spacer(),
                   TextButton(
                     onPressed: () {
                       
                     },
                     child: Text(
-                      'Forget password?',
+                      AppLocalizations.of(context)!.forgetPassword,
                       style: textTheme.bodyMedium,
                     ),
                   ),
@@ -149,7 +150,7 @@ class _LoginFormState extends State<LoginForm> {
                       ? const CircularProgressIndicator(
                         color: AppColors.white,
                       )
-                      : const Text('Login'),
+                    :  Text(AppLocalizations.of(context)!.login),
                 ),
               ),
               const SizedBox(height: 16),

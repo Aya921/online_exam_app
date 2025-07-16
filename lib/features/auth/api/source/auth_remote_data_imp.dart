@@ -17,10 +17,11 @@ class AuthRemoteDataSourceImp implements AuthRemoteDataSource {
   Future<Either<Failure, UserEntity>> signIn(SigninReqParams params) async {
     try {
       var res = await _apiServises.signIn(params.toMap());
-      return Right(UserEntity.fromUserDto( res.user!));
+      return Right(UserEntity.fromUserDto(res.user!));
     } on DioException catch (e) {
-      return Left(ServerFailure(e.response!.data['message']));
+      return Left(ServerFailure.fromDioError(e));
+    } catch (e) {
+      return const Left(ServerFailure('invalid email or password'));
     }
   }
- 
 }

@@ -134,6 +134,18 @@ abstract class AppLocalizations {
   /// **'Password'**
   String get password;
 
+  /// No description provided for @pleaseEnterYourEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter your email'**
+  String get pleaseEnterYourEmail;
+
+  /// No description provided for @pleaseEnterValidEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter valid email'**
+  String get pleaseEnterValidEmail;
+
   /// No description provided for @enterYourPassword.
   ///
   /// In en, this message translates to:
@@ -187,6 +199,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Enter your user name'**
   String get enterUserName;
+
+  /// No description provided for @passwordMinLengthError.
+  ///
+  /// In en, this message translates to:
+  /// **'Password must be at least 6 characters'**
+  String get passwordMinLengthError;
 
   /// No description provided for @userNameError.
   ///

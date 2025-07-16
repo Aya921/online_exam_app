@@ -27,6 +27,12 @@ class AppLocalizationsAr extends AppLocalizations {
   String get password => 'كلمة المرور';
 
   @override
+  String get pleaseEnterYourEmail => 'من فضلك أدخل بريدك الإلكتروني';
+
+  @override
+  String get pleaseEnterValidEmail => 'من فضلك أدخل بريدًا إلكترونيًا صالحًا';
+
+  @override
   String get enterYourPassword => 'أدخل كلمة المرور';
 
   @override
@@ -52,6 +58,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get enterUserName => 'أدخل اسم المستخدم';
+
+  @override
+  String get passwordMinLengthError =>
+      'يجب أن تتكون كلمة المرور من 6 أحرف على الأقل';
 
   @override
   String get userNameError => 'اسم المستخدم غير صالح';

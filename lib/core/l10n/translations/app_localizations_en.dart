@@ -27,6 +27,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get password => 'Password';
 
   @override
+  String get pleaseEnterYourEmail => 'Please enter your email';
+
+  @override
+  String get pleaseEnterValidEmail => 'Please enter valid email';
+
+  @override
   String get enterYourPassword => 'Enter your password';
 
   @override
@@ -52,6 +58,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get enterUserName => 'Enter your user name';
+
+  @override
+  String get passwordMinLengthError => 'Password must be at least 6 characters';
 
   @override
   String get userNameError => 'This user name is not valid';

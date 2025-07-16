@@ -1,9 +1,38 @@
-
 {
-    
     "@@locale": "ar",
-    "appName" : "امتحانات اونلاين"
-    
-    
-    
-} 
+    "appName": "امتحانات اونلاين",
+    "email": "البريد الإلكتروني",
+    "enterYourEmail": "أدخل بريدك الإلكتروني",
+    "emailError": "البريد الإلكتروني غير صالح",
+    "password": "كلمة المرور",
+    "enterYourPassword": "أدخل كلمة المرور",
+    "rememberMe": "تذكرني",
+    "forgetPassword": "هل نسيت كلمة المرور؟",
+    "dontHaveAccount": "ليس لديك حساب؟",
+    "signUp": "سجل الآن",
+    "signup": "تسجيل",
+    "alreadyHaveAccount": "هل لديك حساب بالفعل؟",
+    "userName": "اسم المستخدم",
+    "enterUserName": "أدخل اسم المستخدم",
+    "userNameError": "اسم المستخدم غير صالح",
+    "firstName": "الاسم الأول",
+    "enterFirstName": "أدخل الاسم الأول",
+    "lastName": "الاسم الأخير",
+    "enterLastName": "أدخل الاسم الأخير",
+    "confirmPassword": "تأكيد كلمة المرور",
+    "enterConfirmPassword": "أدخل تأكيد كلمة المرور",
+    "passwordNotMatched": "كلمتا المرور غير متطابقتين",
+    "phoneNumber": "رقم الهاتف",
+    "enterPhoneNumber": "أدخل رقم الهاتف",
+    "forgetPasswordTitle": "نسيت كلمة المرور",
+    "forgetPasswordSubtitle": "من فضلك أدخل البريد المرتبط بحسابك",
+    "continue_button": "متابعة",
+    "emailVerificationTitle": "التحقق من البريد الإلكتروني",
+    "emailVerificationSubtitle": "من فضلك أدخل الكود المرسل إلى بريدك الإلكتروني",
+    "invalidCode": "رمز غير صالح",
+    "didntReceiveCode": "لم يصلك الرمز؟",
+    "resend": "أعد الإرسال",
+    "resetPasswordTitle": "إعادة تعيين كلمة المرور",
+    "resetPasswordSubtitle": "كلمة المرور لا يجب أن تكون فارغة ويجب أن تحتوي على 6 أحرف على الأقل، حرف كبير ورقم واحد على الأقل",
+    "newPassword": "كلمة المرور الجديدة"
+}

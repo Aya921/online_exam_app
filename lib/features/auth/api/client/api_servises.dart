@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:exam_app/core/constant/endPoints_constants/endpoints.dart';
 import 'package:exam_app/features/auth/api/model/SignInRespones.dart';
 
 
@@ -15,7 +16,7 @@ abstract class ApiServises {
 
   @factoryMethod
   factory ApiServises(Dio dio) = _ApiServises;
-  @POST('/auth/signin')
+  @POST(Endpoints.signinEndPoint)
   Future<SigninRespones> signIn(@Body() Map<String, dynamic> body);
   
 }

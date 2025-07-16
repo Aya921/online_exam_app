@@ -19,7 +19,9 @@ import '../../features/auth/api/client/api_servises.dart' as _i406;
 import '../../features/auth/api/source/auth_remote_data_imp.dart' as _i729;
 import '../../features/auth/data/repository/auth_repo_impl.dart' as _i751;
 import '../../features/auth/data/source/auth_api_service.dart' as _i984;
-import '../../features/auth/domin/repository/auth_repo.dart' as _i939;
+import '../../features/auth/domin/usecases/signin.dart' as _i232;
+import '../../features/auth/presentation/view_model/signin_cubit/signin_cubit.dart'
+    as _i116;
 import '../provider/app_config_provider.dart' as _i291;
 import 'modules/dio_module.dart' as _i983;
 import 'modules/shared_preferences_module.dart' as _i813;
@@ -48,8 +50,14 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i984.AuthRemoteDataSource>(
       () => _i729.AuthRemoteDataSourceImp(gh<_i406.ApiServises>()),
     );
-    gh.factory<_i939.AuthRepo>(
+    gh.factory<_i751.AuthRepoImpl>(
       () => _i751.AuthRepoImpl(gh<_i984.AuthRemoteDataSource>()),
+    );
+    gh.factory<_i232.SigninUsecase>(
+      () => _i232.SigninUsecase(gh<_i751.AuthRepoImpl>()),
+    );
+    gh.factory<_i116.SigninCubit>(
+      () => _i116.SigninCubit(gh<_i232.SigninUsecase>()),
     );
     return this;
   }

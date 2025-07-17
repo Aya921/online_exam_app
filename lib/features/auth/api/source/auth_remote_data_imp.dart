@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:exam_app/core/errors/failure.dart';
+import 'package:exam_app/core/services/token_service.dart';
 import 'package:exam_app/features/auth/api/client/api_servises.dart';
 import 'package:exam_app/features/auth/api/model/signin_req_params.dart';
 
@@ -12,11 +13,15 @@ import 'package:injectable/injectable.dart';
 @Injectable(as: AuthRemoteDataSource)
 class AuthRemoteDataSourceImp implements AuthRemoteDataSource {
   final ApiServises _apiServises;
+  final TokenService _tokenService;
 
-  AuthRemoteDataSourceImp(this._apiServises);
+  AuthRemoteDataSourceImp(this._apiServises , this._tokenService);
   Future<Either<Failure, UserEntity>> signIn(SigninReqParams params) async {
     try {
       var res = await _apiServises.signIn(params.toMap());
+      if (res.token != null) {
+        await _tokenService.saveToken(res.token!);
+      }
       return Right(UserEntity.fromUserDto(res.user!));
     } on DioException catch (e) {
       return Left(ServerFailure.fromDioError(e));

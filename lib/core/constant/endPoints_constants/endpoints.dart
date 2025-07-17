@@ -5,6 +5,7 @@ class Endpoints {
   static const String signupEndPoint = 'signup';
   static const String responseKey = 'message';
   static const String signinEndPoint = 'signin';
+  static const String token = 'token';
 
 
 }

@@ -1,5 +1,6 @@
 
 import 'package:exam_app/core/l10n/translations/app_localizations.dart';
+import 'package:exam_app/core/route/app_routes.dart';
 import 'package:exam_app/features/auth/presentation/view_model/signin_cubit/signin_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:exam_app/core/theme/app_colors.dart';
@@ -132,6 +133,7 @@ class _LoginFormState extends State<LoginForm> {
                   const Spacer(),
                   TextButton(
                     onPressed: () {
+                      Navigator.pushNamed(context, AppRoutes.forgetPassword);
                       
                     },
                     child: Text(

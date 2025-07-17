@@ -1,7 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:exam_app/confing/api_result/api_result.dart';
 import 'package:exam_app/core/constant/endPoints_constants/endpoints.dart';
-import 'package:exam_app/core/local_storage/token/token_storage.dart';
+
+import 'package:exam_app/core/services/token_service.dart';
 import 'package:exam_app/features/auth/api/client/api_servises.dart';
 import 'package:exam_app/features/auth/api/model/signup_response/signup_response.dart';
 import 'package:exam_app/features/auth/api/model/user_send_dto.dart';
@@ -14,7 +15,7 @@ import 'package:injectable/injectable.dart';
 @Injectable(as: AuthRemoteDataSource)
 class AuthRemoteDataSourceImp implements AuthRemoteDataSource {
   final ApiServises _apiServises;
-  final TokenStorage _tokenStorage;
+  final TokenService _tokenStorage;
 
   AuthRemoteDataSourceImp(this._apiServises, this._tokenStorage);
 

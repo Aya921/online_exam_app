@@ -15,9 +15,7 @@ import 'package:injectable/injectable.dart' as _i526;
 import 'package:pretty_dio_logger/pretty_dio_logger.dart' as _i528;
 import 'package:shared_preferences/shared_preferences.dart' as _i460;
 
-import '../../core/local_storage/token/token_storage.dart' as _i909;
-import '../../core/local_storage/token/token_storage_imp/sharedPrefrence_token_storage_imp.dart'
-    as _i715;
+import '../../core/services/token_service.dart' as _i115;
 import '../../features/auth/api/client/api_servises.dart' as _i406;
 import '../../features/auth/api/source/auth_remote_data_imp.dart' as _i729;
 import '../../features/auth/data/repository/auth_repo_impl.dart' as _i751;
@@ -51,15 +49,13 @@ extension GetItInjectableX on _i174.GetIt {
     gh.singleton<_i291.AppConfigProvider>(
       () => _i291.AppConfigProvider(gh<_i460.SharedPreferences>()),
     );
-    gh.factory<_i909.TokenStorage>(
-      () => _i715.SharedprefrenceTokenStorageImp(
-        prefs: gh<_i460.SharedPreferences>(),
-      ),
+    gh.factory<_i115.TokenService>(
+      () => _i115.TokenService(prefs: gh<_i460.SharedPreferences>()),
     );
     gh.factory<_i984.AuthRemoteDataSource>(
       () => _i729.AuthRemoteDataSourceImp(
         gh<_i406.ApiServises>(),
-        gh<_i909.TokenStorage>(),
+        gh<_i115.TokenService>(),
       ),
     );
     gh.factory<_i939.AuthRepo>(

@@ -7,6 +7,6 @@ final class SigninInitial extends SigninState {}
 final class SigninSuccess extends SigninState {}
 final class SigninLoading extends SigninState {}
 final class SigninFailure extends SigninState {
-  final Failure failure;
-  SigninFailure(this.failure);
+  final String errorMessage;
+  SigninFailure(this.errorMessage);
 }

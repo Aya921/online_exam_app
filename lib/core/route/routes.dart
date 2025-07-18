@@ -15,7 +15,7 @@ abstract class Routes {
         return MaterialPageRoute(builder: (context) => const SignupPage());
 
       case AppRoutes.login:
-        return MaterialPageRoute(builder: (context) => const LoginScreen());
+        return MaterialPageRoute(builder: (context) =>  LoginScreen());
       case AppRoutes.forgetPassword:
         return MaterialPageRoute(builder: (context) => const ForgetPasswordPage());
       default:

@@ -1,4 +1,4 @@
-import 'package:exam_app/core/constant/endPoints_constants/endpoints.dart';
+import 'package:exam_app/core/constant/constant.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:injectable/injectable.dart';
 
@@ -7,13 +7,13 @@ class TokenService {
     final FlutterSecureStorage _prefs;
   TokenService(this._prefs);
   Future<void> deleteToken() async {
-    await _prefs.delete( key: Endpoints.token,);
+    await _prefs.delete( key: Constants.token,);
   }
   Future<String?> getToken()async {
-    return   _prefs.read(key:Endpoints.token);
+    return   _prefs.read(key:Constants.token);
   }
   Future<void> saveToken(String token)async {
-    await  _prefs.write(key:Endpoints.token, value: token);
+    await  _prefs.write(key:Constants.token, value: token);
   }
 
 }

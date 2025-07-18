@@ -1,8 +1,8 @@
-import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:exam_app/core/errors/failure.dart';
+import 'package:exam_app/confing/api_result/api_result.dart';
 import 'package:exam_app/core/services/token_service.dart';
 import 'package:exam_app/features/auth/api/client/api_servises.dart';
+import 'package:exam_app/features/auth/api/model/signin_req.dart';
 import 'package:exam_app/features/auth/api/model/signin_req_params.dart';
 
 import 'package:exam_app/features/auth/data/source/auth_api_service.dart';
@@ -15,18 +15,23 @@ class AuthRemoteDataSourceImp implements AuthRemoteDataSource {
   final ApiServises _apiServises;
   final TokenService _tokenService;
 
-  AuthRemoteDataSourceImp(this._apiServises , this._tokenService);
-  Future<Either<Failure, UserEntity>> signIn(SigninReqParams params) async {
+  AuthRemoteDataSourceImp(this._apiServises, this._tokenService);
+  @override
+  Future<ApiResult<UserEntity>> signIn(SigninReqParams params) async {
     try {
-      var res = await _apiServises.signIn(params.toMap());
+      SignInRequest req = SignInRequest(
+        email: params.email,
+        password: params.password,
+      );
+      var res = await _apiServises.signIn(req);
       if (res.token != null) {
         await _tokenService.saveToken(res.token!);
       }
-      return Right(UserEntity.fromUserDto(res.user!));
+      return ApiSucessResult(UserEntity.fromUserDto(res.user!));
     } on DioException catch (e) {
-      return Left(ServerFailure.fromDioError(e));
+      return ApiFailedResult.fomDioException(e);
     } catch (e) {
-      return const Left(ServerFailure('invalid email or password'));
+      return ApiFailedResult(e.toString());
     }
   }
 }

@@ -2,7 +2,6 @@ import 'package:dio/dio.dart';
 import 'package:exam_app/confing/di/di.dart';
 
 import 'package:exam_app/core/constant/endPoints_constants/endpoints.dart';
-import 'package:exam_app/features/auth/api/client/api_servises.dart';
 import 'package:injectable/injectable.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 

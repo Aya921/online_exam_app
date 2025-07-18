@@ -61,7 +61,7 @@ class _LoginFormState extends State<LoginForm> {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               backgroundColor: AppColors.red,
-              content: Text(state.failure.message),
+              content: Text(state.errorMessage),
             ),
           );
           isLoading = false;

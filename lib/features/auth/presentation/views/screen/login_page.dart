@@ -1,15 +1,37 @@
-import 'package:flutter/widgets.dart';
+import 'package:exam_app/confing/di/di.dart';
+import 'package:exam_app/core/theme/app_colors.dart';
+import 'package:exam_app/core/l10n/translations/app_localizations.dart';
+import 'package:exam_app/features/auth/presentation/view_model/signin_cubit/signin_cubit.dart';
+import 'package:exam_app/features/auth/presentation/views/widgets/login_form.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class LoginScreen extends StatelessWidget {
+  LoginScreen({super.key});
 
-  @override
-  State<LoginPage> createState() => _LoginPageState();
-}
+  final viewModel = getIt.get<SigninCubit>();
 
-class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return BlocProvider<SigninCubit>(
+      create: (context) => viewModel,
+      child: Scaffold(
+        appBar: AppBar(
+          leading: const Icon(Icons.arrow_back_ios_new , color: AppColors.black),
+          title: Text(
+            AppLocalizations.of(context)!.login,
+            style: Theme.of(
+              context,
+            ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w600),
+          ),
+        ),
+        body: const SafeArea(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16),
+            child: LoginForm(),
+          ),
+        ),
+      ),
+    );
   }
 }

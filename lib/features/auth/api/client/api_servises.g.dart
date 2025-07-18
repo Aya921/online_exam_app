@@ -18,12 +18,12 @@ class _ApiServises implements ApiServises {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<SigninRespones> signIn(Map<String, dynamic> body) async {
+  Future<SigninRespones> signIn(Map<String, dynamic> params) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    _data.addAll(body);
+    _data.addAll(params);
     final _options = _setStreamType<SigninRespones>(
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(

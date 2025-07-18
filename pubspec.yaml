@@ -39,6 +39,7 @@ dependencies:
   retrofit: ^4.6.0
   json_annotation: ^4.9.0
   dartz:
+  flutter_secure_storage : ^9.0.0
 
   flutter_localizations:
     sdk: flutter

@@ -7,19 +7,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+  LoginScreen({super.key});
+
+  final viewModel = getIt.get<SigninCubit>();
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider<SigninCubit>(
-      create: (context) => getIt.get<SigninCubit>(),
+      create: (context) => viewModel,
       child: Scaffold(
         appBar: AppBar(
-          leading: IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.arrow_back_ios_new),
-            color: AppColors.black,
-          ),
+          leading: const Icon(Icons.arrow_back_ios_new , color: AppColors.black),
           title: Text(
             AppLocalizations.of(context)!.login,
             style: Theme.of(

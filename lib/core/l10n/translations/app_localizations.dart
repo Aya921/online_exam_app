@@ -122,11 +122,11 @@ abstract class AppLocalizations {
   /// **'Enter username'**
   String get userNameHint;
 
-  /// No description provided for @userNameError.
+  /// No description provided for @emptyUserNameError.
   ///
   /// In en, this message translates to:
   /// **'Username is not valid'**
-  String get userNameError;
+  String get emptyUserNameError;
 
   /// No description provided for @firstNameLabel.
   ///
@@ -140,11 +140,11 @@ abstract class AppLocalizations {
   /// **'Enter first name'**
   String get firstNameHint;
 
-  /// No description provided for @firstNameError.
+  /// No description provided for @emptyFirstNameError.
   ///
   /// In en, this message translates to:
   /// **'First name is not valid'**
-  String get firstNameError;
+  String get emptyFirstNameError;
 
   /// No description provided for @lastNameLabel.
   ///
@@ -158,11 +158,11 @@ abstract class AppLocalizations {
   /// **'Enter last name'**
   String get lastNameHint;
 
-  /// No description provided for @lastNameError.
+  /// No description provided for @emptyLastNameError.
   ///
   /// In en, this message translates to:
   /// **'Last name is not valid'**
-  String get lastNameError;
+  String get emptyLastNameError;
 
   /// No description provided for @emailLabel.
   ///
@@ -176,11 +176,11 @@ abstract class AppLocalizations {
   /// **'Enter email'**
   String get emailHint;
 
-  /// No description provided for @emailError.
+  /// No description provided for @emptyEmailError.
   ///
   /// In en, this message translates to:
   /// **'Email is not valid'**
-  String get emailError;
+  String get emptyEmailError;
 
   /// No description provided for @passwordLabel.
   ///
@@ -194,11 +194,11 @@ abstract class AppLocalizations {
   /// **'Enter password'**
   String get passwordHint;
 
-  /// No description provided for @passwordError.
+  /// No description provided for @emptyPasswordError.
   ///
   /// In en, this message translates to:
   /// **'Password is not valid'**
-  String get passwordError;
+  String get emptyPasswordError;
 
   /// No description provided for @confirmPasswordLabel.
   ///
@@ -212,11 +212,11 @@ abstract class AppLocalizations {
   /// **'Confirm password'**
   String get confirmPasswordHint;
 
-  /// No description provided for @confirmPasswordError.
+  /// No description provided for @emptyConfirmPasswordError.
   ///
   /// In en, this message translates to:
   /// **'Passwords do not match'**
-  String get confirmPasswordError;
+  String get emptyConfirmPasswordError;
 
   /// No description provided for @phoneLabel.
   ///
@@ -230,11 +230,11 @@ abstract class AppLocalizations {
   /// **'Enter phone number'**
   String get phoneHint;
 
-  /// No description provided for @phoneError.
+  /// No description provided for @emptyPhoneError.
   ///
   /// In en, this message translates to:
   /// **'Phone number is not valid'**
-  String get phoneError;
+  String get emptyPhoneError;
 
   /// No description provided for @signupButtonText.
   ///
@@ -265,6 +265,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Welcome'**
   String get welcome;
+
+  /// No description provided for @tooShort.
+  ///
+  /// In en, this message translates to:
+  /// **'The length should be at least 3 characters'**
+  String get tooShort;
+
+  /// No description provided for @invalidName.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a valid name'**
+  String get invalidName;
+
+  /// No description provided for @invalidEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a valid email'**
+  String get invalidEmail;
+
+  /// No description provided for @invalidPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Password must be at least 8 characters,\ninclude upper, lower, digit & special char'**
+  String get invalidPassword;
+
+  /// No description provided for @confirmPasswordMismatch.
+  ///
+  /// In en, this message translates to:
+  /// **'The Confirm password is not matched with your password'**
+  String get confirmPasswordMismatch;
+
+  /// No description provided for @invalidPhoneNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter valid Egyptian phone number'**
+  String get invalidPhoneNumber;
 }
 
 class _AppLocalizationsDelegate

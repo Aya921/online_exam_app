@@ -6,6 +6,7 @@ import 'package:exam_app/core/services/token_service.dart';
 import 'package:exam_app/features/auth/api/client/api_servises.dart';
 import 'package:exam_app/features/auth/api/model/signup_response/signup_response.dart';
 import 'package:exam_app/features/auth/api/model/user_send_dto.dart';
+import 'package:exam_app/core/constant/json_serializable_constants/json_constants.dart';
 
 import 'package:exam_app/features/auth/data/source/auth_api_service.dart';
 import 'package:exam_app/features/auth/domin/entities/user_entity.dart';
@@ -34,7 +35,7 @@ class AuthRemoteDataSourceImp implements AuthRemoteDataSource {
 
       if (data is Map<String, dynamic> &&
           data.containsKey(Endpoints.messageResponseKey)) {
-        errorMessage = data["message"].toString();
+        errorMessage = data[JsonConstants.message].toString();
       }
 
       return ApiFailedResult(errorMessage);

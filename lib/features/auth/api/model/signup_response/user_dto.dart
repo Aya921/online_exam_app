@@ -1,3 +1,4 @@
+import 'package:exam_app/core/constant/json_serializable_constants/json_constants.dart';
 import 'package:exam_app/features/auth/domin/entities/user_entity.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -5,23 +6,23 @@ part 'user_dto.g.dart';
 
 @JsonSerializable()
 class UserDto {
-  @JsonKey(name: "username")
+  @JsonKey(name:JsonConstants.username)
   String? username;
-  @JsonKey(name: "firstName")
+  @JsonKey(name: JsonConstants.firstName)
   String? firstName;
-  @JsonKey(name: "lastName")
+  @JsonKey(name: JsonConstants.lastName)
   String? lastName;
-  @JsonKey(name: "email")
+  @JsonKey(name: JsonConstants.email)
   String? email;
-  @JsonKey(name: "phone")
+  @JsonKey(name:JsonConstants.phone)
   String? phone;
-  @JsonKey(name: "role")
+  @JsonKey(name: JsonConstants.role)
   String? role;
-  @JsonKey(name: "isVerified")
+  @JsonKey(name: JsonConstants.isVerified)
   bool? isVerified;
-  @JsonKey(name: "_id")
+  @JsonKey(name: JsonConstants.id)
   String? id;
-  @JsonKey(name: "createdAt")
+  @JsonKey(name: JsonConstants.createdAt)
   DateTime? createdAt;
 
   UserDto({

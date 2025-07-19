@@ -1,6 +1,7 @@
 
 import 'package:exam_app/features/auth/domin/entities/user_entity.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:exam_app/core/constant/json_serializable_constants/json_constants.dart';
 import 'dart:convert';
 
 part 'user_send_dto.g.dart';
@@ -11,19 +12,19 @@ String userSendDtoToJson(UserSendDto data) => json.encode(data.toJson());
 
 @JsonSerializable()
 class UserSendDto {
-    @JsonKey(name: "username")
+    @JsonKey(name:JsonConstants.username) 
     String? username;
-    @JsonKey(name: "firstName")
+    @JsonKey(name: JsonConstants.firstName)
     String? firstName;
-    @JsonKey(name: "lastName")
+    @JsonKey(name: JsonConstants.lastName)
     String? lastName;
-    @JsonKey(name: "email")
+    @JsonKey(name: JsonConstants.email)
     String? email;
-    @JsonKey(name: "password")
+    @JsonKey(name: JsonConstants.password)
     String? password;
-    @JsonKey(name: "rePassword")
+    @JsonKey(name: JsonConstants.repassword)
     String? rePassword;
-    @JsonKey(name: "phone")
+    @JsonKey(name: JsonConstants.phone)
     String? phone;
 
     UserSendDto({

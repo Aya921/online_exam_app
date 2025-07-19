@@ -21,7 +21,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get userNameHint => 'Enter username';
 
   @override
-  String get userNameError => 'Username is not valid';
+  String get emptyUserNameError => 'Username is not valid';
 
   @override
   String get firstNameLabel => 'First Name';
@@ -30,7 +30,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get firstNameHint => 'Enter first name';
 
   @override
-  String get firstNameError => 'First name is not valid';
+  String get emptyFirstNameError => 'First name is not valid';
 
   @override
   String get lastNameLabel => 'Last Name';
@@ -39,7 +39,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get lastNameHint => 'Enter last name';
 
   @override
-  String get lastNameError => 'Last name is not valid';
+  String get emptyLastNameError => 'Last name is not valid';
 
   @override
   String get emailLabel => 'Email';
@@ -48,7 +48,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get emailHint => 'Enter email';
 
   @override
-  String get emailError => 'Email is not valid';
+  String get emptyEmailError => 'Email is not valid';
 
   @override
   String get passwordLabel => 'Password';
@@ -57,7 +57,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get passwordHint => 'Enter password';
 
   @override
-  String get passwordError => 'Password is not valid';
+  String get emptyPasswordError => 'Password is not valid';
 
   @override
   String get confirmPasswordLabel => 'Confirm Password';
@@ -66,7 +66,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get confirmPasswordHint => 'Confirm password';
 
   @override
-  String get confirmPasswordError => 'Passwords do not match';
+  String get emptyConfirmPasswordError => 'Passwords do not match';
 
   @override
   String get phoneLabel => 'Phone';
@@ -75,7 +75,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get phoneHint => 'Enter phone number';
 
   @override
-  String get phoneError => 'Phone number is not valid';
+  String get emptyPhoneError => 'Phone number is not valid';
 
   @override
   String get signupButtonText => 'Sign Up';
@@ -91,4 +91,24 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get welcome => 'Welcome';
+
+  @override
+  String get tooShort => 'The length should be at least 3 characters';
+
+  @override
+  String get invalidName => 'Enter a valid name';
+
+  @override
+  String get invalidEmail => 'Enter a valid email';
+
+  @override
+  String get invalidPassword =>
+      'Password must be at least 8 characters,\ninclude upper, lower, digit & special char';
+
+  @override
+  String get confirmPasswordMismatch =>
+      'The Confirm password is not matched with your password';
+
+  @override
+  String get invalidPhoneNumber => 'Enter valid Egyptian phone number';
 }

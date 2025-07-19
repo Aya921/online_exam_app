@@ -1,45 +1,52 @@
+
+import 'package:exam_app/core/constant/validator_constants/signup_validator_constants.dart';
+import 'package:exam_app/core/l10n/translations/app_localizations.dart';
 import 'package:flutter/widgets.dart';
 
 class SignupValidators {
 
+  final AppLocalizations _appLocalizations;
+  SignupValidators({required AppLocalizations appLocalization}) : _appLocalizations = appLocalization;
 
-  static String? userNameValidatiion(String? value) {
+
+
+   String? userNameValidatiion(String? value) {
     if (value!.length < 3) {
-      return "The lenght should be at least 3 characters";
+      return _appLocalizations.tooShort;
     }
     return null;
   }
 
-  static String? firstNameValidatiion(String? value) {
-    final firstnameRegex=RegExp(r'^[a-zA-Z]+$');
+   String? firstNameValidatiion(String? value) {
+    final firstnameRegex=RegExp(SignupValidatorConstants.nameRegex);
     if (value!.length < 3) {
-      return "The lenght should be at least 3 characters";
+      return _appLocalizations.tooShort;
     }
     if(!firstnameRegex.hasMatch(value)){
-       return "Enter a valid name";
+       return _appLocalizations.emptyFirstNameError;
 
     }
     
     return null;
   }
 
-  static String? lastNameValidatiion(String? value) {
-    final lastnameRegex=RegExp(r'^[a-zA-Z]+$');
+   String? lastNameValidatiion(String? value) {
+    final lastnameRegex=RegExp(SignupValidatorConstants.nameRegex);
     if (value!.length < 3) {
-      return "The lenght should be at least 3 characters";
+      return _appLocalizations.tooShort;
     }
     if(!lastnameRegex.hasMatch(value)){
-       return "Enter a valid name";
+       return _appLocalizations.emptyLastNameError;
 
     }
     
     return null;
   }
 
-  static String? emailValidatiion(String? value) {
-    final emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
+   String? emailValidatiion(String? value) {
+    final emailRegex = RegExp(SignupValidatorConstants.emailRegex);
     if (!emailRegex.hasMatch(value!)) {
-      return 'Enter a valid email';
+      return _appLocalizations.emptyEmailError;
     }
 
     return null;
@@ -47,31 +54,31 @@ class SignupValidators {
 
  
 
-  static String? passwprdValidatiion(String? value) {
+   String? passwprdValidatiion(String? value) {
     final passwordRegex = RegExp(
-      r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$',
+     SignupValidatorConstants.passwordRegex,
     );
 
     if (!passwordRegex.hasMatch(value!)) {
-      return 'Password must be at least 8 characters,\ninclude upper, lower, digit & special char';
+      return _appLocalizations.invalidPassword;
     }
     return null;
   }
 
-  static String? confirmPasswordValidatiion(
+   String? confirmPasswordValidatiion(
     String? value,
     TextEditingController? optionalValue,
   ) {
     if (value != optionalValue!.text) {
-      return "The Confirm password is not matched with your password";
+      return _appLocalizations.confirmPasswordMismatch;
     }
     return null;
   }
 
-  static String? phoneValidation(String? value) {
+   String? phoneValidation(String? value) {
     final phoneRegex = RegExp(r'^01[0125][0-9]{8}$');
     if (!phoneRegex.hasMatch(value!)) {
-      return 'Enter valid Egyptian phone number';
+      return _appLocalizations.invalidPhoneNumber;
     }
     return null;
   }

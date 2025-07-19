@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 
 import 'package:exam_app/core/route/app_routes.dart';
+import 'package:exam_app/features/auth/presentation/view_model/signup_view_model/signup_events.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -49,7 +50,7 @@ class _SignUpPageState extends State<SignUpPage> {
       password: _passwordController.text,
       repassword: _rePasswordController.text,
     );
-    signupViewModel.signup(user);
+    signupViewModel.add(SignUpUserEvent(user));
   }
 
   @override
@@ -66,30 +67,32 @@ class _SignUpPageState extends State<SignUpPage> {
           padding: const EdgeInsets.all(16),
           child: BlocListener<SignupViewModel, SignupState>(
             listener: (context, state) {
-              if (state is SignupLoadingState) {
+              if (state.isLoading) {
                 ScaffoldMessenger.of(
                   context,
                 ).showSnackBar(SnackBar(content: Text(t.wait)));
-              } else if (state is SignupSucessState) {
-                // go to home page
-
-            
-               ScaffoldMessenger.of(
-                  context,
-                ).showSnackBar(SnackBar(content: Text("${t.welcome} ${state.userModel.firstName}")));
-               
-   // Navigator.of(context).pushNamed(AppRoutes.home);
-
-              } else if (state is SignupFaliedState) {
+              } else if (state.errorMessage != null) {
                 ScaffoldMessenger.of(
                   context,
-                ).showSnackBar(SnackBar(content: Text(state.errorMessage)));
-              } else if (state is SignupValidState) {
+                ).showSnackBar(SnackBar(content: Text(state.errorMessage!)));
+
+                state.errorMessage = null;
+              } else if (state.userModel != null && state.isValid == true) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text("${t.welcome} ${state.userModel!.firstName}"),
+                  ),
+                );
+                state.userModel = null;
+                // Navigator.of(context).pushNamed(AppRoutes.home);
+              } else if (state.isValid != null) {
+          
                 setState(() {
-                  active = state.isValid;
+                  active = state.isValid!;
                 });
               }
             },
+
             child: Form(
               key: signupViewModel.formKey,
               child: Column(
@@ -98,9 +101,11 @@ class _SignUpPageState extends State<SignUpPage> {
                     controller: _usernameController,
                     label: t.userNameLabel,
                     hint: t.userNameHint,
-                    formFieldValidator: SignupValidators.userNameValidatiion,
-                    emptyFiledErrorMessage: t.userNameError,
-                    onChanged: signupViewModel.checkValidation,
+                    formFieldValidator: SignupValidators(
+                      appLocalization: t,
+                    ).userNameValidatiion,
+                    emptyFiledErrorMessage: t.emptyUserNameError,
+                    onChanged: () => signupViewModel.add(ValidateSignupEvent()),
                   ),
                   const SizedBox(height: 24),
                   Row(
@@ -110,10 +115,12 @@ class _SignUpPageState extends State<SignUpPage> {
                           controller: _firstNameController,
                           label: t.firstNameLabel,
                           hint: t.firstNameHint,
-                          formFieldValidator:
-                              SignupValidators.firstNameValidatiion,
-                          emptyFiledErrorMessage: t.firstNameError,
-                          onChanged: signupViewModel.checkValidation,
+                          formFieldValidator: SignupValidators(
+                            appLocalization: t,
+                          ).firstNameValidatiion,
+                          emptyFiledErrorMessage: t.emptyFirstNameError,
+                          onChanged: () =>
+                              signupViewModel.add(ValidateSignupEvent()),
                         ),
                       ),
                       const SizedBox(width: 24),
@@ -122,10 +129,12 @@ class _SignUpPageState extends State<SignUpPage> {
                           controller: _lastNameController,
                           label: t.lastNameLabel,
                           hint: t.lastNameHint,
-                          formFieldValidator:
-                              SignupValidators.lastNameValidatiion,
-                          emptyFiledErrorMessage: t.lastNameError,
-                          onChanged: signupViewModel.checkValidation,
+                          formFieldValidator: SignupValidators(
+                            appLocalization: t,
+                          ).lastNameValidatiion,
+                          emptyFiledErrorMessage: t.emptyLastNameError,
+                          onChanged: () =>
+                              signupViewModel.add(ValidateSignupEvent()),
                         ),
                       ),
                     ],
@@ -135,9 +144,11 @@ class _SignUpPageState extends State<SignUpPage> {
                     controller: _emailController,
                     label: t.emailLabel,
                     hint: t.emailHint,
-                    formFieldValidator: SignupValidators.emailValidatiion,
-                    emptyFiledErrorMessage: t.emailError,
-                    onChanged: signupViewModel.checkValidation,
+                    formFieldValidator: SignupValidators(
+                      appLocalization: t,
+                    ).emailValidatiion,
+                    emptyFiledErrorMessage: t.emptyEmailError,
+                    onChanged: () => signupViewModel.add(ValidateSignupEvent()),
                   ),
                   const SizedBox(height: 24),
                   Row(
@@ -147,11 +158,13 @@ class _SignUpPageState extends State<SignUpPage> {
                           controller: _passwordController,
                           label: t.passwordLabel,
                           hint: t.passwordHint,
-                          formFieldValidator:
-                              SignupValidators.passwprdValidatiion,
-                          emptyFiledErrorMessage: t.passwordError,
+                          formFieldValidator: SignupValidators(
+                            appLocalization: t,
+                          ).passwprdValidatiion,
+                          emptyFiledErrorMessage: t.emptyPasswordError,
                           obsecureTxt: true,
-                          onChanged: signupViewModel.checkValidation,
+                          onChanged: () =>
+                              signupViewModel.add(ValidateSignupEvent()),
                         ),
                       ),
                       const SizedBox(width: 24),
@@ -160,12 +173,14 @@ class _SignUpPageState extends State<SignUpPage> {
                           controller: _rePasswordController,
                           label: t.confirmPasswordLabel,
                           hint: t.confirmPasswordHint,
-                          confirmPasswordFunction:
-                              SignupValidators.confirmPasswordValidatiion,
+                          confirmPasswordFunction: SignupValidators(
+                            appLocalization: t,
+                          ).confirmPasswordValidatiion,
                           passwordCompareValue: _passwordController,
-                          emptyFiledErrorMessage: t.confirmPasswordError,
+                          emptyFiledErrorMessage: t.emptyConfirmPasswordError,
                           obsecureTxt: true,
-                          onChanged: signupViewModel.checkValidation,
+                          onChanged: () =>
+                              signupViewModel.add(ValidateSignupEvent()),
                         ),
                       ),
                     ],
@@ -175,9 +190,11 @@ class _SignUpPageState extends State<SignUpPage> {
                     controller: _phoneController,
                     label: t.phoneLabel,
                     hint: t.phoneHint,
-                    formFieldValidator: SignupValidators.phoneValidation,
-                    emptyFiledErrorMessage: t.phoneError,
-                    onChanged: signupViewModel.checkValidation,
+                    formFieldValidator: SignupValidators(
+                      appLocalization: t,
+                    ).phoneValidation,
+                    emptyFiledErrorMessage: t.emptyConfirmPasswordError,
+                    onChanged: () => signupViewModel.add(ValidateSignupEvent()),
                   ),
                   const SizedBox(height: 40),
                   Row(

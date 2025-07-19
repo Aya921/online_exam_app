@@ -6,35 +6,43 @@
 
   "userNameLabel": "Username",
   "userNameHint": "Enter username",
-  "userNameError": "Username is not valid",
+  "emptyUserNameError": "Username is not valid",
 
   "firstNameLabel": "First Name",
   "firstNameHint": "Enter first name",
-  "firstNameError": "First name is not valid",
+  "emptyFirstNameError": "First name is not valid",
 
   "lastNameLabel": "Last Name",
   "lastNameHint": "Enter last name",
-  "lastNameError": "Last name is not valid",
+  "emptyLastNameError": "Last name is not valid",
 
   "emailLabel": "Email",
   "emailHint": "Enter email",
-  "emailError": "Email is not valid",
+  "emptyEmailError": "Email is not valid",
 
   "passwordLabel": "Password",
   "passwordHint": "Enter password",
-  "passwordError": "Password is not valid",
+  "emptyPasswordError": "Password is not valid",
 
   "confirmPasswordLabel": "Confirm Password",
   "confirmPasswordHint": "Confirm password",
-  "confirmPasswordError": "Passwords do not match",
+  "emptyConfirmPasswordError": "Passwords do not match",
 
   "phoneLabel": "Phone",
   "phoneHint": "Enter phone number",
-  "phoneError": "Phone number is not valid",
+  "emptyPhoneError": "Phone number is not valid",
 
   "signupButtonText": "Sign Up",
   "alreadyHaveAccount": "Already have an account?",
   "login": "Login",
   "wait":"Please wait...",
-  "welcome": "Welcome"
+  "welcome": "Welcome",
+  
+  "tooShort": "The length should be at least 3 characters",
+  "invalidName": "Enter a valid name",
+  "invalidEmail": "Enter a valid email",
+  "invalidPassword": "Password must be at least 8 characters,\ninclude upper, lower, digit & special char",
+  "confirmPasswordMismatch": "The Confirm password is not matched with your password",
+  "invalidPhoneNumber": "Enter valid Egyptian phone number"
+
 }

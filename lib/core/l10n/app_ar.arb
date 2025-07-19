@@ -6,35 +6,41 @@
 
   "userNameLabel": "اسم المستخدم",
   "userNameHint": "ادخل اسم المستخدم",
-  "userNameError": "اسم المستخدم غير صالح",
+  "emptyUserNameError": "اسم المستخدم غير صالح",
 
   "firstNameLabel": "الاسم الأول",
   "firstNameHint": "ادخل الاسم الأول",
-  "firstNameError": "الاسم الأول غير صالح",
+  "emptyFirstNameError": "الاسم الأول غير صالح",
 
   "lastNameLabel": "اسم العائلة",
   "lastNameHint": "ادخل اسم العائلة",
-  "lastNameError": "اسم العائلة غير صالح",
+  "emptyLastNameError": "اسم العائلة غير صالح",
 
   "emailLabel": "البريد الإلكتروني",
   "emailHint": "ادخل البريد الإلكتروني",
-  "emailError": "البريد الإلكتروني غير صالح",
+  "emptyEmailError": "البريد الإلكتروني غير صالح",
 
   "passwordLabel": "كلمة المرور",
   "passwordHint": "ادخل كلمة المرور",
-  "passwordError": "كلمة المرور غير صالحة",
+  "emptyPasswordError": "كلمة المرور غير صالحة",
 
   "confirmPasswordLabel": "تأكيد كلمة المرور",
   "confirmPasswordHint": "أعد إدخال كلمة المرور",
-  "confirmPasswordError": "كلمتا المرور غير متطابقتين",
+  "emptyConfirmPasswordError": "كلمتا المرور غير متطابقتين",
 
   "phoneLabel": "رقم الهاتف",
   "phoneHint": "ادخل رقم الهاتف",
-  "phoneError": "رقم الهاتف غير صالح",
+  "emptyPhoneError": "رقم الهاتف غير صالح",
 
   "signupButtonText": "تسجيل حساب",
   "alreadyHaveAccount": "هل لديك حساب بالفعل؟",
   "login": "تسجيل الدخول",
   "wait": "يرجى الانتظار...",
-  "welcome": "مرحبًا بك "
+  "welcome": "مرحبًا بك ",
+   "tooShort": "يجب ألا يقل الاسم عن 3 حروف",
+  "invalidName": "ادخل اسم صحيح",
+  "invalidEmail": "ادخل بريد إلكتروني صحيح",
+  "invalidPassword": "كلمة السر يجب أن تحتوي على 8 أحرف على الأقل،\nوتتضمن حرف كبير وصغير ورقم ورمز خاص",
+  "confirmPasswordMismatch": "تأكيد كلمة السر غير متطابق مع كلمة السر",
+  "invalidPhoneNumber": "أدخل رقم هاتف مصري صحيح"
 }

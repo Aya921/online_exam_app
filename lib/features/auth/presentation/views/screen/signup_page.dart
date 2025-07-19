@@ -39,6 +39,17 @@ class _SignUpPageState extends State<SignUpPage> {
     super.initState();
     signupViewModel = getIt.get<SignupViewModel>();
   }
+  @override
+  void dispose() {
+    _usernameController.dispose();
+    _firstNameController.dispose();
+    _lastNameController.dispose();
+    _emailController.dispose();
+    _phoneController.dispose();
+    _passwordController.dispose();
+    _rePasswordController.dispose();
+    super.dispose();
+  }
 
   void _submit() {
     final user = UserModel(

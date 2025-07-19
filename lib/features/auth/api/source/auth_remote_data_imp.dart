@@ -26,11 +26,11 @@ class AuthRemoteDataSourceImp implements AuthRemoteDataSource {
   @override
   Future<ApiResult<UserEntity>> signIn(SigninReqParams params) async {
     try {
-      SignInRequest req = SignInRequest(
+      final SignInRequest req = SignInRequest(
         email: params.email,
         password: params.password,
       );
-      var res = await _apiServises.signIn(req);
+      final  res = await _apiServises.signIn(req);
       if (res.token != null) {
         await _tokenService.saveToken(res.token!);
       }
@@ -48,7 +48,7 @@ class AuthRemoteDataSourceImp implements AuthRemoteDataSource {
     SignupResponse signupResponse;
     try {
       signupResponse = await _apiServises.signUp(UserSendDto.toDto(userModel));
-      _tokenStorage.saveToken(signupResponse.token!);
+      _tokenService.saveToken(signupResponse.token!);
 
       final user = signupResponse.user!.toUserModel(signupResponse.token!);
       return ApiSucessResult(user);

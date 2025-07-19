@@ -22,11 +22,13 @@ abstract class ApiServises {
 
   @factoryMethod
   factory ApiServises(Dio dio) = _ApiServises;
+  
   @POST(Endpoints.signinEndPoint)
   Future<SigninRespones> signIn(@Body() SignInRequest body);
   
   @POST(Endpoints.signupEndPoint)
   Future<SignupResponse> signUp(@Body() UserSendDto usermoodel);
+  
 
   
 }

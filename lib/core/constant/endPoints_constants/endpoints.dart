@@ -5,6 +5,9 @@ abstract class Endpoints {
   static const String signupEndPoint = 'signup';
   static const String messageResponseKey = 'message';
 
+  static const String responseKey = 'message';
+  static const String signinEndPoint = 'signin';
+  
 
 
 }

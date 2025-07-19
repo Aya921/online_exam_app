@@ -24,5 +24,9 @@ abstract class RegisterModule {
       responseHeader: true,
 
     );
+
   }
+
+  // @lazySingleton
+  // ApiServises provideApiServises(Dio dio) => ApiServises(dio);
 }

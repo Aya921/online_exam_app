@@ -1,7 +1,8 @@
-
 import 'package:exam_app/core/l10n/translations/app_localizations.dart';
 import 'package:exam_app/core/route/app_routes.dart';
+import 'package:exam_app/features/auth/presentation/validator/login_validators.dart';
 import 'package:exam_app/features/auth/presentation/view_model/signin_cubit/signin_cubit.dart';
+import 'package:exam_app/features/auth/presentation/views/widgets/custom_form_field_button.dart';
 import 'package:flutter/material.dart';
 import 'package:exam_app/core/theme/app_colors.dart';
 import 'package:exam_app/features/auth/api/model/signin_req_params.dart';
@@ -43,17 +44,18 @@ class _LoginFormState extends State<LoginForm> {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
+     final t = AppLocalizations.of(context)!;
     return BlocConsumer<SigninCubit, SigninState>(
       listener: (context, state) {
-        if(state is SigninLoading){
-          isLoading = true;}
+        if (state is SigninLoading) {
+          isLoading = true;
+        }
         if (state is SigninSuccess) {
           ScaffoldMessenger.of(context).showSnackBar(
-
             const SnackBar(
               backgroundColor: AppColors.green,
               content: Text('Login successful'),
-            )
+            ),
           );
           isLoading = false;
         }
@@ -73,53 +75,34 @@ class _LoginFormState extends State<LoginForm> {
           child: ListView(
             children: [
               const SizedBox(height: 5),
-              TextFormField(
+
+
+               CustomTextFormField(
                 controller: _emailController,
-                keyboardType: TextInputType.emailAddress,
-                decoration: InputDecoration(
-                  floatingLabelBehavior: FloatingLabelBehavior.always,
-                  labelStyle: textTheme.bodyMedium,
-                  labelText: AppLocalizations.of(context)!.email,
-                  hintText: AppLocalizations.of(context)!.enterYourEmail,
-                  hintStyle: textTheme.bodyMedium?.copyWith(
-                    color: AppColors.gray,
-                  ),
-                  border: const OutlineInputBorder(),
-                ),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return AppLocalizations.of(context)!.pleaseEnterYourEmail;
-                  }
-                  if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
-                    return AppLocalizations.of(context)!.pleaseEnterValidEmail;
-                  }
-                  return null;
-                },
-              ),
+                label:  AppLocalizations.of(context)!.email,
+                hint:  AppLocalizations.of(context)!.enterYourEmail,
+                emptyFiledErrorMessage: AppLocalizations.of(context)!.pleaseEnterYourEmail,
+                
+                formFieldValidator: LoginValidators(appLocalization: t).loginEmailValidatiion,),
+
+
+
+
+              
+              
+             
+              
               const SizedBox(height: 24),
-              TextFormField(
+              CustomTextFormField(
                 controller: _passwordController,
-                obscureText: true,
-                decoration: InputDecoration(
-                  floatingLabelBehavior: FloatingLabelBehavior.always,
-                  labelStyle: textTheme.bodyMedium,
-                  labelText: AppLocalizations.of(context)!.password,
-                  hintText: AppLocalizations.of(context)!.enterYourPassword,
-                  hintStyle: textTheme.bodyMedium?.copyWith(
-                    color: AppColors.gray,
-                  ),
-                  border: const OutlineInputBorder(),
-                ),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return  AppLocalizations.of(context)!.enterYourPassword;
-                  }
-                  if (value.length < 6) {
-                    return AppLocalizations.of(context)!.passwordMinLengthError;
-                  }
-                  return null;
-                },
-              ),
+                label:  AppLocalizations.of(context)!.password,
+                hint:  AppLocalizations.of(context)!.enterYourPassword,
+                emptyFiledErrorMessage: AppLocalizations.of(context)!.enterYourPassword,
+                obsecureTxt: true,
+                formFieldValidator: LoginValidators(appLocalization: t).loginPasswordValidatiion,),
+
+
+             
               const SizedBox(height: 10),
               Row(
                 children: [
@@ -129,12 +112,14 @@ class _LoginFormState extends State<LoginForm> {
                     value: _rememberMe,
                     onChanged: (val) => setState(() => _rememberMe = val!),
                   ),
-                  Text(AppLocalizations.of(context)!.rememberMe, style: textTheme.bodyMedium),
+                  Text(
+                    AppLocalizations.of(context)!.rememberMe,
+                    style: textTheme.bodyMedium,
+                  ),
                   const Spacer(),
                   TextButton(
                     onPressed: () {
                       Navigator.pushNamed(context, AppRoutes.forgetPassword);
-                      
                     },
                     child: Text(
                       AppLocalizations.of(context)!.forgetPassword,
@@ -149,14 +134,18 @@ class _LoginFormState extends State<LoginForm> {
                 child: FilledButton(
                   onPressed: _submit,
                   child: isLoading
-                      ? const CircularProgressIndicator(
-                        color: AppColors.white,
-                      )
-                    :  Text(AppLocalizations.of(context)!.login),
+                      ? const CircularProgressIndicator(color: AppColors.white)
+                      : Text(AppLocalizations.of(context)!.login),
                 ),
               ),
               const SizedBox(height: 16),
-              const LoginFooter(),
+               LoginFooter(
+                onpress: () {
+                  Navigator.pushNamed(context, AppRoutes.signup);
+                },
+                donotHaveAccountText: AppLocalizations.of(context)!.dontHaveAccount,
+                signupText: AppLocalizations.of(context)!.signUp,
+              ),
             ],
           ),
         );

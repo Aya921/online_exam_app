@@ -9,7 +9,12 @@ abstract class AppThem {
         floatingLabelBehavior: FloatingLabelBehavior.always,
         hintStyle: const TextStyle(fontSize: 12,color: AppColors.lightGray),
         
-        labelStyle: const TextStyle(color: AppColors.gray),
+        labelStyle: const TextTheme(
+          bodyMedium: TextStyle(
+            color: AppColors.gray,
+            fontSize: 14,
+          ),
+        ).bodyMedium,
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(4),
           borderSide: const BorderSide(color: AppColors.gray),

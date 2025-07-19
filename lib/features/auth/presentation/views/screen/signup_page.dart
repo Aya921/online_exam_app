@@ -2,6 +2,8 @@
 
 import 'package:exam_app/core/route/app_routes.dart';
 import 'package:exam_app/features/auth/presentation/view_model/signup_view_model/signup_events.dart';
+import 'package:exam_app/features/auth/presentation/views/widgets/login_footer.dart';
+import 'package:exam_app/features/auth/presentation/views/widgets/register_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -39,6 +41,7 @@ class _SignUpPageState extends State<SignUpPage> {
     super.initState();
     signupViewModel = getIt.get<SignupViewModel>();
   }
+
   @override
   void dispose() {
     _usernameController.dispose();
@@ -51,7 +54,7 @@ class _SignUpPageState extends State<SignUpPage> {
     super.dispose();
   }
 
-  void _submit() {
+  UserModel makeUserModel() {
     final user = UserModel(
       username: _usernameController.text,
       firstName: _firstNameController.text,
@@ -61,7 +64,7 @@ class _SignUpPageState extends State<SignUpPage> {
       password: _passwordController.text,
       repassword: _rePasswordController.text,
     );
-    signupViewModel.add(SignUpUserEvent(user));
+    return user;
   }
 
   @override
@@ -97,7 +100,6 @@ class _SignUpPageState extends State<SignUpPage> {
                 state.userModel = null;
                 // Navigator.of(context).pushNamed(AppRoutes.home);
               } else if (state.isValid != null) {
-          
                 setState(() {
                   active = state.isValid!;
                 });
@@ -141,8 +143,8 @@ class _SignUpPageState extends State<SignUpPage> {
                           label: t.lastNameLabel,
                           hint: t.lastNameHint,
                           formFieldValidator: SignupValidators(
-                            appLocalization: t,
-                          ).lastNameValidatiion,
+           appLocalization: t,
+            ).lastNameValidatiion,
                           emptyFiledErrorMessage: t.emptyLastNameError,
                           onChanged: () =>
                               signupViewModel.add(ValidateSignupEvent()),
@@ -211,60 +213,37 @@ class _SignUpPageState extends State<SignUpPage> {
                   Row(
                     children: [
                       Expanded(
-                        child: ElevatedButton(
-                          style: ButtonStyle(
-                            elevation: WidgetStateProperty.all(active ? 10 : 0),
-                            overlayColor: WidgetStateProperty.all(
-                              Colors.transparent,
-                            ),
-                            backgroundColor: WidgetStateProperty.all(
-                              active ? AppColors.blue : AppColors.gray,
-                            ),
-                            mouseCursor: WidgetStateProperty.all(
-                              active
-                                  ? SystemMouseCursors.click
-                                  : SystemMouseCursors.basic,
-                            ),
-                          ),
-                          onPressed: () {
-                            if (active) _submit();
-                          },
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 24,
-                              vertical: 10,
-                            ),
-                            child: Text(
-                              t.signupButtonText,
-                              style: const TextStyle(
-                                color: AppColors.white,
-                                fontSize: 16,
-                              ),
-                            ),
-                          ),
-                        ),
+                        child: RegisterButton(active: active, t: t,signupViewModel: signupViewModel, userModel: makeUserModel()),
                       ),
                     ],
                   ),
                   const SizedBox(height: 30),
-                  RichText(
-                    text: TextSpan(
-                      text: t.alreadyHaveAccount,
-                      children: [
-                        TextSpan(
-                          text: t.login,
-                          style: const TextStyle(
-                            color: AppColors.blue,
-                            decoration: TextDecoration.underline,
-                          ),
-                          recognizer: TapGestureRecognizer()
-                            ..onTap = () {
-                              Navigator.of(context).pushNamed(AppRoutes.login);
-                            },
-                        ),
-                      ],
-                    ),
-                  ),
+
+                  LoginFooter(
+                onpress: () {
+                  Navigator.pushNamed(context, AppRoutes.login);
+                },
+                donotHaveAccountText: AppLocalizations.of(context)!.alreadyHaveAccount,
+                signupText: AppLocalizations.of(context)!.login,
+              ),
+                  // RichText(
+                  //   text: TextSpan(
+                  //     text: t.alreadyHaveAccount,
+                  //     children: [
+                  //       TextSpan(
+                  //         text: t.login,
+                  //         style: const TextStyle(
+                  //           color: AppColors.blue,
+                  //           decoration: TextDecoration.underline,
+                  //         ),
+                  //         recognizer: TapGestureRecognizer()
+                  //           ..onTap = () {
+                  //             Navigator.of(context).pushNamed(AppRoutes.login);
+                  //           },
+                  //       ),
+                  //     ],
+                  //   ),
+                  // ),
                 ],
               ),
             ),
@@ -274,3 +253,4 @@ class _SignUpPageState extends State<SignUpPage> {
     );
   }
 }
+

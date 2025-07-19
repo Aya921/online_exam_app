@@ -5,7 +5,7 @@ class CustomTextFormField extends StatelessWidget {
   final TextEditingController controller;
   final String label;
   final String hint;
-  final VoidCallback onChanged; //--> to make a button is not able to be clickabel until all fields is validate correctly
+  final VoidCallback? onChanged; //--> to make a button is not able to be clickabel until all fields is validate correctly
   final String
   emptyFiledErrorMessage; // when empty field ---->  what message you want to show
   final String? Function(String?)? formFieldValidator;
@@ -24,7 +24,7 @@ class CustomTextFormField extends StatelessWidget {
     this.passwordCompareValue,
     this.obsecureTxt,
     this.confirmPasswordFunction,
-    required this.onChanged,
+     this.onChanged,
   });
 
   @override
@@ -33,7 +33,9 @@ class CustomTextFormField extends StatelessWidget {
       controller: controller,
       obscureText: obsecureTxt ?? false,
       onChanged: (_) {
-        onChanged();
+        if(onChanged!=null){
+          onChanged!();
+        }
       },
 
       decoration: InputDecoration(labelText: label, hintText: hint),

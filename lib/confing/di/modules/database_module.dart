@@ -8,8 +8,11 @@ abstract class DatabaseModule {
   Future<SharedPreferences> get providesharedPreferences async {
     return await SharedPreferences.getInstance();
   }
-  
+
+
   @lazySingleton
-  FlutterSecureStorage secureStorage() => const FlutterSecureStorage();
-  
+  FlutterSecureStorage flutterSecureStorage() {
+    return const FlutterSecureStorage();
+  }
+
 }

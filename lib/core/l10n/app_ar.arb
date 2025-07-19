@@ -1,6 +1,50 @@
 {
-    "@@locale": "ar",
-    "appName": "امتحانات اونلاين",
+  "@@locale": "ar",
+
+  "appName": "امتحانات اونلاين",
+  "signup": "إنشاء حساب جديد",
+
+  "userNameLabel": "اسم المستخدم",
+  "userNameHint": "ادخل اسم المستخدم",
+  "emptyUserNameError": "اسم المستخدم غير صالح",
+
+  "firstNameLabel": "الاسم الأول",
+  "firstNameHint": "ادخل الاسم الأول",
+  "emptyFirstNameError": "الاسم الأول غير صالح",
+
+  "lastNameLabel": "اسم العائلة",
+  "lastNameHint": "ادخل اسم العائلة",
+  "emptyLastNameError": "اسم العائلة غير صالح",
+
+  "emailLabel": "البريد الإلكتروني",
+  "emailHint": "ادخل البريد الإلكتروني",
+  "emptyEmailError": "البريد الإلكتروني غير صالح",
+
+  "passwordLabel": "كلمة المرور",
+  "passwordHint": "ادخل كلمة المرور",
+  "emptyPasswordError": "كلمة المرور غير صالحة",
+
+  "confirmPasswordLabel": "تأكيد كلمة المرور",
+  "confirmPasswordHint": "أعد إدخال كلمة المرور",
+  "emptyConfirmPasswordError": "كلمتا المرور غير متطابقتين",
+
+  "phoneLabel": "رقم الهاتف",
+  "phoneHint": "ادخل رقم الهاتف",
+  "emptyPhoneError": "رقم الهاتف غير صالح",
+
+  "signupButtonText": "تسجيل حساب",
+  "alreadyHaveAccount": "هل لديك حساب بالفعل؟",
+  "login": "تسجيل الدخول",
+  "wait": "يرجى الانتظار...",
+  "welcome": "مرحبًا بك ",
+   "tooShort": "يجب ألا يقل الاسم عن 3 حروف",
+  "invalidName": "ادخل اسم صحيح",
+  "invalidEmail": "ادخل بريد إلكتروني صحيح",
+  "invalidPassword": "كلمة السر يجب أن تحتوي على 8 أحرف على الأقل،\nوتتضمن حرف كبير وصغير ورقم ورمز خاص",
+  "confirmPasswordMismatch": "تأكيد كلمة السر غير متطابق مع كلمة السر",
+  "invalidPhoneNumber": "أدخل رقم هاتف مصري صحيح",
+
+   
     "email": "البريد الإلكتروني",
     "enterYourEmail": "أدخل بريدك الإلكتروني",
     "emailError": "البريد الإلكتروني غير صالح",
@@ -12,9 +56,9 @@
     "forgetPassword": "هل نسيت كلمة المرور؟",
     "dontHaveAccount": "ليس لديك حساب؟",
     "signUp": "سجل الآن",
-    "signup": "تسجيل",
+
     "passwordMinLengthError": "يجب أن تتكون كلمة المرور من 6 أحرف على الأقل",
-    "alreadyHaveAccount": "هل لديك حساب بالفعل؟",
+ 
     "userName": "اسم المستخدم",
     "enterUserName": "أدخل اسم المستخدم",
     "userNameError": "اسم المستخدم غير صالح",

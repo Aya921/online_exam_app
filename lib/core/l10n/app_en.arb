@@ -1,7 +1,51 @@
 {
-    "@@locale": "en",
-    "appName": "Exam App",
-    "login": "Login",
+  "@@locale": "en",
+
+  "appName": "Exam App",
+  "signup": "Sign Up",
+
+  "userNameLabel": "Username",
+  "userNameHint": "Enter username",
+  "emptyUserNameError": "Username is not valid",
+
+  "firstNameLabel": "First Name",
+  "firstNameHint": "Enter first name",
+  "emptyFirstNameError": "First name is not valid",
+
+  "lastNameLabel": "Last Name",
+  "lastNameHint": "Enter last name",
+  "emptyLastNameError": "Last name is not valid",
+
+  "emailLabel": "Email",
+  "emailHint": "Enter email",
+  "emptyEmailError": "Email is not valid",
+
+  "passwordLabel": "Password",
+  "passwordHint": "Enter password",
+  "emptyPasswordError": "Password is not valid",
+
+  "confirmPasswordLabel": "Confirm Password",
+  "confirmPasswordHint": "Confirm password",
+  "emptyConfirmPasswordError": "Passwords do not match",
+
+  "phoneLabel": "Phone",
+  "phoneHint": "Enter phone number",
+  "emptyPhoneError": "Phone number is not valid",
+
+  "signupButtonText": "Sign Up",
+  "alreadyHaveAccount": "Already have an account?",
+  "login": "Login",
+  "wait":"Please wait...",
+  "welcome": "Welcome",
+  
+  "tooShort": "The length should be at least 3 characters",
+  "invalidName": "Enter a valid name",
+  "invalidEmail": "Enter a valid email",
+  "invalidPassword": "Password must be at least 8 characters,\ninclude upper, lower, digit & special char",
+  "confirmPasswordMismatch": "The Confirm password is not matched with your password",
+  "invalidPhoneNumber": "Enter valid Egyptian phone number",
+
+  
     "email": "Email",
     "enterYourEmail": "Enter your email",
     "emailError": "This Email is not valid",
@@ -13,8 +57,7 @@
     "forgetPassword": "Forget password?",
     "dontHaveAccount": "Don't have an account?",
     "signUp": "Sign up",
-    "signup": "Signup",
-    "alreadyHaveAccount": "Already have an account?",
+  
     "userName": "User name",
     "enterUserName": "Enter your user name",
     "passwordMinLengthError": "Password must be at least 6 characters",

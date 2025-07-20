@@ -72,7 +72,7 @@ class AuthRemoteDataSourceImp implements AuthRemoteDataSource {
   @override
   Future<ApiResult<void>> forgetPassword(String email) async {
     try {
-      _apiServises.forgetPassword(ForgetPasswordRequest(email: email));
+      await _apiServises.forgetPassword(ForgetPasswordRequest(email: email));
       return ApiSucessResult(null);
     } on DioException catch (e) {
       return ApiFailedResult.fomDioException(e);
@@ -84,7 +84,7 @@ class AuthRemoteDataSourceImp implements AuthRemoteDataSource {
   @override
   Future<ApiResult<void>> resetPassword(ResetPassword resetPassword) async {
     try {
-      _apiServises.resetPassword(resetPassword);
+      await _apiServises.resetPassword(resetPassword);
       return ApiSucessResult(null);
     } on DioException catch (e) {
       return ApiFailedResult.fomDioException(e);
@@ -96,7 +96,7 @@ class AuthRemoteDataSourceImp implements AuthRemoteDataSource {
   @override
   Future<ApiResult<void>> verifyResetCode(String email) async {
     try {
-      _apiServises.verifyResetCode(
+      await _apiServises.verifyResetCode(
         VerifyResetCodeRequest(resetCode: email),
       );
       return ApiSucessResult(null);

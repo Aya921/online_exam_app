@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:exam_app/core/constant/json_serializable_constants/json_constants.dart';
 import 'package:json_annotation/json_annotation.dart';
 

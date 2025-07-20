@@ -8,5 +8,5 @@ abstract class Endpoints {
 
   static const String forgotPasswordEndPoint = 'forgotPassword';
   static const String verifyResetCodeEndPoint = 'verifyResetCode';
-  static const String resetPasswordEndPoint = 'verifyResetCode';
+  static const String resetPasswordEndPoint = 'resetPassword';
 }

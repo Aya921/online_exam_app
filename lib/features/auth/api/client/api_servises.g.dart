@@ -124,7 +124,7 @@ class _ApiServises implements ApiServises {
       Options(method: 'PUT', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'verifyResetCode',
+            'resetPassword',
             queryParameters: queryParameters,
             data: _data,
           )

@@ -1,4 +1,3 @@
-
 import 'package:exam_app/features/auth/api/model/user_dto.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -13,11 +12,7 @@ class SigninRespones {
   @JsonKey(name: "user")
   final UserDto? user;
 
-  SigninRespones ({
-    this.message,
-    this.token,
-    this.user,
-  });
+  SigninRespones({this.message, this.token, this.user});
 
   factory SigninRespones.fromJson(Map<String, dynamic> json) {
     return _$SigninResponesFromJson(json);

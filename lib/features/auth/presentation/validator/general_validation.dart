@@ -1,5 +1,5 @@
-class GeneralValidation{
-    static String? emptyValidation(String? value, String errormessage) {
+class GeneralValidation {
+  static String? emptyValidation(String? value, String errormessage) {
     if (value!.isEmpty) {
       return errormessage;
     }

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:exam_app/core/theme/app_colors.dart';
 
@@ -10,7 +9,14 @@ class LoginFooter extends StatelessWidget {
   final String? signupText;
   final String? loginText;
 
-  const LoginFooter({super.key,required this.onpress, this.haveAccountText, this.donotHaveAccountText,this.signupText, this.loginText});
+  const LoginFooter({
+    super.key,
+    required this.onpress,
+    this.haveAccountText,
+    this.donotHaveAccountText,
+    this.signupText,
+    this.loginText,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -20,20 +26,15 @@ class LoginFooter extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          haveAccountText ??donotHaveAccountText??'',
-          style: textTheme.bodyLarge?.copyWith(
-            color: AppColors.black,
-          ),
-          
-          
+          haveAccountText ?? donotHaveAccountText ?? '',
+          style: textTheme.bodyLarge?.copyWith(color: AppColors.black),
         ),
         MouseRegion(
           cursor: SystemMouseCursors.click,
           child: GestureDetector(
-            
             onTap: onpress,
             child: Text(
-            "  ${ signupText??loginText??''}",
+              "  ${signupText ?? loginText ?? ''}",
               style: textTheme.bodyLarge?.copyWith(
                 color: AppColors.blue,
                 decoration: TextDecoration.underline,

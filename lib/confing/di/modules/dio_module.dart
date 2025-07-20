@@ -7,24 +7,21 @@ import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 @module
 abstract class RegisterModule {
-
-@lazySingleton
+  @lazySingleton
   Dio provideDio() {
     final Dio dio = Dio();
     dio.options.baseUrl = Endpoints.apiUrl;
     dio.interceptors.add(getIt.get<PrettyDioLogger>());
     return dio;
   }
-@lazySingleton
+
+  @lazySingleton
   PrettyDioLogger prettyDioLoggerProvider() {
     return PrettyDioLogger(
-    
       requestBody: true,
       requestHeader: true,
       responseHeader: true,
-
     );
-
   }
 
   // @lazySingleton

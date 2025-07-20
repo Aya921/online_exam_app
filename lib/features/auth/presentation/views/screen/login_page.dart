@@ -13,12 +13,11 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return 
-    BlocProvider<SigninCubit>(
+    return BlocProvider<SigninCubit>(
       create: (context) => viewModel,
       child: Scaffold(
         appBar: AppBar(
-          leading: const Icon(Icons.arrow_back_ios_new , color: AppColors.black),
+          leading: const Icon(Icons.arrow_back_ios_new, color: AppColors.black),
           title: Text(
             AppLocalizations.of(context)!.login,
             style: Theme.of(

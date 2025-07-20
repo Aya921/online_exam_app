@@ -21,14 +21,7 @@ class SignupViewModel extends Bloc<SignupEvent, SignupState> {
 
   void _checkValidation(ValidateSignupEvent event, Emitter emit) {
     final valid = formKey.currentState!.validate();
-    emit(state.copyWith(
-      isValid: valid,
-      
-      
-    
-      
-     )
-      );
+    emit(state.copyWith(isValid: valid));
     //emit(SignupValidState(isValid: valid));
   }
 
@@ -44,7 +37,6 @@ class SignupViewModel extends Bloc<SignupEvent, SignupState> {
             isLoading: false,
             userModel: res.sucessResult,
             isValid: true,
-            
           ),
         );
 
@@ -54,7 +46,6 @@ class SignupViewModel extends Bloc<SignupEvent, SignupState> {
             isLoading: false,
             errorMessage: res.errorMessage,
             isValid: false,
-            
           ),
         );
     }

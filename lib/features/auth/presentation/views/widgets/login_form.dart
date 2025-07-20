@@ -45,7 +45,7 @@ class _LoginFormState extends State<LoginForm> {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-     final t = AppLocalizations.of(context)!;
+    final t = AppLocalizations.of(context)!;
     return BlocConsumer<SigninCubit, SigninState>(
       listener: (context, state) {
         if (state is SigninLoading) {
@@ -77,33 +77,33 @@ class _LoginFormState extends State<LoginForm> {
             children: [
               const SizedBox(height: 5),
 
-
-               CustomTextFormField(
+              CustomTextFormField(
                 controller: _emailController,
-                label:  AppLocalizations.of(context)!.email,
-                hint:  AppLocalizations.of(context)!.enterYourEmail,
-                emptyFiledErrorMessage: AppLocalizations.of(context)!.pleaseEnterYourEmail,
-                
-                formFieldValidator: LoginValidators(appLocalization: t).loginEmailValidatiion,),
+                label: AppLocalizations.of(context)!.email,
+                hint: AppLocalizations.of(context)!.enterYourEmail,
+                emptyFiledErrorMessage: AppLocalizations.of(
+                  context,
+                )!.pleaseEnterYourEmail,
 
+                formFieldValidator: LoginValidators(
+                  appLocalization: t,
+                ).loginEmailValidatiion,
+              ),
 
-
-
-              
-              
-             
-              
               const SizedBox(height: 24),
               CustomTextFormField(
                 controller: _passwordController,
-                label:  AppLocalizations.of(context)!.password,
-                hint:  AppLocalizations.of(context)!.enterYourPassword,
-                emptyFiledErrorMessage: AppLocalizations.of(context)!.enterYourPassword,
+                label: AppLocalizations.of(context)!.password,
+                hint: AppLocalizations.of(context)!.enterYourPassword,
+                emptyFiledErrorMessage: AppLocalizations.of(
+                  context,
+                )!.enterYourPassword,
                 obsecureTxt: true,
-                formFieldValidator: LoginValidators(appLocalization: t).loginPasswordValidatiion,),
+                formFieldValidator: LoginValidators(
+                  appLocalization: t,
+                ).loginPasswordValidatiion,
+              ),
 
-
-             
               const SizedBox(height: 10),
               Row(
                 children: [
@@ -140,11 +140,13 @@ class _LoginFormState extends State<LoginForm> {
                 ),
               ),
               const SizedBox(height: 16),
-               LoginFooter(
+              LoginFooter(
                 onpress: () {
                   Navigator.pushNamed(context, AppRoutes.signup);
                 },
-                donotHaveAccountText: AppLocalizations.of(context)!.dontHaveAccount,
+                donotHaveAccountText: AppLocalizations.of(
+                  context,
+                )!.dontHaveAccount,
                 signupText: AppLocalizations.of(context)!.signUp,
               ),
             ],

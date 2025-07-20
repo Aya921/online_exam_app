@@ -12,7 +12,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:exam_app/confing/di/di.dart';
 import 'package:exam_app/core/l10n/translations/app_localizations.dart';
 
-
 import 'package:exam_app/features/auth/presentation/validator/signup_validators.dart';
 import 'package:exam_app/features/auth/presentation/view_model/signup_view_model/signup_states.dart';
 import 'package:exam_app/features/auth/presentation/view_model/signup_view_model/signup_view_model.dart';
@@ -108,7 +107,6 @@ class _SignUpPageState extends State<SignUpPage> {
             },
 
             child: Form(
-              
               key: signupViewModel.formKey,
               child: Column(
                 children: [
@@ -145,8 +143,8 @@ class _SignUpPageState extends State<SignUpPage> {
                           label: t.lastNameLabel,
                           hint: t.lastNameHint,
                           formFieldValidator: SignupValidators(
-           appLocalization: t,
-            ).lastNameValidatiion,
+                            appLocalization: t,
+                          ).lastNameValidatiion,
                           emptyFiledErrorMessage: t.emptyLastNameError,
                           onChanged: () =>
                               signupViewModel.add(ValidateSignupEvent()),
@@ -215,19 +213,26 @@ class _SignUpPageState extends State<SignUpPage> {
                   Row(
                     children: [
                       Expanded(
-                        child: RegisterButton(active: active, signupButtonText: t.signUp,signupViewModel: signupViewModel, signupRequest: makeUserModel()),
+                        child: RegisterButton(
+                          active: active,
+                          signupButtonText: t.signUp,
+                          signupViewModel: signupViewModel,
+                          signupRequest: makeUserModel(),
+                        ),
                       ),
                     ],
                   ),
                   const SizedBox(height: 30),
 
                   LoginFooter(
-                onpress: () {
-                  Navigator.pushNamed(context, AppRoutes.login);
-                },
-                donotHaveAccountText: AppLocalizations.of(context)!.alreadyHaveAccount,
-                signupText: AppLocalizations.of(context)!.login,
-              ),
+                    onpress: () {
+                      Navigator.pushNamed(context, AppRoutes.login);
+                    },
+                    donotHaveAccountText: AppLocalizations.of(
+                      context,
+                    )!.alreadyHaveAccount,
+                    signupText: AppLocalizations.of(context)!.login,
+                  ),
                   // RichText(
                   //   text: TextSpan(
                   //     text: t.alreadyHaveAccount,
@@ -255,4 +260,3 @@ class _SignUpPageState extends State<SignUpPage> {
     );
   }
 }
-

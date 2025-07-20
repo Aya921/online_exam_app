@@ -1,12 +1,14 @@
 import 'package:dio/dio.dart';
 import 'package:exam_app/core/constant/endPoints_constants/endpoints.dart';
+import 'package:exam_app/features/auth/api/model/forget_password/forget_password_request/forget_password_request.dart';
+import 'package:exam_app/features/auth/api/model/forget_password/reset_password_request/reset_password_request.dart';
+import 'package:exam_app/features/auth/api/model/forget_password/verify_reset_code_request/verify_reset_code_request.dart';
 import 'package:exam_app/features/auth/api/model/signin_request/signin_request_dto.dart';
 
 import 'package:exam_app/features/auth/api/model/signup_response/signup_response.dart';
 import 'package:exam_app/features/auth/api/model/signup_request/signup_request_dto.dart';
 
 import 'package:exam_app/features/auth/api/model/signin_response/signin_response.dart';
-
 
 import 'package:injectable/injectable.dart';
 
@@ -25,4 +27,12 @@ abstract class ApiServises {
 
   @POST(Endpoints.signupEndPoint)
   Future<SignupResponse> signUp(@Body() SignUpRequestDto usermoodel);
+
+  @POST(Endpoints.forgotPasswordEndPoint)
+  Future<void> forgetPassword(@Body() ForgetPasswordRequest email);
+
+  @POST(Endpoints.verifyResetCodeEndPoint)
+  Future<void> verifyResetCode(@Body() VerifyResetCodeRequest code);
+  @PUT(Endpoints.resetPasswordEndPoint)
+  Future<void> resetPassword(@Body() ResetPassword resetPassword);
 }

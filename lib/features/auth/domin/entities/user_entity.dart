@@ -1,4 +1,3 @@
-
 class UserModel {
   String? username;
   String? firstName;
@@ -16,6 +15,6 @@ class UserModel {
     this.email,
     this.phone,
     this.password,
-    this.repassword
+    this.repassword,
   });
 }

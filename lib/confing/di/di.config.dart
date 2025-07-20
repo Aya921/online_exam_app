@@ -45,12 +45,12 @@ extension GetItInjectableX on _i174.GetIt {
       () => databaseModule.providesharedPreferences,
       preResolve: true,
     );
+    gh.lazySingleton<_i558.FlutterSecureStorage>(
+      () => databaseModule.flutterSecureStorage(),
+    );
     gh.lazySingleton<_i361.Dio>(() => registerModule.provideDio());
     gh.lazySingleton<_i528.PrettyDioLogger>(
       () => registerModule.prettyDioLoggerProvider(),
-    );
-    gh.lazySingleton<_i558.FlutterSecureStorage>(
-      () => databaseModule.flutterSecureStorage(),
     );
     gh.factory<_i406.ApiServises>(() => _i406.ApiServises(gh<_i361.Dio>()));
     gh.singleton<_i291.AppConfigProvider>(

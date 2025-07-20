@@ -4,6 +4,9 @@ import 'package:exam_app/core/services/token_service.dart';
 import 'package:exam_app/core/constant/endPoints_constants/endpoints.dart';
 
 import 'package:exam_app/features/auth/api/client/api_servises.dart';
+import 'package:exam_app/features/auth/api/model/forget_password/forget_password_request/forget_password_request.dart';
+import 'package:exam_app/features/auth/api/model/forget_password/reset_password_request/reset_password_request.dart';
+import 'package:exam_app/features/auth/api/model/forget_password/verify_reset_code_request/verify_reset_code_request.dart';
 import 'package:exam_app/features/auth/api/model/signin_request/signin_request_dto.dart';
 import 'package:exam_app/features/auth/domin/entities/signin_req.dart';
 
@@ -26,8 +29,9 @@ class AuthRemoteDataSourceImp implements AuthRemoteDataSource {
   @override
   Future<ApiResult<UserModel>> signIn(SignInRequest params) async {
     try {
-      
-      final signinResponse = await _apiServises.signIn(SigninRequestDto.toDto(params));
+      final signinResponse = await _apiServises.signIn(
+        SigninRequestDto.toDto(params),
+      );
       if (signinResponse.token != null) {
         await _tokenService.saveToken(signinResponse.token!);
       }
@@ -43,7 +47,9 @@ class AuthRemoteDataSourceImp implements AuthRemoteDataSource {
   Future<ApiResult<UserModel>> signUp(SignupRequest userModel) async {
     SignupResponse signupResponse;
     try {
-      signupResponse = await _apiServises.signUp(SignUpRequestDto.toDto(userModel));
+      signupResponse = await _apiServises.signUp(
+        SignUpRequestDto.toDto(userModel),
+      );
       _tokenService.saveToken(signupResponse.token!);
 
       final user = signupResponse.user!.toUserModel();
@@ -58,6 +64,44 @@ class AuthRemoteDataSourceImp implements AuthRemoteDataSource {
       }
 
       return ApiFailedResult(errorMessage);
+    } catch (e) {
+      return ApiFailedResult(e.toString());
+    }
+  }
+
+  @override
+  Future<ApiResult<void>> forgetPassword(String email) async {
+    try {
+      _apiServises.forgetPassword(ForgetPasswordRequest(email: email));
+      return ApiSucessResult(null);
+    } on DioException catch (e) {
+      return ApiFailedResult.fomDioException(e);
+    } catch (e) {
+      return ApiFailedResult(e.toString());
+    }
+  }
+
+  @override
+  Future<ApiResult<void>> resetPassword(ResetPassword resetPassword) async {
+    try {
+      _apiServises.resetPassword(resetPassword);
+      return ApiSucessResult(null);
+    } on DioException catch (e) {
+      return ApiFailedResult.fomDioException(e);
+    } catch (e) {
+      return ApiFailedResult(e.toString());
+    }
+  }
+
+  @override
+  Future<ApiResult<void>> verifyResetCode(String email) async {
+    try {
+      _apiServises.verifyResetCode(
+        VerifyResetCodeRequest(resetCode: email),
+      );
+      return ApiSucessResult(null);
+    } on DioException catch (e) {
+      return ApiFailedResult.fomDioException(e);
     } catch (e) {
       return ApiFailedResult(e.toString());
     }

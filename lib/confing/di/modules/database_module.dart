@@ -9,10 +9,8 @@ abstract class DatabaseModule {
     return await SharedPreferences.getInstance();
   }
 
-
   @lazySingleton
   FlutterSecureStorage flutterSecureStorage() {
     return const FlutterSecureStorage();
   }
-
 }

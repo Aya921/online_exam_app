@@ -1,4 +1,3 @@
-
 import 'package:exam_app/core/theme/app_colors.dart';
 import 'package:exam_app/features/auth/domin/entities/signin_req.dart';
 import 'package:exam_app/features/auth/domin/entities/signup_req.dart';
@@ -50,7 +49,7 @@ class RegisterButton extends StatelessWidget {
             if (signinCubit!.checkValidation()) {
               signinCubit!.signIn(signInRequest!);
             }
-          } 
+          }
         }
       },
 

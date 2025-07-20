@@ -1,17 +1,18 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 
 import 'package:exam_app/core/route/app_routes.dart';
+import 'package:exam_app/features/auth/domin/entities/signup_req.dart';
 import 'package:exam_app/features/auth/presentation/view_model/signup_view_model/signup_events.dart';
 import 'package:exam_app/features/auth/presentation/views/widgets/login_footer.dart';
 import 'package:exam_app/features/auth/presentation/views/widgets/register_button.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/gestures.dart';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:exam_app/confing/di/di.dart';
 import 'package:exam_app/core/l10n/translations/app_localizations.dart';
-import 'package:exam_app/core/theme/app_colors.dart';
-import 'package:exam_app/features/auth/domin/entities/user_entity.dart';
+
+
 import 'package:exam_app/features/auth/presentation/validator/signup_validators.dart';
 import 'package:exam_app/features/auth/presentation/view_model/signup_view_model/signup_states.dart';
 import 'package:exam_app/features/auth/presentation/view_model/signup_view_model/signup_view_model.dart';
@@ -54,8 +55,8 @@ class _SignUpPageState extends State<SignUpPage> {
     super.dispose();
   }
 
-  UserModel makeUserModel() {
-    final user = UserModel(
+  SignupRequest makeUserModel() {
+    final user = SignupRequest(
       username: _usernameController.text,
       firstName: _firstNameController.text,
       lastName: _lastNameController.text,
@@ -107,6 +108,7 @@ class _SignUpPageState extends State<SignUpPage> {
             },
 
             child: Form(
+              
               key: signupViewModel.formKey,
               child: Column(
                 children: [
@@ -213,7 +215,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   Row(
                     children: [
                       Expanded(
-                        child: RegisterButton(active: active, t: t,signupViewModel: signupViewModel, userModel: makeUserModel()),
+                        child: RegisterButton(active: active, signupButtonText: t.signUp,signupViewModel: signupViewModel, signupRequest: makeUserModel()),
                       ),
                     ],
                   ),

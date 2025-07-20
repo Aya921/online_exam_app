@@ -1,5 +1,5 @@
 
-class UserModel {
+class SignupRequest {
   String? username;
   String? firstName;
   String? lastName;
@@ -8,14 +8,15 @@ class UserModel {
 
   String? password;
   String? repassword;
-
-  UserModel({
+  SignupRequest({
     this.username,
     this.firstName,
     this.lastName,
     this.email,
     this.phone,
     this.password,
-    this.repassword
+    this.repassword,
   });
+
+
 }

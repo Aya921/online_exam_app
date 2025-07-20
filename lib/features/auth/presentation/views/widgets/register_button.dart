@@ -1,6 +1,9 @@
-import 'package:exam_app/core/l10n/translations/app_localizations.dart';
+
 import 'package:exam_app/core/theme/app_colors.dart';
-import 'package:exam_app/features/auth/domin/entities/user_entity.dart';
+import 'package:exam_app/features/auth/domin/entities/signin_req.dart';
+import 'package:exam_app/features/auth/domin/entities/signup_req.dart';
+import 'package:exam_app/features/auth/presentation/view_model/signin_cubit/signin_cubit.dart';
+
 import 'package:exam_app/features/auth/presentation/view_model/signup_view_model/signup_events.dart';
 import 'package:exam_app/features/auth/presentation/view_model/signup_view_model/signup_view_model.dart';
 import 'package:flutter/material.dart';
@@ -9,15 +12,22 @@ class RegisterButton extends StatelessWidget {
   const RegisterButton({
     super.key,
     required this.active,
-    required this.t,
+
     this.signupViewModel,
-    this.userModel,
+    this.signupRequest,
+    this.signInRequest,
+    this.signinCubit,
+    this.loginButtonText,
+    this.signupButtonText,
   });
 
   final bool active;
-  final AppLocalizations t;
+  final String? loginButtonText;
+  final String? signupButtonText;
   final SignupViewModel? signupViewModel;
-  final UserModel? userModel;
+  final SigninCubit? signinCubit;
+  final SignupRequest? signupRequest;
+  final SignInRequest? signInRequest;
 
   @override
   Widget build(BuildContext context) {
@@ -34,16 +44,20 @@ class RegisterButton extends StatelessWidget {
       ),
       onPressed: () {
         if (active) {
-          if (signupViewModel != null && userModel != null) {
-            signupViewModel!.add(SignUpUserEvent(userModel!));
-          }
+          if (signupViewModel != null && signupRequest != null) {
+            signupViewModel!.add(SignUpUserEvent(signupRequest!));
+          } else if (signinCubit != null && signInRequest != null) {
+            if (signinCubit!.checkValidation()) {
+              signinCubit!.signIn(signInRequest!);
+            }
+          } 
         }
       },
 
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 10),
         child: Text(
-          t.signupButtonText,
+          loginButtonText ?? signupButtonText ?? '',
           style: const TextStyle(color: AppColors.white, fontSize: 16),
         ),
       ),

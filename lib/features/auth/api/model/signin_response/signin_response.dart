@@ -1,7 +1,8 @@
-import 'package:exam_app/features/auth/api/model/user.dart';
+
+import 'package:exam_app/features/auth/api/model/user_dto.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-part 'SignInRespones.g.dart';
+part 'signin_response.g.dart';
 
 @JsonSerializable()
 class SigninRespones {

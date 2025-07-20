@@ -42,13 +42,15 @@ class UserDto {
 
   Map<String, dynamic> toJson() => _$UserDtoToJson(this);
 
-  UserModel toUserModel(String givenToken) {
+  UserModel toUserModel() {
     return UserModel(
+      username: username,
       firstName: firstName,
       lastName: lastName,
       phone: phone,
       email: email,
-      token: givenToken,
+  
+    
 
     );
   }

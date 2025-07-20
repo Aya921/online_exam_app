@@ -1,11 +1,12 @@
 import 'package:exam_app/core/l10n/translations/app_localizations.dart';
 import 'package:exam_app/core/route/app_routes.dart';
+import 'package:exam_app/features/auth/domin/entities/signin_req.dart';
 import 'package:exam_app/features/auth/presentation/validator/login_validators.dart';
 import 'package:exam_app/features/auth/presentation/view_model/signin_cubit/signin_cubit.dart';
 import 'package:exam_app/features/auth/presentation/views/widgets/custom_form_field_button.dart';
 import 'package:flutter/material.dart';
 import 'package:exam_app/core/theme/app_colors.dart';
-import 'package:exam_app/features/auth/api/model/signin_req_params.dart';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'login_footer.dart';
 
@@ -36,7 +37,7 @@ class _LoginFormState extends State<LoginForm> {
       final password = _passwordController.text.trim();
 
       context.read<SigninCubit>().signIn(
-        SigninReqParams(email: email, password: password),
+        SignInRequest(email: email, password: password),
       );
     }
   }

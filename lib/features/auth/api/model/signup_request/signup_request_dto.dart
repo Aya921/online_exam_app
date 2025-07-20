@@ -1,17 +1,18 @@
 
-import 'package:exam_app/features/auth/domin/entities/user_entity.dart';
+import 'package:exam_app/features/auth/domin/entities/signup_req.dart';
+
 import 'package:json_annotation/json_annotation.dart';
 import 'package:exam_app/core/constant/json_serializable_constants/json_constants.dart';
 import 'dart:convert';
 
-part 'user_send_dto.g.dart';
+part 'signup_request_dto.g.dart';
 
-UserSendDto userSendDtoFromJson(String str) => UserSendDto.fromJson(json.decode(str));
+SignUpRequestDto signupRequesDtotFromJson(String str) => SignUpRequestDto.fromJson(json.decode(str));
 
-String userSendDtoToJson(UserSendDto data) => json.encode(data.toJson());
+String signupRequestDtoToJson(SignUpRequestDto data) => json.encode(data.toJson());
 
 @JsonSerializable()
-class UserSendDto {
+class SignUpRequestDto {
     @JsonKey(name:JsonConstants.username) 
     String? username;
     @JsonKey(name: JsonConstants.firstName)
@@ -27,7 +28,7 @@ class UserSendDto {
     @JsonKey(name: JsonConstants.phone)
     String? phone;
 
-    UserSendDto({
+    SignUpRequestDto({
         this.username,
         this.firstName,
         this.lastName,
@@ -38,11 +39,14 @@ class UserSendDto {
     });
 
 
-    factory UserSendDto.fromJson(Map<String, dynamic> json) => _$UserSendDtoFromJson(json);
+    factory SignUpRequestDto.fromJson(Map<String, dynamic> json) => _$SignUpRequestDtoFromJson(json);
 
-    Map<String, dynamic> toJson() => _$UserSendDtoToJson(this);
-    static UserSendDto toDto(UserModel usermodel) {
-    return UserSendDto(
+    Map<String, dynamic> toJson() => _$SignUpRequestDtoToJson(this);
+
+
+
+    static SignUpRequestDto toDto(SignupRequest usermodel) {
+    return SignUpRequestDto(
 
       firstName: usermodel.firstName,
       lastName: usermodel.lastName,

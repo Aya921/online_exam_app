@@ -1,11 +1,12 @@
-import 'package:exam_app/features/auth/domin/entities/user_entity.dart';
+import 'package:exam_app/features/auth/domin/entities/signup_req.dart';
+
 
 abstract class SignupEvent {}
 
 class SignUpUserEvent extends SignupEvent{
-  final UserModel userModel;
+  final SignupRequest signupRequest;
 
-  SignUpUserEvent(this.userModel);
+  SignUpUserEvent(this.signupRequest);
 }
 
 

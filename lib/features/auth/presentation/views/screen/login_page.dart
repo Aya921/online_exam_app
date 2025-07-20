@@ -13,7 +13,8 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<SigninCubit>(
+    return 
+    BlocProvider<SigninCubit>(
       create: (context) => viewModel,
       child: Scaffold(
         appBar: AppBar(

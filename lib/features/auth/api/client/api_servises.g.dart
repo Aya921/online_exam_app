@@ -18,7 +18,7 @@ class _ApiServises implements ApiServises {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<SigninRespones> signIn(SignInRequest body) async {
+  Future<SigninRespones> signIn(SigninRequestDto body) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -46,7 +46,7 @@ class _ApiServises implements ApiServises {
   }
 
   @override
-  Future<SignupResponse> signUp(UserSendDto usermoodel) async {
+  Future<SignupResponse> signUp(SignUpRequestDto usermoodel) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};

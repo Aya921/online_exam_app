@@ -43,3 +43,8 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+lib/features/auth/api/model/signup_request/signup_request_dto.g.dart
+lib/features/auth/api/model/signin_response/signin_response.g.dart
+lib/features/auth/api/model/signin_request/signin_request_dto.g.dart
+lib/features/auth/api/model/user_dto.g.dart
+lib/features/auth/api/client/api_servises.g.dart

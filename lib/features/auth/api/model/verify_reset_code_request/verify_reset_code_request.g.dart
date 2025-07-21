@@ -6,10 +6,10 @@ part of 'verify_reset_code_request.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-VerifyResetCodeRequest _$VerifyResetCodeRequestFromJson(
+VerifyResetCodeRequestDto _$VerifyResetCodeRequestDtoFromJson(
   Map<String, dynamic> json,
-) => VerifyResetCodeRequest(resetCode: json['resetCode'] as String?);
+) => VerifyResetCodeRequestDto(resetCode: json['resetCode'] as String?);
 
-Map<String, dynamic> _$VerifyResetCodeRequestToJson(
-  VerifyResetCodeRequest instance,
+Map<String, dynamic> _$VerifyResetCodeRequestDtoToJson(
+  VerifyResetCodeRequestDto instance,
 ) => <String, dynamic>{'resetCode': instance.resetCode};

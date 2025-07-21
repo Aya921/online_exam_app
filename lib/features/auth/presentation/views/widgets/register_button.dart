@@ -2,20 +2,21 @@ import 'package:exam_app/core/theme/app_colors.dart';
 import 'package:exam_app/features/auth/domin/entities/forgot_password_req.dart';
 import 'package:exam_app/features/auth/domin/entities/signin_req.dart';
 import 'package:exam_app/features/auth/domin/entities/signup_req.dart';
+import 'package:exam_app/features/auth/domin/entities/verfity_code_req.dart';
 import 'package:exam_app/features/auth/presentation/view_model/forgot_password_view_model/forgot_password_events.dart';
 import 'package:exam_app/features/auth/presentation/view_model/forgot_password_view_model/forgot_password_view_model.dart';
 import 'package:exam_app/features/auth/presentation/view_model/signin_cubit/signin_cubit.dart';
 
 import 'package:exam_app/features/auth/presentation/view_model/signup_view_model/signup_events.dart';
 import 'package:exam_app/features/auth/presentation/view_model/signup_view_model/signup_view_model.dart';
+import 'package:exam_app/features/auth/presentation/view_model/verify_code_view_model/verify_code_events.dart';
+import 'package:exam_app/features/auth/presentation/view_model/verify_code_view_model/verify_code_view_model.dart';
 import 'package:flutter/material.dart';
 
 class RegisterButton extends StatelessWidget {
   const RegisterButton({
     super.key,
     required this.active,
-
-    
 
     this.signupViewModel,
     this.signupRequest,
@@ -24,12 +25,12 @@ class RegisterButton extends StatelessWidget {
     this.text,
     this.forgotPasswordViewModel,
     this.forgotPasswordRequest,
-    this.controller
+    this.controller,
+  
   });
 
   final bool active;
   final String? text;
-   
 
   final SignupViewModel? signupViewModel;
   final SigninCubit? signinCubit;
@@ -38,6 +39,7 @@ class RegisterButton extends StatelessWidget {
   final ForgotPasswordViewModel? forgotPasswordViewModel;
   final ForgotPasswordRequset? forgotPasswordRequest;
   final TextEditingController? controller;
+
 
   @override
   Widget build(BuildContext context) {
@@ -62,9 +64,11 @@ class RegisterButton extends StatelessWidget {
             }
           } else if (forgotPasswordViewModel != null &&
               forgotPasswordRequest != null) {
-            print("the email is ${forgotPasswordRequest!.email}");
+          
             forgotPasswordViewModel!.add(
-              SendForgotPasswordEmailEvent(ForgotPasswordRequset(email: controller!.text.trim())),
+              SendForgotPasswordEmailEvent(
+                ForgotPasswordRequset(email: controller!.text.trim()),
+              ),
             );
           }
         }

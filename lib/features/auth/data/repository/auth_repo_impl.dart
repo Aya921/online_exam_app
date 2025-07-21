@@ -1,12 +1,14 @@
 import 'package:exam_app/confing/api_result/api_result.dart';
 
-import 'package:exam_app/features/auth/api/model/forget_password/reset_password_request/reset_password_request.dart';
+import 'package:exam_app/features/auth/api/model/reset_password_request/reset_password_request.dart';
+
 import 'package:exam_app/features/auth/domin/entities/forgot_password_req.dart';
 import 'package:exam_app/features/auth/domin/entities/signin_req.dart';
 
 import 'package:exam_app/features/auth/data/source/auth_api_service.dart';
 import 'package:exam_app/features/auth/domin/entities/signup_req.dart';
 import 'package:exam_app/features/auth/domin/entities/user_entity.dart';
+import 'package:exam_app/features/auth/domin/entities/verfity_code_req.dart';
 
 import 'package:exam_app/features/auth/domin/repository/auth_repo.dart';
 import 'package:injectable/injectable.dart';
@@ -37,7 +39,7 @@ class AuthRepoImpl implements AuthRepo {
   }
 
   @override
-  Future<ApiResult<void>> verifyResetCode(String email) async {
-    return await _authRemoteDataSource.verifyResetCode(email);
+  Future<ApiResult<void>> verifyResetCode(VerifyResetCodeRequest code) async {
+    return await _authRemoteDataSource.verifyResetCode(code);
   }
 }

@@ -94,7 +94,7 @@ class _ApiServises implements ApiServises {
   }
 
   @override
-  Future<void> verifyResetCode(VerifyResetCodeRequest code) async {
+  Future<void> verifyResetCode(VerifyResetCodeRequestDto code) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};

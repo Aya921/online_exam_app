@@ -114,13 +114,15 @@ class _ApiServises implements ApiServises {
   }
 
   @override
-  Future<void> resetPassword(ResetPassword resetPassword) async {
+  Future<ForgetPasswordRespone> resetPassword(
+    ResetPassword resetPassword,
+  ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(resetPassword.toJson());
-    final _options = _setStreamType<void>(
+    final _options = _setStreamType<ForgetPasswordRespone>(
       Options(method: 'PUT', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
@@ -130,7 +132,15 @@ class _ApiServises implements ApiServises {
           )
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
-    await _dio.fetch<void>(_options);
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late ForgetPasswordRespone _value;
+    try {
+      _value = ForgetPasswordRespone.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
   }
 
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {

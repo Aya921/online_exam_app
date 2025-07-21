@@ -96,7 +96,10 @@ class AuthRemoteDataSourceImp implements AuthRemoteDataSource {
   @override
   Future<ApiResult<void>> resetPassword(ResetPassword resetPassword) async {
     try {
-      await _apiServises.resetPassword(resetPassword);
+      var result = await _apiServises.resetPassword(resetPassword);
+      if (result.token != null) {
+        await _tokenService.saveToken(result.token!);
+      }
       return ApiSucessResult(null);
     } on DioException catch (e) {
       return ApiFailedResult.fomDioException(e);

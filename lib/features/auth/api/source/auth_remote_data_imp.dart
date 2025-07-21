@@ -8,6 +8,7 @@ import 'package:exam_app/features/auth/api/model/forget_password/forget_password
 import 'package:exam_app/features/auth/api/model/forget_password/reset_password_request/reset_password_request.dart';
 import 'package:exam_app/features/auth/api/model/forget_password/verify_reset_code_request/verify_reset_code_request.dart';
 import 'package:exam_app/features/auth/api/model/signin_request/signin_request_dto.dart';
+import 'package:exam_app/features/auth/domin/entities/forgot_password_req.dart';
 import 'package:exam_app/features/auth/domin/entities/signin_req.dart';
 
 import 'package:exam_app/features/auth/api/model/signup_response/signup_response.dart';
@@ -70,12 +71,20 @@ class AuthRemoteDataSourceImp implements AuthRemoteDataSource {
   }
 
   @override
-  Future<ApiResult<void>> forgetPassword(String email) async {
+  Future<ApiResult<void>> forgetPassword(ForgotPasswordRequset email) async {
     try {
-      await _apiServises.forgetPassword(ForgetPasswordRequest(email: email));
+      await _apiServises.forgetPassword(ForgetPasswordRequestDto.toDto(email));
       return ApiSucessResult(null);
     } on DioException catch (e) {
-      return ApiFailedResult.fomDioException(e);
+      final data = e.response?.data;
+      String errorMessage = e.toString();
+
+      if (data is Map<String, dynamic> &&
+          data.containsKey(Endpoints.messageResponseKey)) {
+        errorMessage = data[JsonConstants.message].toString();
+      }
+
+      return ApiFailedResult(errorMessage);
     } catch (e) {
       return ApiFailedResult(e.toString());
     }

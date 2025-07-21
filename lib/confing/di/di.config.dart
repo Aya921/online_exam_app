@@ -22,8 +22,12 @@ import '../../features/auth/api/source/auth_remote_data_imp.dart' as _i729;
 import '../../features/auth/data/repository/auth_repo_impl.dart' as _i751;
 import '../../features/auth/data/source/auth_api_service.dart' as _i984;
 import '../../features/auth/domin/repository/auth_repo.dart' as _i939;
+import '../../features/auth/domin/usecases/forget_password_usecase.dart'
+    as _i894;
 import '../../features/auth/domin/usecases/signin.dart' as _i232;
 import '../../features/auth/domin/usecases/signup_usecase.dart' as _i749;
+import '../../features/auth/presentation/view_model/forgot_password_view_model/forgot_password_view_model.dart'
+    as _i624;
 import '../../features/auth/presentation/view_model/signin_cubit/signin_cubit.dart'
     as _i116;
 import '../../features/auth/presentation/view_model/signup_view_model/signup_view_model.dart'
@@ -45,12 +49,12 @@ extension GetItInjectableX on _i174.GetIt {
       () => databaseModule.providesharedPreferences,
       preResolve: true,
     );
-    gh.lazySingleton<_i558.FlutterSecureStorage>(
-      () => databaseModule.flutterSecureStorage(),
-    );
     gh.lazySingleton<_i361.Dio>(() => registerModule.provideDio());
     gh.lazySingleton<_i528.PrettyDioLogger>(
       () => registerModule.prettyDioLoggerProvider(),
+    );
+    gh.lazySingleton<_i558.FlutterSecureStorage>(
+      () => databaseModule.flutterSecureStorage(),
     );
     gh.factory<_i406.ApiServises>(() => _i406.ApiServises(gh<_i361.Dio>()));
     gh.singleton<_i291.AppConfigProvider>(
@@ -73,6 +77,12 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i749.SignupUseCase>(
       () => _i749.SignupUseCase(gh<_i939.AuthRepo>()),
+    );
+    gh.factory<_i894.ForgetPasswordUsecase>(
+      () => _i894.ForgetPasswordUsecase(gh<_i939.AuthRepo>()),
+    );
+    gh.factory<_i624.ForgotPasswordViewModel>(
+      () => _i624.ForgotPasswordViewModel(gh<_i894.ForgetPasswordUsecase>()),
     );
     gh.factory<_i116.SigninCubit>(
       () => _i116.SigninCubit(gh<_i232.SigninUsecase>()),

@@ -6,10 +6,10 @@ part of 'forget_password_request.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-ForgetPasswordRequest _$ForgetPasswordRequestFromJson(
+ForgetPasswordRequestDto _$ForgetPasswordRequestDtoFromJson(
   Map<String, dynamic> json,
-) => ForgetPasswordRequest(email: json['email'] as String?);
+) => ForgetPasswordRequestDto(email: json['email'] as String?);
 
-Map<String, dynamic> _$ForgetPasswordRequestToJson(
-  ForgetPasswordRequest instance,
+Map<String, dynamic> _$ForgetPasswordRequestDtoToJson(
+  ForgetPasswordRequestDto instance,
 ) => <String, dynamic>{'email': instance.email};

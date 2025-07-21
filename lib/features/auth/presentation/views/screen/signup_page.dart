@@ -74,7 +74,10 @@ class _SignUpPageState extends State<SignUpPage> {
     return BlocProvider(
       create: (context) => signupViewModel,
       child: Scaffold(
-        appBar: AppBar(
+        appBar:
+        
+        
+         AppBar(
           title: Text(t.signup, style: const TextStyle(fontSize: 30)),
         ),
         body: Padding(
@@ -124,7 +127,9 @@ class _SignUpPageState extends State<SignUpPage> {
                   Row(
                     children: [
                       Expanded(
-                        child: CustomTextFormField(
+                        child: 
+                        
+                        CustomTextFormField(
                           controller: _firstNameController,
                           label: t.firstNameLabel,
                           hint: t.firstNameHint,
@@ -215,7 +220,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       Expanded(
                         child: RegisterButton(
                           active: active,
-                          signupButtonText: t.signUp,
+                          text: t.signUp,
                           signupViewModel: signupViewModel,
                           signupRequest: makeUserModel(),
                         ),

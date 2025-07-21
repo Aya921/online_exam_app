@@ -29,7 +29,7 @@ abstract class ApiServises {
   Future<SignupResponse> signUp(@Body() SignUpRequestDto usermoodel);
 
   @POST(Endpoints.forgotPasswordEndPoint)
-  Future<void> forgetPassword(@Body() ForgetPasswordRequest email);
+  Future<void> forgetPassword(@Body() ForgetPasswordRequestDto email);
 
   @POST(Endpoints.verifyResetCodeEndPoint)
   Future<void> verifyResetCode(@Body() VerifyResetCodeRequest code);

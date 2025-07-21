@@ -74,7 +74,7 @@ class _ApiServises implements ApiServises {
   }
 
   @override
-  Future<void> forgetPassword(ForgetPasswordRequest email) async {
+  Future<void> forgetPassword(ForgetPasswordRequestDto email) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};

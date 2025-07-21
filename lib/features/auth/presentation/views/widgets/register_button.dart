@@ -1,6 +1,9 @@
 import 'package:exam_app/core/theme/app_colors.dart';
+import 'package:exam_app/features/auth/domin/entities/forgot_password_req.dart';
 import 'package:exam_app/features/auth/domin/entities/signin_req.dart';
 import 'package:exam_app/features/auth/domin/entities/signup_req.dart';
+import 'package:exam_app/features/auth/presentation/view_model/forgot_password_view_model/forgot_password_events.dart';
+import 'package:exam_app/features/auth/presentation/view_model/forgot_password_view_model/forgot_password_view_model.dart';
 import 'package:exam_app/features/auth/presentation/view_model/signin_cubit/signin_cubit.dart';
 
 import 'package:exam_app/features/auth/presentation/view_model/signup_view_model/signup_events.dart';
@@ -12,21 +15,29 @@ class RegisterButton extends StatelessWidget {
     super.key,
     required this.active,
 
+    
+
     this.signupViewModel,
     this.signupRequest,
     this.signInRequest,
     this.signinCubit,
-    this.loginButtonText,
-    this.signupButtonText,
+    this.text,
+    this.forgotPasswordViewModel,
+    this.forgotPasswordRequest,
+    this.controller
   });
 
   final bool active;
-  final String? loginButtonText;
-  final String? signupButtonText;
+  final String? text;
+   
+
   final SignupViewModel? signupViewModel;
   final SigninCubit? signinCubit;
   final SignupRequest? signupRequest;
   final SignInRequest? signInRequest;
+  final ForgotPasswordViewModel? forgotPasswordViewModel;
+  final ForgotPasswordRequset? forgotPasswordRequest;
+  final TextEditingController? controller;
 
   @override
   Widget build(BuildContext context) {
@@ -49,6 +60,12 @@ class RegisterButton extends StatelessWidget {
             if (signinCubit!.checkValidation()) {
               signinCubit!.signIn(signInRequest!);
             }
+          } else if (forgotPasswordViewModel != null &&
+              forgotPasswordRequest != null) {
+            print("the email is ${forgotPasswordRequest!.email}");
+            forgotPasswordViewModel!.add(
+              SendForgotPasswordEmailEvent(ForgotPasswordRequset(email: controller!.text.trim())),
+            );
           }
         }
       },
@@ -56,7 +73,7 @@ class RegisterButton extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 10),
         child: Text(
-          loginButtonText ?? signupButtonText ?? '',
+          text ?? '',
           style: const TextStyle(color: AppColors.white, fontSize: 16),
         ),
       ),

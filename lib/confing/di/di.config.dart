@@ -26,12 +26,16 @@ import '../../features/auth/domin/usecases/forget_password_usecase.dart'
     as _i894;
 import '../../features/auth/domin/usecases/signin.dart' as _i232;
 import '../../features/auth/domin/usecases/signup_usecase.dart' as _i749;
+import '../../features/auth/domin/usecases/verfity_reset_code_usecase.dart'
+    as _i586;
 import '../../features/auth/presentation/view_model/forgot_password_view_model/forgot_password_view_model.dart'
     as _i624;
 import '../../features/auth/presentation/view_model/signin_cubit/signin_cubit.dart'
     as _i116;
 import '../../features/auth/presentation/view_model/signup_view_model/signup_view_model.dart'
     as _i401;
+import '../../features/auth/presentation/view_model/verify_code_view_model/verify_code_view_model.dart'
+    as _i518;
 import '../provider/app_config_provider.dart' as _i291;
 import 'modules/database_module.dart' as _i664;
 import 'modules/dio_module.dart' as _i983;
@@ -49,12 +53,12 @@ extension GetItInjectableX on _i174.GetIt {
       () => databaseModule.providesharedPreferences,
       preResolve: true,
     );
+    gh.lazySingleton<_i558.FlutterSecureStorage>(
+      () => databaseModule.flutterSecureStorage(),
+    );
     gh.lazySingleton<_i361.Dio>(() => registerModule.provideDio());
     gh.lazySingleton<_i528.PrettyDioLogger>(
       () => registerModule.prettyDioLoggerProvider(),
-    );
-    gh.lazySingleton<_i558.FlutterSecureStorage>(
-      () => databaseModule.flutterSecureStorage(),
     );
     gh.factory<_i406.ApiServises>(() => _i406.ApiServises(gh<_i361.Dio>()));
     gh.singleton<_i291.AppConfigProvider>(
@@ -75,17 +79,23 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i232.SigninUsecase>(
       () => _i232.SigninUsecase(gh<_i939.AuthRepo>()),
     );
+    gh.factory<_i894.ForgetPasswordUsecase>(
+      () => _i894.ForgetPasswordUsecase(gh<_i939.AuthRepo>()),
+    );
     gh.factory<_i749.SignupUseCase>(
       () => _i749.SignupUseCase(gh<_i939.AuthRepo>()),
     );
-    gh.factory<_i894.ForgetPasswordUsecase>(
-      () => _i894.ForgetPasswordUsecase(gh<_i939.AuthRepo>()),
+    gh.factory<_i586.VerfityResetCodeUsecase>(
+      () => _i586.VerfityResetCodeUsecase(gh<_i939.AuthRepo>()),
     );
     gh.factory<_i624.ForgotPasswordViewModel>(
       () => _i624.ForgotPasswordViewModel(gh<_i894.ForgetPasswordUsecase>()),
     );
     gh.factory<_i116.SigninCubit>(
       () => _i116.SigninCubit(gh<_i232.SigninUsecase>()),
+    );
+    gh.factory<_i518.VerifyCodeViewModel>(
+      () => _i518.VerifyCodeViewModel(gh<_i586.VerfityResetCodeUsecase>()),
     );
     gh.factory<_i401.SignupViewModel>(
       () => _i401.SignupViewModel(gh<_i749.SignupUseCase>()),

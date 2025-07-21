@@ -5,10 +5,11 @@ import 'package:exam_app/core/theme/app_colors.dart';
 
 import 'package:exam_app/features/auth/domin/entities/verfity_code_req.dart';
 
-import 'package:exam_app/features/auth/presentation/view_model/forgot_password_view_model/forgot_password_states.dart';
-import 'package:exam_app/features/auth/presentation/view_model/forgot_password_view_model/forgot_password_view_model.dart';
+
 import 'package:exam_app/features/auth/presentation/view_model/verify_code_view_model/verify_code_events.dart';
+import 'package:exam_app/features/auth/presentation/view_model/verify_code_view_model/verify_code_state.dart';
 import 'package:exam_app/features/auth/presentation/view_model/verify_code_view_model/verify_code_view_model.dart';
+
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -53,7 +54,7 @@ class _ResetCodeState extends State<ResetCode> {
 
         body: Padding(
           padding: const EdgeInsets.all(16),
-          child: BlocListener<ForgotPasswordViewModel, ForgotPasswordStates>(
+          child: BlocListener<VerifyCodeViewModel, VerifyCodeState>(
             listener: (context, state) {
               if (state.isLoading) {
                 ScaffoldMessenger.of(
@@ -130,6 +131,10 @@ class _ResetCodeState extends State<ResetCode> {
                 
                 
                 const SizedBox(height: 40),
+
+               
+
+                
             
                        
             

@@ -511,6 +511,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'New password'**
   String get newPassword;
+
+  /// No description provided for @emailVerification.
+  ///
+  /// In en, this message translates to:
+  /// **'Email verification'**
+  String get emailVerification;
+
+  /// No description provided for @enterCodeToSendToEmailAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter your code that send to your \n email address '**
+  String get enterCodeToSendToEmailAddress;
+
+  /// No description provided for @donotReciveCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Didn\'t receive code? '**
+  String get donotReciveCode;
+
+  /// No description provided for @resetPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset Password'**
+  String get resetPassword;
+
+  /// No description provided for @passwordruleAtResetPassPage.
+  ///
+  /// In en, this message translates to:
+  /// **'Password must not be empty and must contain 6 characters with upper case letter and one  number at least'**
+  String get passwordruleAtResetPassPage;
+
+  /// No description provided for @forgetPass.
+  ///
+  /// In en, this message translates to:
+  /// **'Forget Password'**
+  String get forgetPass;
+
+  /// No description provided for @pleaseEnteryouEmailAtForgotPassPage.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter your email associated to \n your account'**
+  String get pleaseEnteryouEmailAtForgotPassPage;
 }
 
 class _AppLocalizationsDelegate

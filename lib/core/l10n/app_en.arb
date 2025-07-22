@@ -81,5 +81,16 @@
     "resend": "Resend",
     "resetPasswordTitle": "Reset password",
     "resetPasswordSubtitle": "Password must not be empty and must contain 6 characters with upper case letter and one number at least",
-    "newPassword": "New password"
+    "newPassword": "New password",
+    "emailVerification":"Email verification",
+    "enterCodeToSendToEmailAddress":"Please enter your code that send to your \n email address ",
+    "donotReciveCode":"Didn't receive code? ",
+    "resetPassword":"Reset Password",
+    "passwordruleAtResetPassPage":"Password must not be empty and must contain 6 characters with upper case letter and one  number at least",
+    "forgetPass":"Forget Password",
+    "pleaseEnteryouEmailAtForgotPassPage": "Please enter your email associated to \n your account"
+
+
+    
+  
 }

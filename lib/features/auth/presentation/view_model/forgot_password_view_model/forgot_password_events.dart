@@ -13,5 +13,6 @@ class SendForgotPasswordEmailEvent extends ForgotPasswordEvents {
 class ValidateForgotPasswordEvent extends ForgotPasswordEvents {
  
 }
+class SendEmailAgainEvent extends ForgotPasswordEvents{}
 
 

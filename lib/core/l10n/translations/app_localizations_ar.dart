@@ -219,4 +219,28 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get newPassword => 'كلمة المرور الجديدة';
+
+  @override
+  String get emailVerification => 'تأكيد البريد الإلكتروني';
+
+  @override
+  String get enterCodeToSendToEmailAddress =>
+      'من فضلك أدخل الكود الذي تم إرساله إلى\nعنوان بريدك الإلكتروني';
+
+  @override
+  String get donotReciveCode => 'لم يصلك الكود؟';
+
+  @override
+  String get resetPassword => 'إعادة تعيين كلمة المرور';
+
+  @override
+  String get passwordruleAtResetPassPage =>
+      'يجب ألا تكون كلمة المرور فارغة، ويجب أن تحتوي على 6 أحرف على الأقل، تشمل حرفًا كبيرًا ورقمًا واحدًا على الأقل';
+
+  @override
+  String get forgetPass => 'نسيت كلمة المرور';
+
+  @override
+  String get pleaseEnteryouEmailAtForgotPassPage =>
+      'من فضلك أدخل البريد الإلكتروني المرتبط بحسابك';
 }

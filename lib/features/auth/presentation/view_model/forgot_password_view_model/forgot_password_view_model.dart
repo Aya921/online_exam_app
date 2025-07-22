@@ -20,9 +20,12 @@ class ForgotPasswordViewModel
 
   void _checkValidation(ValidateForgotPasswordEvent event, Emitter emit) {
     final valid = formKey.currentState!.validate();
-    print("the valid is $valid");
+   
     emit(state.copyWith(isValid: valid));
   }
+
+
+ 
 
   Future<void> _sendForgotPasswordEmail(
     SendForgotPasswordEmailEvent event,

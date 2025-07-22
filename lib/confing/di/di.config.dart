@@ -24,12 +24,16 @@ import '../../features/auth/data/source/auth_api_service.dart' as _i984;
 import '../../features/auth/domin/repository/auth_repo.dart' as _i939;
 import '../../features/auth/domin/usecases/forget_password_usecase.dart'
     as _i894;
+import '../../features/auth/domin/usecases/reset_password_usecase.dart'
+    as _i929;
 import '../../features/auth/domin/usecases/signin.dart' as _i232;
 import '../../features/auth/domin/usecases/signup_usecase.dart' as _i749;
 import '../../features/auth/domin/usecases/verfity_reset_code_usecase.dart'
     as _i586;
 import '../../features/auth/presentation/view_model/forgot_password_view_model/forgot_password_view_model.dart'
     as _i624;
+import '../../features/auth/presentation/view_model/reset_password_view_model/reset_password_view_model.dart'
+    as _i552;
 import '../../features/auth/presentation/view_model/signin_cubit/signin_cubit.dart'
     as _i116;
 import '../../features/auth/presentation/view_model/signup_view_model/signup_view_model.dart'
@@ -88,6 +92,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i586.VerfityResetCodeUsecase>(
       () => _i586.VerfityResetCodeUsecase(gh<_i939.AuthRepo>()),
     );
+    gh.factory<_i929.ResetPasswordUsecase>(
+      () => _i929.ResetPasswordUsecase(gh<_i939.AuthRepo>()),
+    );
     gh.factory<_i624.ForgotPasswordViewModel>(
       () => _i624.ForgotPasswordViewModel(gh<_i894.ForgetPasswordUsecase>()),
     );
@@ -95,10 +102,16 @@ extension GetItInjectableX on _i174.GetIt {
       () => _i116.SigninCubit(gh<_i232.SigninUsecase>()),
     );
     gh.factory<_i518.VerifyCodeViewModel>(
-      () => _i518.VerifyCodeViewModel(gh<_i586.VerfityResetCodeUsecase>()),
+      () => _i518.VerifyCodeViewModel(
+        gh<_i586.VerfityResetCodeUsecase>(),
+        gh<_i894.ForgetPasswordUsecase>(),
+      ),
     );
     gh.factory<_i401.SignupViewModel>(
       () => _i401.SignupViewModel(gh<_i749.SignupUseCase>()),
+    );
+    gh.factory<_i552.ResetPasswordViewModel>(
+      () => _i552.ResetPasswordViewModel(gh<_i929.ResetPasswordUsecase>()),
     );
     return this;
   }

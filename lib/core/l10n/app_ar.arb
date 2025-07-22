@@ -81,5 +81,14 @@
     "resend": "أعد الإرسال",
     "resetPasswordTitle": "إعادة تعيين كلمة المرور",
     "resetPasswordSubtitle": "كلمة المرور لا يجب أن تكون فارغة ويجب أن تحتوي على 6 أحرف على الأقل، حرف كبير ورقم واحد على الأقل",
-    "newPassword": "كلمة المرور الجديدة"
+    "newPassword": "كلمة المرور الجديدة",
+    "emailVerification": "تأكيد البريد الإلكتروني",
+"enterCodeToSendToEmailAddress": "من فضلك أدخل الكود الذي تم إرساله إلى\nعنوان بريدك الإلكتروني",
+"donotReciveCode": "لم يصلك الكود؟",
+"resetPassword": "إعادة تعيين كلمة المرور",
+"passwordruleAtResetPassPage": "يجب ألا تكون كلمة المرور فارغة، ويجب أن تحتوي على 6 أحرف على الأقل، تشمل حرفًا كبيرًا ورقمًا واحدًا على الأقل",
+"forgetPass": "نسيت كلمة المرور",
+"pleaseEnteryouEmailAtForgotPassPage": "من فضلك أدخل البريد الإلكتروني المرتبط بحسابك"
+
+
 }

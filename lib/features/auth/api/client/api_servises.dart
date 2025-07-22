@@ -35,5 +35,5 @@ abstract class ApiServises {
   @POST(Endpoints.verifyResetCodeEndPoint)
   Future<void> verifyResetCode(@Body() VerifyResetCodeRequestDto code);
   @PUT(Endpoints.resetPasswordEndPoint)
-  Future<ForgetPasswordRespone> resetPassword(@Body() ResetPassword resetPassword);
+  Future<ForgetPasswordRespone> resetPassword(@Body() ResetPasswordDto resetPassword);
 }

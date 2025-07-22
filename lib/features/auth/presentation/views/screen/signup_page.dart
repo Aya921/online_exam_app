@@ -233,10 +233,10 @@ class _SignUpPageState extends State<SignUpPage> {
                     onpress: () {
                       Navigator.pushNamed(context, AppRoutes.login);
                     },
-                    donotHaveAccountText: AppLocalizations.of(
+                    primaryText: AppLocalizations.of(
                       context,
                     )!.alreadyHaveAccount,
-                    signupText: AppLocalizations.of(context)!.login,
+                    secondrytText: AppLocalizations.of(context)!.login,
                   ),
                   // RichText(
                   //   text: TextSpan(

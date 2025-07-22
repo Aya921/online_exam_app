@@ -1,50 +1,43 @@
 import 'package:exam_app/confing/di/di.dart';
 import 'package:exam_app/core/l10n/translations/app_localizations.dart';
-import 'package:exam_app/core/route/app_routes.dart';
+
 import 'package:exam_app/core/theme/app_colors.dart';
 
-import 'package:exam_app/features/auth/domin/entities/forgot_password_req.dart';
 import 'package:exam_app/features/auth/presentation/validator/signup_validators.dart';
-import 'package:exam_app/features/auth/presentation/view_model/forgot_password_view_model/forgot_password_events.dart';
-import 'package:exam_app/features/auth/presentation/view_model/forgot_password_view_model/forgot_password_states.dart';
-import 'package:exam_app/features/auth/presentation/view_model/forgot_password_view_model/forgot_password_view_model.dart';
+import 'package:exam_app/features/auth/presentation/view_model/reset_password_view_model/reset_password_events.dart';
+
+import 'package:exam_app/features/auth/presentation/view_model/reset_password_view_model/reset_password_states.dart';
+import 'package:exam_app/features/auth/presentation/view_model/reset_password_view_model/reset_password_view_model.dart';
 import 'package:exam_app/features/auth/presentation/views/widgets/custom_form_field_button.dart';
 import 'package:exam_app/features/auth/presentation/views/widgets/register_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class ForgetPasswordPage extends StatefulWidget {
-  const ForgetPasswordPage({super.key});
+class ResetPasswordPage extends StatefulWidget {
+  const ResetPasswordPage({super.key});
 
   @override
-  State<ForgetPasswordPage> createState() => _ForgetPasswordPageState();
+  State<ResetPasswordPage> createState() => _ResetPasswordPageState();
 }
 
-class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
-  late ForgotPasswordViewModel forgotPasswordViewModel;
+class _ResetPasswordPageState extends State<ResetPasswordPage> {
+  late ResetPasswordViewModel resetPasswordViewModel;
   final TextEditingController _myEmailController = TextEditingController();
+  final TextEditingController _newPasswordController = TextEditingController();
   bool active = true;
 
   @override
   void initState() {
-    forgotPasswordViewModel = getIt.get<ForgotPasswordViewModel>();
+    resetPasswordViewModel = getIt.get<ResetPasswordViewModel>();
     super.initState();
-  }
-
-  ForgotPasswordRequset makeForgotModel() {
-    final forgetModel = ForgotPasswordRequset(
-      email: _myEmailController.text.trim(),
-    );
-    return forgetModel;
   }
 
   @override
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context)!;
-  
 
     return BlocProvider(
-      create: (context) => forgotPasswordViewModel,
+      create: (context) => resetPasswordViewModel,
       child: Scaffold(
         appBar: AppBar(
           leading: IconButton(
@@ -57,7 +50,7 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
 
         body: Padding(
           padding: const EdgeInsets.all(16),
-          child: BlocListener<ForgotPasswordViewModel, ForgotPasswordStates>(
+          child: BlocListener<ResetPasswordViewModel, ResetPasswordStates>(
             listener: (context, state) {
               if (state.isLoading) {
                 ScaffoldMessenger.of(
@@ -65,10 +58,10 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
                 ).showSnackBar(SnackBar(content: Text(t.wait)));
               }
               if (state.isSuccess) {
-                Navigator.of(context).pushNamed(
-                  AppRoutes.resetCode,
-                  arguments: _myEmailController.text.trim(),
-                );
+                ScaffoldMessenger.of(
+                  context,
+                ).showSnackBar(const SnackBar(content: Text("Done")));
+
                 state.isSuccess = false;
               }
               if (state.errorMessage != null) {
@@ -85,20 +78,20 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
               }
             },
             child: Form(
-              key: forgotPasswordViewModel.formKey,
+              key: resetPasswordViewModel.formKey,
               child: Column(
                 children: [
                    Text(
-                    t.forgetPass,
-                    style:const TextStyle(fontSize: 20, color: AppColors.black,fontWeight: FontWeight.w600),
+                    t.resetPassword,
+                    style:const  TextStyle(fontSize: 20, color: AppColors.black,fontWeight:FontWeight.w600 ),
                   ),
 
                   const SizedBox(height: 20),
 
-                 Text(
+                   Text(
                     textAlign: TextAlign.center,
-                    t.pleaseEnteryouEmailAtForgotPassPage,
-                    style:const  TextStyle(fontSize: 18, color: AppColors.gray),
+                    t.passwordruleAtResetPassPage,
+                    style: const TextStyle(fontSize: 18, color: AppColors.gray),
                   ),
 
                   const SizedBox(height: 20),
@@ -107,15 +100,28 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
                     controller: _myEmailController,
                     label: t.emailLabel,
                     hint: t.emailHint,
-                    
                     formFieldValidator: SignupValidators(
                       appLocalization: t,
                     ).emailValidatiion,
                     emptyFiledErrorMessage: t.emptyEmailError,
                     onChanged: () {
-                      return forgotPasswordViewModel.add(
-                        ValidateForgotPasswordEvent(),
-                      );
+                      resetPasswordViewModel.add(ValidateResetPasswordEvent());
+                    },
+                  ),
+
+                  const SizedBox(height: 20),
+
+                  CustomTextFormField(
+                    controller: _newPasswordController,
+                    label: t.passwordLabel,
+                    obsecureTxt: true,
+                    hint: t.passwordHint,
+                    formFieldValidator: SignupValidators(
+                      appLocalization: t,
+                    ).passwprdValidatiion,
+                    emptyFiledErrorMessage: t.emptyPasswordError,
+                    onChanged: () {
+                      resetPasswordViewModel.add(ValidateResetPasswordEvent());
                     },
                   ),
 
@@ -126,12 +132,12 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
                       Expanded(
                         child: RegisterButton(
                           active: active,
-                          
 
                           text: t.continue_button,
-                          forgotPasswordViewModel: forgotPasswordViewModel,
-                          forgotPasswordRequest: makeForgotModel(),
+
+                          resetPasswordViewModel: resetPasswordViewModel,
                           controller1: _myEmailController,
+                          controller2: _newPasswordController,
                         ),
                       ),
                     ],

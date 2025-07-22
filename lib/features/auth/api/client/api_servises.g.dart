@@ -115,7 +115,7 @@ class _ApiServises implements ApiServises {
 
   @override
   Future<ForgetPasswordRespone> resetPassword(
-    ResetPassword resetPassword,
+    ResetPasswordDto resetPassword,
   ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};

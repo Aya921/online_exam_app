@@ -5,8 +5,10 @@ abstract class VerifyCodeEvents {}
 
 class VerifyEmailCodeEvent extends VerifyCodeEvents {
   VerifyResetCodeRequest verifyResetCodeRequest;
-  VerifyEmailCodeEvent({
-    required this.verifyResetCodeRequest,
-  });
-  
+  VerifyEmailCodeEvent({required this.verifyResetCodeRequest});
+}
+
+class ResendCodeAgainEvent extends VerifyCodeEvents {
+  String email;
+  ResendCodeAgainEvent(this.email);
 }

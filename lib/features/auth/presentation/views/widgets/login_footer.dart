@@ -4,18 +4,18 @@ import 'package:exam_app/core/theme/app_colors.dart';
 class LoginFooter extends StatelessWidget {
   final VoidCallback onpress;
 
-  final String? haveAccountText;
-  final String? donotHaveAccountText;
-  final String? signupText;
-  final String? loginText;
+  final String primaryText;
+
+  final String secondrytText;
+
 
   const LoginFooter({
     super.key,
     required this.onpress,
-    this.haveAccountText,
-    this.donotHaveAccountText,
-    this.signupText,
-    this.loginText,
+   
+    required this.primaryText,
+    required this.secondrytText
+    
   });
 
   @override
@@ -26,7 +26,7 @@ class LoginFooter extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          haveAccountText ?? donotHaveAccountText ?? '',
+         primaryText,
           style: textTheme.bodyLarge?.copyWith(color: AppColors.black),
         ),
         MouseRegion(
@@ -34,7 +34,7 @@ class LoginFooter extends StatelessWidget {
           child: GestureDetector(
             onTap: onpress,
             child: Text(
-              "  ${signupText ?? loginText ?? ''}",
+              "  $secondrytText",
               style: textTheme.bodyLarge?.copyWith(
                 color: AppColors.blue,
                 decoration: TextDecoration.underline,

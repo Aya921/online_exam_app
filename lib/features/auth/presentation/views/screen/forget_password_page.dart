@@ -51,7 +51,17 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
           child: Form(
             key: formKey,
             autovalidateMode: autovalidateMode,
-            child: BlocBuilder<ForgetPasswordBloc, ForgetPasswordState>(
+            child: BlocConsumer<ForgetPasswordBloc, ForgetPasswordState>(
+              listener: (context, state) {
+                if (state.errorEmail != null) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(state.errorEmail!),
+                      backgroundColor: Colors.red,
+                    ),
+                  );
+                }
+              },
               builder: (context, state) {
                 if (state.isvrifyCodeSent != true) {
                   return Column(

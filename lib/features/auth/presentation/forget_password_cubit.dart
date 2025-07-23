@@ -27,10 +27,11 @@ class ForgetPasswordBloc
         emit(state.copyWith(isvrifyCodeSent: true , email: event.email));
         break;
       case ApiFailedResult<void>():
+      var error = res.errorMessage;
         emit(
           state.copyWith(
             isvrifyCodeSent: false,
-            errorEmail: 'Something went wrong, please try again later.',
+            errorEmail: error,
           ),
         );
         break;

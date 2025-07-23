@@ -1,143 +1,133 @@
 import 'package:exam_app/confing/di/di.dart';
+import 'package:exam_app/core/constant/pages_constants/forget_password_constats.dart';
 import 'package:exam_app/core/l10n/translations/app_localizations.dart';
-import 'package:exam_app/core/route/app_routes.dart';
-import 'package:exam_app/core/theme/app_colors.dart';
-
-import 'package:exam_app/features/auth/domin/entities/forgot_password_req.dart';
+import 'package:exam_app/features/auth/presentation/forget_password_cubit.dart';
+import 'package:exam_app/features/auth/presentation/forget_password_events.dart';
+import 'package:exam_app/features/auth/presentation/forget_password_state.dart';
 import 'package:exam_app/features/auth/presentation/validator/signup_validators.dart';
-import 'package:exam_app/features/auth/presentation/view_model/forgot_password_view_model/forgot_password_events.dart';
-import 'package:exam_app/features/auth/presentation/view_model/forgot_password_view_model/forgot_password_states.dart';
-import 'package:exam_app/features/auth/presentation/view_model/forgot_password_view_model/forgot_password_view_model.dart';
 import 'package:exam_app/features/auth/presentation/views/widgets/custom_form_field_button.dart';
-import 'package:exam_app/features/auth/presentation/views/widgets/register_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ForgetPasswordPage extends StatefulWidget {
-  const ForgetPasswordPage({super.key});
+  ForgetPasswordPage({super.key});
 
   @override
   State<ForgetPasswordPage> createState() => _ForgetPasswordPageState();
+  ForgetPasswordBloc viewModel = getIt.get<ForgetPasswordBloc>();
 }
 
 class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
-  late ForgotPasswordViewModel forgotPasswordViewModel;
-  final TextEditingController _myEmailController = TextEditingController();
-  bool active = true;
+  final TextEditingController _emailController = TextEditingController();
 
-  @override
-  void initState() {
-    forgotPasswordViewModel = getIt.get<ForgotPasswordViewModel>();
-    super.initState();
-  }
+  final formKey = GlobalKey<FormState>();
 
-  ForgotPasswordRequset makeForgotModel() {
-    final forgetModel = ForgotPasswordRequset(
-      email: _myEmailController.text.trim(),
-    );
-    return forgetModel;
-  }
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 
   @override
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context)!;
-  
-
-    return BlocProvider(
-      create: (context) => forgotPasswordViewModel,
+    return BlocProvider<ForgetPasswordBloc>(
+      create: (BuildContext context) {
+        return widget.viewModel;
+      },
       child: Scaffold(
         appBar: AppBar(
-          leading: IconButton(
-            icon: const Icon(Icons.arrow_back, color: AppColors.black),
-            onPressed: () => Navigator.of(context).pop(),
+          title: const Text(
+            'Password',
+            style: TextStyle(
+              fontSize: 20,
+              color: Colors.black,
+              fontWeight: FontWeight.w500,
+            ),
           ),
-
-          title: Text(t.password, style: const TextStyle(fontSize: 30)),
+          leading: IconButton(
+            onPressed: () => Navigator.pop(context),
+            icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
+          ),
         ),
-
         body: Padding(
-          padding: const EdgeInsets.all(16),
-          child: BlocListener<ForgotPasswordViewModel, ForgotPasswordStates>(
-            listener: (context, state) {
-              if (state.isLoading) {
-                ScaffoldMessenger.of(
-                  context,
-                ).showSnackBar(SnackBar(content: Text(t.wait)));
-              }
-              if (state.isSuccess) {
-                Navigator.of(context).pushNamed(
-                  AppRoutes.resetCode,
-                  arguments: _myEmailController.text.trim(),
-                );
-                state.isSuccess = false;
-              }
-              if (state.errorMessage != null) {
-                ScaffoldMessenger.of(
-                  context,
-                ).showSnackBar(SnackBar(content: Text(state.errorMessage!)));
-
-                state.errorMessage = null;
-              }
-              if (state.isValid != null) {
-                setState(() {
-                  active = state.isValid!;
-                });
-              }
-            },
-            child: Form(
-              key: forgotPasswordViewModel.formKey,
-              child: Column(
-                children: [
-                   Text(
-                    t.forgetPass,
-                    style:const TextStyle(fontSize: 20, color: AppColors.black,fontWeight: FontWeight.w600),
-                  ),
-
-                  const SizedBox(height: 20),
-
-                 Text(
-                    textAlign: TextAlign.center,
-                    t.pleaseEnteryouEmailAtForgotPassPage,
-                    style:const  TextStyle(fontSize: 18, color: AppColors.gray),
-                  ),
-
-                  const SizedBox(height: 20),
-
-                  CustomTextFormField(
-                    controller: _myEmailController,
-                    label: t.emailLabel,
-                    hint: t.emailHint,
-                    
-                    formFieldValidator: SignupValidators(
-                      appLocalization: t,
-                    ).emailValidatiion,
-                    emptyFiledErrorMessage: t.emptyEmailError,
-                    onChanged: () {
-                      return forgotPasswordViewModel.add(
-                        ValidateForgotPasswordEvent(),
-                      );
-                    },
-                  ),
-
-                  const SizedBox(height: 20),
-
-                  Row(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: Form(
+            key: formKey,
+            autovalidateMode: autovalidateMode,
+            child: BlocBuilder<ForgetPasswordBloc, ForgetPasswordState>(
+              builder: (context, state) {
+                if (state.isvrifyCodeSent != true) {
+                  return Column(
                     children: [
-                      Expanded(
-                        child: RegisterButton(
-                          active: active,
-                          
-
-                          text: t.continue_button,
-                          forgotPasswordViewModel: forgotPasswordViewModel,
-                          forgotPasswordRequest: makeForgotModel(),
-                          controller1: _myEmailController,
+                      const SizedBox(height: 40),
+                      const Text(
+                        'Forget password',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black,
                         ),
                       ),
+
+                      const SizedBox(height: 20),
+
+                      const Text(
+                        'Please enter your email associated to\n your account',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.grey,
+                        ),
+                      ),
+                      const SizedBox(height: 32),
+                      CustomTextFormField(
+                        label: t.emailLabel,
+                        hint: t.emailHint,
+
+                        formFieldValidator: SignupValidators(
+                          appLocalization: t,
+                        ).emailValidatiion,
+                        emptyFiledErrorMessage: t.emptyEmailError,
+                        controller: _emailController,
+                      ),
+                      const SizedBox(height: 20),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: SizedBox(
+                              height: 50,
+                              child: FilledButton(
+                                onPressed: () {
+                                  if (formKey.currentState!.validate()) {
+                                    context.read<ForgetPasswordBloc>().add(
+                                      SendResetEmailEvent(
+                                        _emailController.text.trim(),
+                                      ),
+                                    );
+
+                                    autovalidateMode =
+                                        AutovalidateMode.disabled;
+                                  } else {
+                                    autovalidateMode = AutovalidateMode.always;
+                                  }
+                                },
+                                child: Text(
+                                  t.continue_button,
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ],
-                  ),
-                ],
-              ),
+                  );
+                }else{
+                  return Text('Vrify code sent to ${state.email}');
+                }
+
+              },
             ),
           ),
         ),

@@ -1,9 +1,6 @@
-
 // ignore: must_be_immutable
 import 'package:exam_app/core/theme/app_colors.dart';
-import 'package:exam_app/features/auth/domin/entities/verfity_code_req.dart';
-import 'package:exam_app/features/auth/presentation/view_model/verify_code_view_model/verify_code_events.dart';
-import 'package:exam_app/features/auth/presentation/view_model/verify_code_view_model/verify_code_view_model.dart';
+
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
@@ -12,14 +9,14 @@ class CustomPinCode extends StatefulWidget {
   final TextEditingController otpController;
 
   String otp;
-  final VerifyCodeViewModel verifyCodeViewModel;
+
   final ValueNotifier<bool> pinErrorNotifier;
 
   CustomPinCode({
     super.key,
     required this.otpController,
     required this.otp,
-    required this.verifyCodeViewModel,
+
     required this.pinErrorNotifier,
   });
 
@@ -69,11 +66,6 @@ class _CustomPinCodeState extends State<CustomPinCode> {
 
               onCompleted: (value) {
                 widget.otp = value;
-                widget.verifyCodeViewModel.add(
-                  VerifyEmailCodeEvent(
-                    verifyResetCodeRequest: VerifyResetCodeRequest(widget.otp),
-                  ),
-                );
               },
             ),
 

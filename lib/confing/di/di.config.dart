@@ -30,6 +30,7 @@ import '../../features/auth/domin/usecases/signin.dart' as _i232;
 import '../../features/auth/domin/usecases/signup_usecase.dart' as _i749;
 import '../../features/auth/domin/usecases/verfity_reset_code_usecase.dart'
     as _i586;
+import '../../features/auth/presentation/forget_password_cubit.dart' as _i297;
 import '../../features/auth/presentation/view_model/forgot_password_view_model/forgot_password_view_model.dart'
     as _i624;
 import '../../features/auth/presentation/view_model/reset_password_view_model/reset_password_view_model.dart'
@@ -97,6 +98,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i624.ForgotPasswordViewModel>(
       () => _i624.ForgotPasswordViewModel(gh<_i894.ForgetPasswordUsecase>()),
+    );
+    gh.factory<_i297.ForgetPasswordBloc>(
+      () => _i297.ForgetPasswordBloc(gh<_i894.ForgetPasswordUsecase>()),
     );
     gh.factory<_i116.SigninCubit>(
       () => _i116.SigninCubit(gh<_i232.SigninUsecase>()),

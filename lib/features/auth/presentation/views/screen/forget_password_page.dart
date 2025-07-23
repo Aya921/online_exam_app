@@ -1,9 +1,10 @@
 import 'package:exam_app/confing/di/di.dart';
-import 'package:exam_app/core/constant/pages_constants/forget_password_constats.dart';
+
+
 import 'package:exam_app/core/l10n/translations/app_localizations.dart';
-import 'package:exam_app/features/auth/presentation/forget_password_cubit.dart';
-import 'package:exam_app/features/auth/presentation/forget_password_events.dart';
-import 'package:exam_app/features/auth/presentation/forget_password_state.dart';
+import 'package:exam_app/features/auth/presentation/view_model/forget_password_view_model/forget_password_cubit.dart';
+import 'package:exam_app/features/auth/presentation/view_model/forget_password_view_model/forget_password_events.dart';
+import 'package:exam_app/features/auth/presentation/view_model/forget_password_view_model/forget_password_state.dart';
 import 'package:exam_app/features/auth/presentation/validator/signup_validators.dart';
 import 'package:exam_app/features/auth/presentation/views/widgets/custom_form_field_button.dart';
 import 'package:flutter/material.dart';
@@ -14,11 +15,12 @@ class ForgetPasswordPage extends StatefulWidget {
 
   @override
   State<ForgetPasswordPage> createState() => _ForgetPasswordPageState();
-  ForgetPasswordBloc viewModel = getIt.get<ForgetPasswordBloc>();
+
 }
 
 class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
   final TextEditingController _emailController = TextEditingController();
+    final ForgetPasswordBloc viewModel = getIt.get<ForgetPasswordBloc>();
 
   final formKey = GlobalKey<FormState>();
 
@@ -28,14 +30,12 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context)!;
     return BlocProvider<ForgetPasswordBloc>(
-      create: (BuildContext context) {
-        return widget.viewModel;
-      },
+      create: (BuildContext context)=>viewModel,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text(
-            'Password',
-            style: TextStyle(
+          title:  Text(
+            t.password,
+            style:const  TextStyle(
               fontSize: 20,
               color: Colors.black,
               fontWeight: FontWeight.w500,
@@ -121,7 +121,7 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
                                 },
                                 child: Text(
                                   t.continue_button,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.w500,
                                   ),

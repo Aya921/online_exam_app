@@ -30,17 +30,12 @@ import '../../features/auth/domin/usecases/signin.dart' as _i232;
 import '../../features/auth/domin/usecases/signup_usecase.dart' as _i749;
 import '../../features/auth/domin/usecases/verfity_reset_code_usecase.dart'
     as _i586;
-import '../../features/auth/presentation/forget_password_cubit.dart' as _i297;
-import '../../features/auth/presentation/view_model/forgot_password_view_model/forgot_password_view_model.dart'
-    as _i624;
-import '../../features/auth/presentation/view_model/reset_password_view_model/reset_password_view_model.dart'
-    as _i552;
+import '../../features/auth/presentation/view_model/forget_password_view_model/forget_password_cubit.dart'
+    as _i1043;
 import '../../features/auth/presentation/view_model/signin_cubit/signin_cubit.dart'
     as _i116;
 import '../../features/auth/presentation/view_model/signup_view_model/signup_view_model.dart'
     as _i401;
-import '../../features/auth/presentation/view_model/verify_code_view_model/verify_code_view_model.dart'
-    as _i518;
 import '../provider/app_config_provider.dart' as _i291;
 import 'modules/database_module.dart' as _i664;
 import 'modules/dio_module.dart' as _i983;
@@ -96,26 +91,14 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i929.ResetPasswordUsecase>(
       () => _i929.ResetPasswordUsecase(gh<_i939.AuthRepo>()),
     );
-    gh.factory<_i624.ForgotPasswordViewModel>(
-      () => _i624.ForgotPasswordViewModel(gh<_i894.ForgetPasswordUsecase>()),
-    );
-    gh.factory<_i297.ForgetPasswordBloc>(
-      () => _i297.ForgetPasswordBloc(gh<_i894.ForgetPasswordUsecase>()),
+    gh.factory<_i1043.ForgetPasswordBloc>(
+      () => _i1043.ForgetPasswordBloc(gh<_i894.ForgetPasswordUsecase>()),
     );
     gh.factory<_i116.SigninCubit>(
       () => _i116.SigninCubit(gh<_i232.SigninUsecase>()),
     );
-    gh.factory<_i518.VerifyCodeViewModel>(
-      () => _i518.VerifyCodeViewModel(
-        gh<_i586.VerfityResetCodeUsecase>(),
-        gh<_i894.ForgetPasswordUsecase>(),
-      ),
-    );
     gh.factory<_i401.SignupViewModel>(
       () => _i401.SignupViewModel(gh<_i749.SignupUseCase>()),
-    );
-    gh.factory<_i552.ResetPasswordViewModel>(
-      () => _i552.ResetPasswordViewModel(gh<_i929.ResetPasswordUsecase>()),
     );
     return this;
   }

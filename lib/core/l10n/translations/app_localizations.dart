@@ -553,6 +553,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Please enter your email associated to \n your account'**
   String get pleaseEnteryouEmailAtForgotPassPage;
+
+  /// No description provided for @passwordResetSuccessfully.
+  ///
+  /// In en, this message translates to:
+  /// **'Password reset successfully'**
+  String get passwordResetSuccessfully;
 }
 
 class _AppLocalizationsDelegate

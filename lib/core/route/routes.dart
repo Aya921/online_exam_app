@@ -18,7 +18,7 @@ abstract class Routes {
         return MaterialPageRoute(builder: (context) => LoginScreen());
       case AppRoutes.forgetPassword:
         return MaterialPageRoute(
-          builder: (context) =>  ForgetPasswordPage(),
+          builder: (context) =>  const ForgetPasswordPage(),
         );
 
       default:

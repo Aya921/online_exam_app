@@ -2,6 +2,7 @@
   "@@locale": "ar",
 
   "appName": "امتحانات اونلاين",
+
   "signup": "إنشاء حساب جديد",
 
   "userNameLabel": "اسم المستخدم",
@@ -88,7 +89,7 @@
 "resetPassword": "إعادة تعيين كلمة المرور",
 "passwordruleAtResetPassPage": "يجب ألا تكون كلمة المرور فارغة، ويجب أن تحتوي على 6 أحرف على الأقل، تشمل حرفًا كبيرًا ورقمًا واحدًا على الأقل",
 "forgetPass": "نسيت كلمة المرور",
-"pleaseEnteryouEmailAtForgotPassPage": "من فضلك أدخل البريد الإلكتروني المرتبط بحسابك"
-
+"pleaseEnteryouEmailAtForgotPassPage": "من فضلك أدخل البريد الإلكتروني المرتبط بحسابك",
+"passwordResetSuccessfully": "تم إعادة تعيين كلمة المرور بنجاح"
 
 }

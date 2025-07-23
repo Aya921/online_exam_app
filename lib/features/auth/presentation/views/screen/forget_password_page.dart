@@ -1,22 +1,16 @@
 import 'package:exam_app/confing/di/di.dart';
 
 import 'package:exam_app/core/l10n/translations/app_localizations.dart';
-import 'package:exam_app/features/auth/presentation/validator/forget_password_validators.dart';
-import 'package:exam_app/features/auth/presentation/validator/login_validators.dart';
-import 'package:exam_app/features/auth/presentation/validator/signup_validators.dart';
 import 'package:exam_app/features/auth/presentation/view_model/forget_password_view_model/forget_password_cubit.dart';
-import 'package:exam_app/features/auth/presentation/view_model/forget_password_view_model/forget_password_events.dart';
 import 'package:exam_app/features/auth/presentation/view_model/forget_password_view_model/forget_password_state.dart';
-import 'package:exam_app/features/auth/presentation/views/widgets/custom_form_field_button.dart';
-import 'package:exam_app/features/auth/presentation/views/widgets/custom_pin_code.dart';
 import 'package:exam_app/features/auth/presentation/views/widgets/forget_password_widget.dart';
-import 'package:exam_app/features/auth/presentation/views/widgets/login_footer.dart';
 import 'package:exam_app/features/auth/presentation/views/widgets/otp_vrify_widget.dart';
+import 'package:exam_app/features/auth/presentation/views/widgets/reset_passowrd_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ForgetPasswordPage extends StatefulWidget {
-  ForgetPasswordPage({super.key});
+  const ForgetPasswordPage({super.key});
 
   @override
   State<ForgetPasswordPage> createState() => _ForgetPasswordPageState();
@@ -32,8 +26,19 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
 
   final formKey = GlobalKey<FormState>();
 
+
+
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   final ValueNotifier<bool> pinErrorNotifier = ValueNotifier(false);
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _otpController.dispose();
+    _passwordController.dispose();
+    _confirmPasswordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -83,8 +88,8 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
 
                 if (state.isPasswordReset == true) {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text('password reset successfully'),
+                    SnackBar(
+                      content: Text(t.passwordResetSuccessfully),
                       backgroundColor: Colors.green,
                     ),
                   );
@@ -121,95 +126,3 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
   }
 }
 
-class ResetPasswordWidget extends StatelessWidget {
-  const ResetPasswordWidget({
-    super.key,
-    required TextEditingController passwordController,
-    required TextEditingController confirmPasswordController,
-  }) : _passwordController = passwordController,
-       _confirmPasswordController = confirmPasswordController;
-
-  final TextEditingController _passwordController;
-  final TextEditingController _confirmPasswordController;
-
-  @override
-  Widget build(BuildContext context) {
-    final t = AppLocalizations.of(context)!;
-    return Center(
-      child: Column(
-        children: [
-          const SizedBox(height: 40),
-          const Text(
-            'Email verification',
-            style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.w500,
-              color: Colors.black,
-            ),
-          ),
-
-          const SizedBox(height: 20),
-
-          const Text(
-            'Please enter your code that send to your\n email address ',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.w400,
-              color: Colors.grey,
-            ),
-          ),
-          const SizedBox(height: 32),
-          CustomTextFormField(
-            controller: _passwordController,
-            label: AppLocalizations.of(context)!.newPassword,
-            hint: AppLocalizations.of(context)!.enterYourPassword,
-            emptyFiledErrorMessage: AppLocalizations.of(
-              context,
-            )!.pleaseEnterYourEmail,
-            formFieldValidator: SignupValidators(
-              appLocalization: t,
-            ).passwprdValidatiion,
-          ),
-          const SizedBox(height: 24),
-          CustomTextFormField(
-            controller: _confirmPasswordController,
-            label: AppLocalizations.of(context)!.confirmPassword,
-            hint: AppLocalizations.of(context)!.confirmPassword,
-            emptyFiledErrorMessage: AppLocalizations.of(
-              context,
-            )!.pleaseEnterYourEmail,
-            confirmPasswordFunction: SignupValidators(
-              appLocalization: t,
-            ).confirmPasswordValidatiion,
-            passwordCompareValue: _passwordController,
-          ),
-          const SizedBox(height: 48),
-          Row(
-            children: [
-              Expanded(
-                child: SizedBox(
-                  height: 50,
-                  child: FilledButton(
-                    onPressed: () {
-                      context.read<ForgetPasswordBloc>().add(
-                        ResetPasswordEvent(_passwordController.text),
-                      );
-                    },
-                    child: Text(
-                      t.continue_button,
-                      style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-}

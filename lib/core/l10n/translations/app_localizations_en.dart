@@ -243,4 +243,7 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get pleaseEnteryouEmailAtForgotPassPage =>
       'Please enter your email associated to \n your account';
+
+  @override
+  String get passwordResetSuccessfully => 'Password reset successfully';
 }

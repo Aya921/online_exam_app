@@ -24,9 +24,9 @@ class OtpVrifyWidget extends StatelessWidget {
     return Column(
       children: [
         const SizedBox(height: 40),
-        const Text(
-          'Email verification',
-          style: TextStyle(
+        Text(
+          t.emailVerification,
+          style: const TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.w500,
             color: Colors.black,

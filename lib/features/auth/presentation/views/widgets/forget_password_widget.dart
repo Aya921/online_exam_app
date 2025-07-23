@@ -6,6 +6,7 @@ import 'package:exam_app/features/auth/presentation/views/widgets/custom_form_fi
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+// ignore: must_be_immutable
 class ForgetPasswordWidget extends StatelessWidget {
   ForgetPasswordWidget(BuildContext context,  {
     super.key,
@@ -14,7 +15,7 @@ class ForgetPasswordWidget extends StatelessWidget {
     required this.autovalidateMode,
   });
   final TextEditingController emailController;
-  GlobalKey<FormState> formKey;
+  final GlobalKey<FormState> formKey;
   AutovalidateMode autovalidateMode;
 
   @override
@@ -23,9 +24,9 @@ class ForgetPasswordWidget extends StatelessWidget {
     return Column(
       children: [
         const SizedBox(height: 40),
-        const Text(
-          'Forget password',
-          style: TextStyle(
+         Text(
+          t.forgetPass,
+          style: const TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.w500,
             color: Colors.black,
@@ -86,6 +87,6 @@ class ForgetPasswordWidget extends StatelessWidget {
         ),
       ],
     );
-    ;
+    
   }
 }

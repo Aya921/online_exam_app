@@ -243,4 +243,7 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get pleaseEnteryouEmailAtForgotPassPage =>
       'من فضلك أدخل البريد الإلكتروني المرتبط بحسابك';
+
+  @override
+  String get passwordResetSuccessfully => 'تم إعادة تعيين كلمة المرور بنجاح';
 }

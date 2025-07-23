@@ -1,8 +1,7 @@
 import 'package:exam_app/core/constant/validator_constants/signup_validator_constants.dart';
 import 'package:exam_app/core/l10n/translations/app_localizations.dart';
 import 'package:flutter/widgets.dart';
-
-class SignupValidators {
+ class SignupValidators {
   final AppLocalizations _appLocalizations;
   SignupValidators({required AppLocalizations appLocalization})
     : _appLocalizations = appLocalization;

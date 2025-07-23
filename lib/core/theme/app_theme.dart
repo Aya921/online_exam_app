@@ -37,7 +37,7 @@ abstract class AppThem {
         style: FilledButton.styleFrom(
           backgroundColor: AppColors.blue,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.circular(25),
           ),
         ),
       ),

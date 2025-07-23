@@ -4,19 +4,15 @@ import 'package:exam_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
-// ignore: must_be_immutable
 class CustomPinCode extends StatefulWidget {
   final TextEditingController otpController;
 
-  String otp;
-
   final ValueNotifier<bool> pinErrorNotifier;
-
-  CustomPinCode({
+  final void Function(String)? onCompleted;
+  const CustomPinCode({
     super.key,
     required this.otpController,
-    required this.otp,
-
+    this.onCompleted,
     required this.pinErrorNotifier,
   });
 
@@ -54,7 +50,7 @@ class _CustomPinCodeState extends State<CustomPinCode> {
                 inactiveColor: pinError ? Colors.red : Colors.transparent,
 
                 selectedColor: AppColors.blue,
-                activeColor: AppColors.blue,
+                activeColor: pinError ? Colors.red : AppColors.blue,
               ),
               animationDuration: const Duration(milliseconds: 100),
               enableActiveFill: true,
@@ -64,9 +60,7 @@ class _CustomPinCodeState extends State<CustomPinCode> {
                 }
               },
 
-              onCompleted: (value) {
-                widget.otp = value;
-              },
+              onCompleted: widget.onCompleted,
             ),
 
             if (pinError)

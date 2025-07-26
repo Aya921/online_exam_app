@@ -1,4 +1,3 @@
-
 class SignupRequest {
   String? username;
   String? firstName;
@@ -17,6 +16,4 @@ class SignupRequest {
     this.password,
     this.repassword,
   });
-
-
 }

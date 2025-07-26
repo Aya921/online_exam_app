@@ -7,7 +7,12 @@ class SignupState {
   String? errorMessage;
   bool? isValid;
 
-  SignupState({this.isLoading = false, this.userModel, this.errorMessage,this.isValid=false});
+  SignupState({
+    this.isLoading = false,
+    this.userModel,
+    this.errorMessage,
+    this.isValid = false,
+  });
 
   SignupState copyWith({
     bool? isLoading,
@@ -19,7 +24,7 @@ class SignupState {
       isLoading: isLoading ?? this.isLoading,
       userModel: userModel ?? this.userModel,
       errorMessage: errorMessage ?? this.errorMessage,
-      isValid: isValid?? this.isValid,
+      isValid: isValid ?? this.isValid,
     );
   }
 }

@@ -1,7 +1,6 @@
 import 'package:exam_app/core/constant/validator_constants/signup_validator_constants.dart';
 import 'package:exam_app/core/l10n/translations/app_localizations.dart';
 
-
 class LoginValidators {
   final AppLocalizations _appLocalizations;
   LoginValidators({required AppLocalizations appLocalization})

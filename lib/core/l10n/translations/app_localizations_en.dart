@@ -219,4 +219,31 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get newPassword => 'New password';
+
+  @override
+  String get emailVerification => 'Email verification';
+
+  @override
+  String get enterCodeToSendToEmailAddress =>
+      'Please enter your code that send to your \n email address ';
+
+  @override
+  String get donotReciveCode => 'Didn\'t receive code? ';
+
+  @override
+  String get resetPassword => 'Reset Password';
+
+  @override
+  String get passwordruleAtResetPassPage =>
+      'Password must not be empty and must contain 6 characters with upper case letter and one  number at least';
+
+  @override
+  String get forgetPass => 'Forget Password';
+
+  @override
+  String get pleaseEnteryouEmailAtForgotPassPage =>
+      'Please enter your email associated to \n your account';
+
+  @override
+  String get passwordResetSuccessfully => 'Password reset successfully';
 }

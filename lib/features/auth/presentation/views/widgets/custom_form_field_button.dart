@@ -5,13 +5,14 @@ class CustomTextFormField extends StatelessWidget {
   final TextEditingController controller;
   final String label;
   final String hint;
-  final VoidCallback? onChanged; //--> to make a button is not able to be clickabel until all fields is validate correctly
+  final VoidCallback?
+  onChanged; //--> to make a button is not able to be clickabel until all fields is validate correctly
   final String
   emptyFiledErrorMessage; // when empty field ---->  what message you want to show
   final String? Function(String?)? formFieldValidator;
-  final TextEditingController? passwordCompareValue; 
+  final TextEditingController? passwordCompareValue;
   final String? Function(String?, TextEditingController?)?
-  confirmPasswordFunction; // because the funtion of confirmPassword take 2 arguments but validator take only one so make it optional for both so when use any field just use a formValidtor 
+  confirmPasswordFunction; // because the funtion of confirmPassword take 2 arguments but validator take only one so make it optional for both so when use any field just use a formValidtor
   final bool? obsecureTxt;
 
   const CustomTextFormField({
@@ -19,26 +20,33 @@ class CustomTextFormField extends StatelessWidget {
     required this.controller,
     required this.label,
     required this.hint,
-     this.formFieldValidator,
+    this.formFieldValidator,
     required this.emptyFiledErrorMessage,
     this.passwordCompareValue,
     this.obsecureTxt,
     this.confirmPasswordFunction,
-     this.onChanged,
+    this.onChanged,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      style: TextStyle(
+        color: Theme.of(context).colorScheme.secondary,
+      ),
       controller: controller,
       obscureText: obsecureTxt ?? false,
       onChanged: (_) {
-        if(onChanged!=null){
+        if (onChanged != null) {
           onChanged!();
         }
       },
-
-      decoration: InputDecoration(labelText: label, hintText: hint),
+      
+      decoration: InputDecoration(
+        
+        labelText: label, hintText: hint , labelStyle: TextStyle(
+        color: Theme.of(context).colorScheme.secondary,
+        )),
       validator: (value) {
         final generalError = GeneralValidation.emptyValidation(
           value,
@@ -47,16 +55,12 @@ class CustomTextFormField extends StatelessWidget {
         if (generalError != null) return generalError;
         final String? result;
 
-        if (passwordCompareValue != null&&confirmPasswordFunction!=null) {
-          result = confirmPasswordFunction!(value,passwordCompareValue);
-        }
-        else {
-
-           result = formFieldValidator!(value);
-
+        if (passwordCompareValue != null && confirmPasswordFunction != null) {
+          result = confirmPasswordFunction!(value, passwordCompareValue);
+        } else {
+          result = formFieldValidator!(value);
         }
 
-       
         if (result != null) return result;
 
         return null;

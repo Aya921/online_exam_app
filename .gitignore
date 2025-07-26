@@ -48,3 +48,12 @@ lib/features/auth/api/model/signin_response/signin_response.g.dart
 lib/features/auth/api/model/signin_request/signin_request_dto.g.dart
 lib/features/auth/api/model/user_dto.g.dart
 lib/features/auth/api/client/api_servises.g.dart
+lib/confing/di/di.config.dart
+lib/features/auth/api/client/api_servises.g.dart
+lib/features/auth/api/model/forget_password/forget_password_request/forget_password_request.g.dart
+lib/features/auth/api/model/forget_password/forget_password_respone/forget_password_respone.g.dart
+lib/features/auth/api/model/forget_password/forget_password_request/forget_password_request.g.dart
+lib/features/auth/api/model/verify_reset_code_request/verify_reset_code_request.g.dart
+lib/features/auth/api/model/reset_password_request/reset_password_request.g.dart
+lib/features/auth/api/model/forget_password/forget_password_request/forget_password_request.g.dart
+lib/features/auth/api/client/api_servises.g.dart

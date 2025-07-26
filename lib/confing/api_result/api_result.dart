@@ -26,6 +26,8 @@ class ApiFailedResult<T> extends ApiResult<T> {
       default:
         return ApiFailedResult('Unexpected error: ${error.message}');
     }
-    
   }
+
+
+
 }

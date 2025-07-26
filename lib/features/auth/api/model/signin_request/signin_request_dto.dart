@@ -1,4 +1,3 @@
-
 import 'package:exam_app/features/auth/domin/entities/signin_req.dart';
 
 import 'package:json_annotation/json_annotation.dart';
@@ -7,49 +6,31 @@ import 'dart:convert';
 
 part 'signin_request_dto.g.dart';
 
-SigninRequestDto signupRequesDtotFromJson(String str) => SigninRequestDto.fromJson(json.decode(str));
+SigninRequestDto signupRequesDtotFromJson(String str) =>
+    SigninRequestDto.fromJson(json.decode(str));
 
-String signinRequestDtoToJson(SigninRequestDto data) => json.encode(data.toJson());
+String signinRequestDtoToJson(SigninRequestDto data) =>
+    json.encode(data.toJson());
 
 @JsonSerializable()
 class SigninRequestDto {
-   
-    @JsonKey(name: JsonConstants.email)
-    String? email;
-    @JsonKey(name: JsonConstants.password)
-    String? password;
-  
+  @JsonKey(name: JsonConstants.email)
+  String? email;
+  @JsonKey(name: JsonConstants.password)
+  String? password;
 
-    SigninRequestDto({
-       
-        this.email,
-        this.password,
-       
-    });
+  SigninRequestDto({this.email, this.password});
 
+  factory SigninRequestDto.fromJson(Map<String, dynamic> json) =>
+      _$SigninRequestDtoFromJson(json);
 
-    factory SigninRequestDto.fromJson(Map<String, dynamic> json) => _$SigninRequestDtoFromJson(json);
+  Map<String, dynamic> toJson() => _$SigninRequestDtoToJson(this);
 
-    Map<String, dynamic> toJson() => _$SigninRequestDtoToJson(this);
-
-
-
-    static SigninRequestDto toDto(SignInRequest usermodel) {
+  static SigninRequestDto toDto(SignInRequest usermodel) {
     return SigninRequestDto(
-
-      
       email: usermodel.email,
-    
+
       password: usermodel.password,
-   
-
-
-
-
-
     );
   }
-
-
-
 }

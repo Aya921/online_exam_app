@@ -7,7 +7,7 @@ abstract class Failure {
 
 class ServerFailure extends Failure {
   const ServerFailure(super.message);
-factory ServerFailure.fromDioError(DioException e) {
+  factory ServerFailure.fromDioError(DioException e) {
     switch (e.type) {
       case DioExceptionType.connectionTimeout:
         return const ServerFailure("Connection Timeout");

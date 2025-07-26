@@ -12,14 +12,12 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await configureDependencies();
-  
+
   await getIt<AppConfigProvider>().setSlectedLocale();
   runApp(
     ChangeNotifierProvider.value(
       value: getIt<AppConfigProvider>(),
-      child: DevicePreview(
-        builder: (context) => MyApp(),
-        ),
+      child: DevicePreview(builder: (context) => MyApp()),
     ),
   );
 }
@@ -39,7 +37,8 @@ class MyApp extends StatelessWidget {
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       theme: AppThem.ligtScheme,
-      initialRoute: AppRoutes.signup,
+      initialRoute: AppRoutes.login,
+
       onGenerateRoute: Routes.onGenerate,
     );
   }

@@ -1,28 +1,29 @@
 import 'package:dio/dio.dart';
 import 'package:exam_app/confing/di/di.dart';
 
+
 import 'package:exam_app/core/constant/endPoints_constants/endpoints.dart';
 import 'package:injectable/injectable.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 @module
 abstract class RegisterModule {
-
-@lazySingleton
+  @lazySingleton
   Dio provideDio() {
     final Dio dio = Dio();
     dio.options.baseUrl = Endpoints.apiUrl;
+  
+
     dio.interceptors.add(getIt.get<PrettyDioLogger>());
     return dio;
   }
-@lazySingleton
+
+  @lazySingleton
   PrettyDioLogger prettyDioLoggerProvider() {
     return PrettyDioLogger(
-    
       requestBody: true,
       requestHeader: true,
       responseHeader: true,
-
     );
   }
 }

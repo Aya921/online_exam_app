@@ -4,12 +4,15 @@ import 'package:flutter/material.dart';
 abstract class AppThem {
   static ThemeData getTheme(ColorScheme colorScheme) {
     return ThemeData(
+      appBarTheme: const AppBarTheme(titleTextStyle: TextStyle(fontSize: 30,color: AppColors.black)),
       colorScheme: colorScheme,
       inputDecorationTheme: InputDecorationTheme(
         floatingLabelBehavior: FloatingLabelBehavior.always,
-        hintStyle: const TextStyle(fontSize: 12,color: AppColors.lightGray),
-        
-        labelStyle: const TextStyle(color: AppColors.gray),
+        hintStyle: const TextStyle(fontSize: 12, color: AppColors.lightGray),
+
+        labelStyle: const TextTheme(
+          bodyMedium: TextStyle(color: AppColors.gray, fontSize: 14),
+        ).bodyMedium,
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(4),
           borderSide: const BorderSide(color: AppColors.gray),
@@ -35,7 +38,7 @@ abstract class AppThem {
         style: FilledButton.styleFrom(
           backgroundColor: AppColors.blue,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.circular(25),
           ),
         ),
       ),

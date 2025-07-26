@@ -18,9 +18,7 @@ migrate_working_dir/
 *.iws
 .idea/
 
-# The .vscode folder contains launch configuration and tasks you configure in
-# VS Code which you may wish to be included in version control, so this line
-# is commented out by default.
+# VSCode (تعليق افتراضي)
 #.vscode/
 
 # Flutter/Dart/Pub related
@@ -31,7 +29,7 @@ migrate_working_dir/
 .flutter-plugins-dependencies
 .pub-cache/
 .pub/
-/build/
+build/
 
 # Symbolication related
 app.*.symbols
@@ -39,21 +37,35 @@ app.*.symbols
 # Obfuscation related
 app.*.map.json
 
-# Android Studio will place build artifacts here
+# Android Studio build folders
 /android/app/debug
 /android/app/profile
 /android/app/release
-lib/features/auth/api/model/signup_request/signup_request_dto.g.dart
-lib/features/auth/api/model/signin_response/signin_response.g.dart
-lib/features/auth/api/model/signin_request/signin_request_dto.g.dart
-lib/features/auth/api/model/user_dto.g.dart
-lib/features/auth/api/client/api_servises.g.dart
-lib/confing/di/di.config.dart
-lib/features/auth/api/client/api_servises.g.dart
-lib/features/auth/api/model/forget_password/forget_password_request/forget_password_request.g.dart
-lib/features/auth/api/model/forget_password/forget_password_respone/forget_password_respone.g.dart
-lib/features/auth/api/model/forget_password/forget_password_request/forget_password_request.g.dart
-lib/features/auth/api/model/verify_reset_code_request/verify_reset_code_request.g.dart
-lib/features/auth/api/model/reset_password_request/reset_password_request.g.dart
-lib/features/auth/api/model/forget_password/forget_password_request/forget_password_request.g.dart
-lib/features/auth/api/client/api_servises.g.dart
+
+# ==== Flutter auto-generated files ====
+# Linux
+linux/flutter/generated_plugin_registrant.*
+linux/flutter/generated_plugins.cmake
+
+# macOS
+macos/Flutter/GeneratedPluginRegistrant.swift
+
+# Windows
+windows/flutter/generated_plugin_registrant.*
+windows/flutter/generated_plugins.cmake
+
+# Android
+android/app/generated/
+android/app/.cxx/
+
+# iOS
+ios/Flutter/Generated.xcconfig
+ios/Flutter/flutter_export_environment.sh
+ios/Flutter/GeneratedPluginRegistrant.*
+
+# Dart build/generated files
+*.g.dart
+*.freezed.dart
+*.config.dart
+*.mocks.dart
+*.gen.dart

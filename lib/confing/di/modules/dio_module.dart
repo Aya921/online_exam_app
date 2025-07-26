@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:exam_app/confing/di/di.dart';
 
+
 import 'package:exam_app/core/constant/endPoints_constants/endpoints.dart';
 import 'package:injectable/injectable.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
@@ -11,6 +12,8 @@ abstract class RegisterModule {
   Dio provideDio() {
     final Dio dio = Dio();
     dio.options.baseUrl = Endpoints.apiUrl;
+  
+
     dio.interceptors.add(getIt.get<PrettyDioLogger>());
     return dio;
   }
@@ -23,7 +26,4 @@ abstract class RegisterModule {
       responseHeader: true,
     );
   }
-
-  // @lazySingleton
-  // ApiServises provideApiServises(Dio dio) => ApiServises(dio);
 }

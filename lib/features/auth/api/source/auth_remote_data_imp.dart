@@ -80,17 +80,17 @@ class AuthRemoteDataSourceImp implements AuthRemoteDataSource {
     } 
     
     on DioException catch (e) {
-      // final data = e.response?.data;
-      // String errorMessage = e.toString();
+      final data = e.response?.data;
+      String errorMessage = e.toString();
 
-      // if (data is Map<String, dynamic> &&
-      //     data.containsKey(Endpoints.messageResponseKey)) {
-      //   errorMessage = data[JsonConstants.message].toString();
-      // }
+      if (data is Map<String, dynamic> &&
+          data.containsKey(Endpoints.messageResponseKey)) {
+        errorMessage = data[JsonConstants.message].toString();
+      }
 
-      // return ApiFailedResult(errorMessage);
+      return ApiFailedResult(errorMessage);
 
-      return ApiFailedResult.fomDioException(e);
+     
     } catch (e) {
       return ApiFailedResult(e.toString());
     }

@@ -78,7 +78,11 @@ class _SignUpPageState extends State<SignUpPage> {
         
         
          AppBar(
-          title: Text(t.signup, style: const TextStyle(fontSize: 30)),
+          title: Text(t.signup,),
+          leading: IconButton(
+            onPressed: () => Navigator.pop(context),
+            icon: const Icon(Icons.arrow_back_ios_new, color: Colors.black,size: 20,),
+          ),
         ),
         body: Padding(
           padding: const EdgeInsets.all(16),

@@ -49,11 +49,8 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
         appBar: AppBar(
           title: Text(
             t.password,
-            style: const TextStyle(
-              fontSize: 20,
-              color: Colors.black,
-              fontWeight: FontWeight.w500,
-            ),
+            
+           
           ),
           leading: IconButton(
             onPressed: () => Navigator.pop(context),
@@ -100,7 +97,7 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
                   return ForgetPasswordWidget(
                     context,
                     emailController: _emailController,
-                    formKey: formKey,
+                   
                     autovalidateMode: autovalidateMode,
                   );
                 } else if (state.isOtpCorrect != true) {
@@ -111,6 +108,7 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
                   );
                 } else if (state.isOtpCorrect == true) {
                   return ResetPasswordWidget(
+                   
                     passwordController: _passwordController,
                     confirmPasswordController: _confirmPasswordController,
                   );

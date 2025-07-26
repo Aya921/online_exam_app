@@ -14,13 +14,5 @@ class ForgetPasswordUsecase {
     return await _authRepo.forgetPassword(email);
   }
 
-  Future<ApiResult<void>> resetPassword(
-    ResetPasswordRequest resetPassword,
-  ) async {
-    return await _authRepo.resetPassword(resetPassword);
-  }
-
-  Future<ApiResult<void>> verifyResetCode(VerifyResetCodeRequest code) async {
-    return await _authRepo.verifyResetCode(code);
-  }
+  
 }

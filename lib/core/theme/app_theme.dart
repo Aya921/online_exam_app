@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 abstract class AppThem {
   static ThemeData getTheme(ColorScheme colorScheme) {
     return ThemeData(
+      appBarTheme: const AppBarTheme(titleTextStyle: TextStyle(fontSize: 30,color: AppColors.black)),
       colorScheme: colorScheme,
       inputDecorationTheme: InputDecorationTheme(
         floatingLabelBehavior: FloatingLabelBehavior.always,

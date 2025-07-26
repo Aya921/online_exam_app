@@ -1,3 +1,4 @@
+import 'package:exam_app/confing/di/di.dart';
 import 'package:exam_app/core/l10n/translations/app_localizations.dart';
 import 'package:exam_app/features/auth/presentation/view_model/forget_password_view_model/forget_password_cubit.dart';
 import 'package:exam_app/features/auth/presentation/view_model/forget_password_view_model/forget_password_events.dart';
@@ -6,8 +7,9 @@ import 'package:exam_app/features/auth/presentation/views/widgets/login_footer.d
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+
 class OtpVrifyWidget extends StatelessWidget {
-  const OtpVrifyWidget({
+   OtpVrifyWidget({
     required this.email,
     super.key,
     required TextEditingController otpController,
@@ -17,6 +19,7 @@ class OtpVrifyWidget extends StatelessWidget {
 
   final TextEditingController _otpController;
   final ValueNotifier<bool> pinErrorNotifier;
+   final ForgetPasswordBloc forgetPasswordBloc=getIt.get<ForgetPasswordBloc>();
 
   @override
   Widget build(BuildContext context) {

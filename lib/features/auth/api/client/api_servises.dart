@@ -17,7 +17,7 @@ import 'package:retrofit/retrofit.dart';
 
 part 'api_servises.g.dart';
 
-@RestApi()
+@RestApi(baseUrl: Endpoints.apiUrl + Endpoints.auth)
 @injectable
 abstract class ApiServises {
   @factoryMethod
@@ -35,5 +35,7 @@ abstract class ApiServises {
   @POST(Endpoints.verifyResetCodeEndPoint)
   Future<void> verifyResetCode(@Body() VerifyResetCodeRequestDto code);
   @PUT(Endpoints.resetPasswordEndPoint)
-  Future<ForgetPasswordRespone> resetPassword(@Body() ResetPasswordDto resetPassword);
+  Future<ForgetPasswordRespone> resetPassword(
+    @Body() ResetPasswordDto resetPassword,
+  );
 }

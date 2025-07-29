@@ -15,4 +15,12 @@ abstract class JsonConstants {
   static const String repassword = "rePassword";
   static const String resetCode = "resetCode";
   static const String newPassword = "newPassword";
+  static const String metadata = "metadata";
+  static const String subjects = "subjects";
+  static const String currentPage = "currentPage";
+  static const String numberOfPages = "numberOfPages";
+  static const String limit = "limit";
+  static const String name = "name";
+  static const String icon = "icon";
+  static const String exams = "exams";
 }

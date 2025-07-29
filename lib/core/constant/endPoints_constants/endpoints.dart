@@ -1,5 +1,8 @@
 abstract class Endpoints {
-  static const String apiUrl = 'https://exam.elevateegy.com/api/v1/auth/';
+  static const String apiUrl = 'https://exam.elevateegy.com/api/v1/';
+  static const String auth = 'auth/';
+  static const String exams = 'exams/';
+
   static const String signupEndPoint = 'signup';
   static const String messageResponseKey = 'message';
 
@@ -11,4 +14,6 @@ abstract class Endpoints {
   static const String resetPasswordEndPoint = 'resetPassword';
 
   static const String quesions = 'questions';
+  static const String subjects = 'subjects';
+  static const String subject = 'subject';
 }

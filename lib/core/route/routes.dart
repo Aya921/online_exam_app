@@ -3,6 +3,7 @@ import 'package:exam_app/features/auth/presentation/views/screen/forget_password
 import 'package:exam_app/features/auth/presentation/views/screen/login_page.dart';
 
 import 'package:exam_app/features/auth/presentation/views/screen/signup_page.dart';
+import 'package:exam_app/features/exam/presentation/view/pages/subject_page.dart';
 
 import 'package:flutter/material.dart';
 
@@ -18,8 +19,10 @@ abstract class Routes {
         return MaterialPageRoute(builder: (context) => LoginScreen());
       case AppRoutes.forgetPassword:
         return MaterialPageRoute(
-          builder: (context) =>  const ForgetPasswordPage(),
+          builder: (context) => const ForgetPasswordPage(),
         );
+      case AppRoutes.subjects:
+        return MaterialPageRoute(builder: (context) => const SubjectPage());
 
       default:
         return MaterialPageRoute(

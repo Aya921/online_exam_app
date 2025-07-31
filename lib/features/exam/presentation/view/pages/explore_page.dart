@@ -16,6 +16,7 @@ class ExplorePage extends StatelessWidget {
       create: (context) => viewModel,
       child: Scaffold(
         appBar: AppBar(
+          scrolledUnderElevation: 0,
           title: Text(
             'Survey',
             style: Theme.of(

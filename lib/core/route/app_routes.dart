@@ -6,4 +6,6 @@ abstract class AppRoutes {
   static const String resetCode = 'resetCode';
   static const String resetPassword = 'resetPassword';
   static const String main = 'main';
+  static const String exams = 'exams';
+  static const String startExam = 'startExam';
 }

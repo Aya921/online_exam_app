@@ -4,5 +4,5 @@ import 'package:exam_app/features/exam/domin/entity/subject_model.dart';
 
 abstract class ExamRepository {
   Future<ApiResult<List<SubjectModel>>> getAllSubjects();
-  Future<ApiResult<List<ExamModel>>> getExamONSubjectById(String subjectId);
+  Future<ApiResult<List<ExamModel>>> getExamsOnSubjectById(String subjectId);
 }

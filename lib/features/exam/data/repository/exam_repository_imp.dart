@@ -17,7 +17,7 @@ class ExamRepositoryImp implements ExamRepository {
   }
 
   @override
-  Future<ApiResult<List<ExamModel>>> getExamONSubjectById(String subjectId) async {
+  Future<ApiResult<List<ExamModel>>> getExamsOnSubjectById(String subjectId) async {
     return await _examDataSource.getExamONSubjectById(subjectId);
   }
 }

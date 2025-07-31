@@ -43,6 +43,10 @@ import '../../features/exam/data/source/exam_data_source.dart' as _i660;
 import '../../features/exam/domin/repository/exam_repository.dart' as _i1067;
 import '../../features/exam/domin/usecase/get_all_subjects_usecase.dart'
     as _i1034;
+import '../../features/exam/domin/usecase/get_exams_on_subject_usecase.dart'
+    as _i330;
+import '../../features/exam/presentation/view_models/exams_view_model/cubit/exams_cubit.dart'
+    as _i249;
 import '../../features/exam/presentation/view_models/subject_view_model/cubit/explore_cubit.dart'
     as _i621;
 import '../provider/app_config_provider.dart' as _i291;
@@ -89,6 +93,12 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i1034.GetAllSubjectsUsecase>(
       () => _i1034.GetAllSubjectsUsecase(gh<_i1067.ExamRepository>()),
+    );
+    gh.factory<_i330.GetExamsOnSubjectUsecase>(
+      () => _i330.GetExamsOnSubjectUsecase(gh<_i1067.ExamRepository>()),
+    );
+    gh.factory<_i249.ExamsCubit>(
+      () => _i249.ExamsCubit(gh<_i330.GetExamsOnSubjectUsecase>()),
     );
     gh.factory<_i984.AuthRemoteDataSource>(
       () => _i729.AuthRemoteDataSourceImp(

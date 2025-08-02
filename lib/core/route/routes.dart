@@ -3,6 +3,9 @@ import 'package:exam_app/features/auth/presentation/views/screen/forget_password
 import 'package:exam_app/features/auth/presentation/views/screen/login_page.dart';
 
 import 'package:exam_app/features/auth/presentation/views/screen/signup_page.dart';
+import 'package:exam_app/features/exam/presentation/view/pages/question_page.dart';
+import 'package:exam_app/features/exam/presentation/view/pages/score_page.dart';
+import 'package:exam_app/features/exam/presentation/view_models/qustion_view_model/quesion_view_model.dart';
 
 import 'package:flutter/material.dart';
 
@@ -18,8 +21,13 @@ abstract class Routes {
         return MaterialPageRoute(builder: (context) => LoginScreen());
       case AppRoutes.forgetPassword:
         return MaterialPageRoute(
-          builder: (context) =>  const ForgetPasswordPage(),
+          builder: (context) => const ForgetPasswordPage(),
         );
+      case AppRoutes.question:
+        return MaterialPageRoute(builder: (context) =>const  QuesionsPage());
+      case AppRoutes.score:
+        final res = settings.arguments as QustionViewModel;
+        return MaterialPageRoute(builder: (context) => ScorePage(qustionViewModel: res,));
 
       default:
         return MaterialPageRoute(

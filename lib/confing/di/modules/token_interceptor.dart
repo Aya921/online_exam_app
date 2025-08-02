@@ -1,0 +1,22 @@
+import 'package:dio/dio.dart';
+import 'package:exam_app/confing/di/di.dart';
+import 'package:exam_app/core/constant/constant.dart';
+import 'package:exam_app/core/services/token_service.dart';
+import 'package:injectable/injectable.dart';
+
+@module
+class TokenInterceptor extends Interceptor {
+  final TokenService tokenService = getIt.get<TokenService>();
+  @override
+  void onRequest(
+    RequestOptions options,
+    RequestInterceptorHandler handler,
+  ) async {
+    final String? token = await tokenService.getToken();
+    if (token != null) {
+      options.headers[Constant.token] = token;
+      
+    }
+    return super.onRequest(options, handler);
+  }
+}

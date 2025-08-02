@@ -1,3 +1,4 @@
+import 'package:exam_app/core/l10n/translations/app_localizations.dart';
 import 'package:exam_app/features/exam/presentation/view/widgets/exam_card_list_view.dart';
 import 'package:exam_app/features/exam/presentation/view_models/exams_view_model/cubit/exams_cubit.dart';
 import 'package:flutter/material.dart';
@@ -26,6 +27,7 @@ class _ExamCardListViewState extends State<CubitExamCardListView> {
 
   @override
   Widget build(BuildContext context) {
+     final t = AppLocalizations.of(context)!;
     return BlocBuilder<ExamsCubit, ExamsState>(
       builder: (context, state) {
         if (state is ExamsLoading) {
@@ -33,7 +35,7 @@ class _ExamCardListViewState extends State<CubitExamCardListView> {
         }
         if (state is ExamsSuccess) {
           if (state.exams.isEmpty) {
-            return const Center(child: Text('No exams available'));
+            return  Center(child: Text(t.noExamsAvailable));
           }
           return Column(
             children: [

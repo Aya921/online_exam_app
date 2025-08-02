@@ -1,3 +1,4 @@
+import 'package:exam_app/core/l10n/translations/app_localizations.dart';
 import 'package:exam_app/core/theme/app_colors.dart';
 import 'package:exam_app/features/exam/domin/entity/exam_model.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +9,7 @@ class ExamCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final t = AppLocalizations.of(context);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 5),
       child: Container(
@@ -54,7 +56,7 @@ class ExamCard extends StatelessWidget {
                                 ),
                           ),
                           Text(
-                            '${exam.duration} Minutes',
+                            '${exam.duration} ${t!.minutes}',
                             style: Theme.of(context).textTheme.bodyLarge
                                 ?.copyWith(color: AppColors.blue),
                           ),
@@ -62,7 +64,7 @@ class ExamCard extends StatelessWidget {
                       ),
 
                       Text(
-                        '${exam.numberOfQuestions} Questions',
+                        '${exam.numberOfQuestions} ${t.questions}',
                         style: Theme.of(
                           context,
                         ).textTheme.bodyMedium?.copyWith(color: AppColors.gray),

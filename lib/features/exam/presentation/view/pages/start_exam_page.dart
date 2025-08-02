@@ -1,3 +1,4 @@
+import 'package:exam_app/core/l10n/translations/app_localizations.dart';
 import 'package:exam_app/core/theme/app_colors.dart';
 import 'package:exam_app/features/exam/domin/entity/exam_model.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +14,7 @@ class StartExamPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final t = AppLocalizations.of(context);
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -43,7 +45,7 @@ class StartExamPage extends StatelessWidget {
                 ),
                 const Spacer(),
                 Text(
-                  '${exam.duration!} Minutes',
+                  '${exam.duration!} ${t!.minutes}',
                   style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                     fontWeight: FontWeight.w500,
                     color: AppColors.blue,
@@ -68,7 +70,7 @@ class StartExamPage extends StatelessWidget {
               const SizedBox(width: 8),
 
               Text(
-                '${exam.numberOfQuestions} Questions',
+                '${exam.numberOfQuestions} ${t!.questions}',
                 style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                   fontWeight: FontWeight.w500,
                   color: AppColors.black,

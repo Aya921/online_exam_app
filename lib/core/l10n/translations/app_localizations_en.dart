@@ -246,4 +246,19 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get passwordResetSuccessfully => 'Password reset successfully';
+
+  @override
+  String get survey => 'Survey';
+
+  @override
+  String get browseBySubject => 'Browse by subject';
+
+  @override
+  String get minutes => 'Minutes';
+
+  @override
+  String get questions => 'Questions';
+
+  @override
+  String get noExamsAvailable => 'No exams available';
 }

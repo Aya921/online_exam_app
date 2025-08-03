@@ -1,6 +1,6 @@
 // ignore: must_be_immutable
 import 'package:exam_app/core/theme/app_colors.dart';
-import 'package:exam_app/features/exam/domin/entity/answer_model.dart';
+import 'package:exam_app/features/exam/domin/entity/questions_answers_model.dart';
 import 'package:exam_app/features/exam/presentation/view_models/qustion_view_model/quesion_events.dart';
 import 'package:exam_app/features/exam/presentation/view_models/qustion_view_model/quesion_view_model.dart';
 
@@ -8,10 +8,10 @@ import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class RadioTile extends StatefulWidget {
-  List<AnswerModel> answrers;
+  List<QuestionsAnswersModel> answrers;
   int qNumber;
   QustionViewModel qustionViewModel;
- List<List<String?>?> studentAnswer;
+  List<List<String?>?> studentAnswer;
   String? group;
 
   RadioTile({
@@ -77,4 +77,3 @@ class _RadioTileState extends State<RadioTile> {
     );
   }
 }
-

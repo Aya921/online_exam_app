@@ -101,7 +101,7 @@ class _QuesionsPageState extends State<QuesionsPage> {
               studentAnswers = List.filled(numberOfQ, []);
 
               for (int i = 0; i < studentAnswers.length; i++) {
-                studentAnswers[i] = List.filled(answrers!.length, '');
+                studentAnswers[i] = List.filled(answrers!.length, 'AA');
               }
             }
 
@@ -120,7 +120,7 @@ class _QuesionsPageState extends State<QuesionsPage> {
                         const SizedBox(width: 10),
 
                         CustumTimer(
-                          duration: duration!,
+                          duration: 1,
                           qustionViewModel: qustionViewModel,
                         ),
                       ],
@@ -217,16 +217,8 @@ class _QuesionsPageState extends State<QuesionsPage> {
                                   qNumber++;
                                 });
                               } else {
-                                qustionViewModel.add(
-                                  ClalculateScroeEvent(
-                                    questionsModel: questioinsList,
-                                    studentanswers: studentAnswers,
-                                  ),
-                                );
-                                Navigator.of(context).pushReplacementNamed(
-                                  AppRoutes.score,
-                                  arguments: qustionViewModel,
-                                );
+                               
+                              
                               }
                             },
                             

@@ -1,13 +1,13 @@
 // ignore: must_be_immutable
 import 'package:exam_app/core/theme/app_colors.dart';
-import 'package:exam_app/features/exam/domin/entity/answer_model.dart';
+import 'package:exam_app/features/exam/domin/entity/questions_answers_model.dart';
 import 'package:exam_app/features/exam/presentation/view_models/qustion_view_model/quesion_view_model.dart';
 
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class CheckBoxTile extends StatefulWidget {
-  List<AnswerModel> answrers;
+  List<QuestionsAnswersModel> answrers;
   int qNumber;
   QustionViewModel qustionViewModel;
   List<List<String?>?> studentAnswerCheckBox;
@@ -49,9 +49,9 @@ class _CheckBoxTileState extends State<CheckBoxTile> {
 
               tileColor: AppColors.lightBlue,
               selectedTileColor: AppColors.blue[100],
-              fillColor:const  WidgetStatePropertyAll(AppColors.blue),
-              selected:widget.studentAnswerCheckBox[widget.qNumber]![index]!
-                  .contains(key!) ,
+              fillColor: const WidgetStatePropertyAll(AppColors.blue),
+              selected: widget.studentAnswerCheckBox[widget.qNumber]![index]!
+                  .contains(key!),
 
               value: widget.studentAnswerCheckBox[widget.qNumber]![index]!
                   .contains(key),
@@ -74,4 +74,3 @@ class _CheckBoxTileState extends State<CheckBoxTile> {
     );
   }
 }
-

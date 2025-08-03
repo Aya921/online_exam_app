@@ -10,7 +10,7 @@ Future<dynamic> showMyDialog(
   BuildContext context,
   QustionViewModel qustionViewModel,
   List<QuestionsModel> questionList,
-  List<List<String?>?> studentanswers
+  List<List<String?>?> studentanswers,
 ) {
   final t = AppLocalizations.of(context)!;
   return showDialog(
@@ -22,10 +22,10 @@ Future<dynamic> showMyDialog(
         padding: const EdgeInsets.all(20.0),
         child: Column(
           children: [
-             Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(t.timeOut, style:const  TextStyle(color: AppColors.red)),
+                Text(t.timeOut, style: const TextStyle(color: AppColors.red)),
               ],
             ),
             const SizedBox(height: 50),
@@ -33,16 +33,6 @@ Future<dynamic> showMyDialog(
               onTap: () {
                 qustionViewModel.state.copyWith(isTimeEnd: false);
 
-                qustionViewModel.add(
-                  ClalculateScroeEvent(
-                    questionsModel: questionList,
-                    studentanswers: studentanswers,
-                  ),
-                );
-                Navigator.of(context).pushReplacementNamed(
-                  AppRoutes.score,
-                  arguments: qustionViewModel,
-                );
               },
               child: Container(
                 padding: const EdgeInsets.symmetric(
@@ -54,7 +44,7 @@ Future<dynamic> showMyDialog(
                   borderRadius: BorderRadius.circular(20),
                   border: Border.all(color: AppColors.blue, width: 1.5),
                 ),
-                child:  Text(
+                child: Text(
                   t.viewScore,
                   style: const TextStyle(
                     color: AppColors.white,

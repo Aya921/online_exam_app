@@ -6,7 +6,6 @@ class ExamModel {
   int? numberOfQuestions;
   bool? active;
   //DateTime? createdAt;
-
   ExamModel({
     this.id,
     this.title,

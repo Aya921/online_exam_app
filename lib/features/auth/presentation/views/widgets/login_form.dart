@@ -59,6 +59,7 @@ class _LoginFormState extends State<LoginForm> {
             ),
           );
           isLoading = false;
+          Navigator.pushReplacementNamed(context, AppRoutes.main);
         }
         if (state is SigninFailure) {
           ScaffoldMessenger.of(context).showSnackBar(

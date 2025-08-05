@@ -246,4 +246,19 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get passwordResetSuccessfully => 'تم إعادة تعيين كلمة المرور بنجاح';
+
+  @override
+  String get survey => 'اختبار';
+
+  @override
+  String get browseBySubject => 'تصفح حسب الموضوع';
+
+  @override
+  String get minutes => 'دقائق';
+
+  @override
+  String get questions => 'سؤال';
+
+  @override
+  String get noExamsAvailable => 'لا توجد امتحانات متاحة';
 }

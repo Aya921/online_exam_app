@@ -24,3 +24,4 @@ class QuesionsResponse {
 
     Map<String, dynamic> toJson() => _$QuesionsResponseToJson(this);
 }
+

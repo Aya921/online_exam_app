@@ -559,6 +559,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Password reset successfully'**
   String get passwordResetSuccessfully;
+
+  /// No description provided for @survey.
+  ///
+  /// In en, this message translates to:
+  /// **'Survey'**
+  String get survey;
+
+  /// No description provided for @browseBySubject.
+  ///
+  /// In en, this message translates to:
+  /// **'Browse by subject'**
+  String get browseBySubject;
+
+  /// No description provided for @minutes.
+  ///
+  /// In en, this message translates to:
+  /// **'Minutes'**
+  String get minutes;
+
+  /// No description provided for @questions.
+  ///
+  /// In en, this message translates to:
+  /// **'Questions'**
+  String get questions;
+
+  /// No description provided for @noExamsAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'No exams available'**
+  String get noExamsAvailable;
 }
 
 class _AppLocalizationsDelegate

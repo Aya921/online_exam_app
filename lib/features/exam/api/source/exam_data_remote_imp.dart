@@ -8,8 +8,8 @@ import 'package:exam_app/features/exam/domin/entity/subject_model.dart';
 
 import 'package:injectable/injectable.dart';
 
-@Injectable(as: ExamDataSource)
-class ExamDataRemoteImp implements ExamDataSource {
+@Injectable(as: ExamRemoteDataSource )
+class ExamDataRemoteImp implements ExamRemoteDataSource  {
   final ExamApiService _ExamApiService;
 
   ExamDataRemoteImp(this._ExamApiService);

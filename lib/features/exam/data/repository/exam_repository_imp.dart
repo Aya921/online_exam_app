@@ -8,7 +8,7 @@ import 'package:injectable/injectable.dart';
 
 @Injectable(as: ExamRepository)
 class ExamRepositoryImp implements ExamRepository {
-  final ExamDataSource _examDataSource;
+  final ExamRemoteDataSource  _examDataSource;
   ExamRepositoryImp(this._examDataSource);
 
   @override

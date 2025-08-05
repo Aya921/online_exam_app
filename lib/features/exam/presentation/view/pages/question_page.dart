@@ -15,7 +15,8 @@ import 'package:exam_app/features/exam/presentation/view_models/qustion_view_mod
 import 'package:exam_app/features/exam/presentation/view_models/qustion_view_model/quesion_view_model.dart';
 
 class QuesionsPage extends StatefulWidget {
-  const QuesionsPage({super.key});
+  const QuesionsPage({super.key, required this.emailId});
+  final String emailId;
 
   @override
   State<QuesionsPage> createState() => _QuesionsPageState();
@@ -46,10 +47,9 @@ class _QuesionsPageState extends State<QuesionsPage> {
     return BlocProvider(
       create: (context) =>
           qustionViewModel
-            ..add(GetQuestionsEvent(emailId: "6700708d30a3c3c1944a9c60")),
+            ..add(GetQuestionsEvent(emailId: widget.emailId)),
 
       child: BlocBuilder<QustionViewModel, QuestionState>(
-     
 
         builder: (context, state) {
           if (state.isLoading) {

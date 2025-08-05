@@ -1,12 +1,13 @@
 import 'package:dio/dio.dart';
 import 'package:exam_app/confing/api_result/api_result.dart';
+import 'package:exam_app/core/constant/endPoints_constants/endpoints.dart';
+import 'package:exam_app/core/constant/json_serializable_constants/json_constants.dart';
 import 'package:exam_app/features/exam/api/client/api_service.dart';
 import 'package:exam_app/features/exam/data/source/exam_data_source.dart';
 import 'package:exam_app/features/exam/domin/entity/exam_model.dart';
 import 'package:exam_app/features/exam/domin/entity/subject_model.dart';
 import 'package:exam_app/features/exam/domin/entity/question_model.dart';
-import 'package:exam_app/utils/constants/json_constants.dart';
-import 'package:exam_app/utils/constants/endpoints.dart';
+
 
 import 'package:injectable/injectable.dart';
 

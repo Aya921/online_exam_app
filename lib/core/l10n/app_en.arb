@@ -82,7 +82,7 @@
   "browseBySubject" : "Browse by subject",
   "minutes" : "Minutes",
   "questions" : "Questions",
-  "noExamsAvailable" : "No exams available"
+  "noExamsAvailable" : "No exams available",
 
   "exam":"Exam",
   "viewScore":"view score",

@@ -46,7 +46,7 @@ abstract class Routes {
 
         );
       case AppRoutes.question:
-        return MaterialPageRoute(builder: (context) => const QuesionsPage());
+        return MaterialPageRoute(builder: (context) =>  QuesionsPage(emailId:settings.arguments as String,));
    
 
       default:

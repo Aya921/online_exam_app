@@ -589,6 +589,90 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No exams available'**
   String get noExamsAvailable;
+
+  /// No description provided for @exam.
+  ///
+  /// In en, this message translates to:
+  /// **'Exam'**
+  String get exam;
+
+  /// No description provided for @viewScore.
+  ///
+  /// In en, this message translates to:
+  /// **'view score'**
+  String get viewScore;
+
+  /// No description provided for @timeOut.
+  ///
+  /// In en, this message translates to:
+  /// **'time out !!'**
+  String get timeOut;
+
+  /// No description provided for @unExpectedError.
+  ///
+  /// In en, this message translates to:
+  /// **'unexpected error'**
+  String get unExpectedError;
+
+  /// No description provided for @finish.
+  ///
+  /// In en, this message translates to:
+  /// **'finish'**
+  String get finish;
+
+  /// No description provided for @next.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get next;
+
+  /// No description provided for @back.
+  ///
+  /// In en, this message translates to:
+  /// **'Back'**
+  String get back;
+
+  /// No description provided for @startAgain.
+  ///
+  /// In en, this message translates to:
+  /// **'StartAgain'**
+  String get startAgain;
+
+  /// No description provided for @showResults.
+  ///
+  /// In en, this message translates to:
+  /// **'ShowResults'**
+  String get showResults;
+
+  /// No description provided for @incorrect.
+  ///
+  /// In en, this message translates to:
+  /// **'Incorrect'**
+  String get incorrect;
+
+  /// No description provided for @correct.
+  ///
+  /// In en, this message translates to:
+  /// **'correct'**
+  String get correct;
+
+  /// No description provided for @examscore.
+  ///
+  /// In en, this message translates to:
+  /// **'Exam Score'**
+  String get examscore;
+
+  /// No description provided for @question.
+  ///
+  /// In en, this message translates to:
+  /// **'Question'**
+  String get question;
+
+  /// No description provided for @ofWord.
+  ///
+  /// In en, this message translates to:
+  /// **'of'**
+  String get ofWord;
 }
 
 class _AppLocalizationsDelegate

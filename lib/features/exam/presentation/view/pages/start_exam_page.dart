@@ -1,4 +1,5 @@
 import 'package:exam_app/core/l10n/translations/app_localizations.dart';
+import 'package:exam_app/core/route/app_routes.dart';
 import 'package:exam_app/core/theme/app_colors.dart';
 import 'package:exam_app/features/exam/domin/entity/exam_model.dart';
 import 'package:flutter/material.dart';
@@ -115,7 +116,11 @@ class StartExamPage extends StatelessWidget {
                 minimumSize: const Size(double.infinity, 48),
               ),
               onPressed: () {
-                // Navigate to the exam questions page
+                Navigator.pushNamed(
+                  context,
+                  AppRoutes.question,
+                  arguments: exam.id,
+                );
               },
               child: Text(
                 'Start',

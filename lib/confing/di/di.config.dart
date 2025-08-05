@@ -45,8 +45,11 @@ import '../../features/exam/domin/usecase/get_all_subjects_usecase.dart'
     as _i1034;
 import '../../features/exam/domin/usecase/get_exams_on_subject_usecase.dart'
     as _i330;
+import '../../features/exam/domin/usecase/get_questions_usecase.dart' as _i79;
 import '../../features/exam/presentation/view_models/exams_view_model/cubit/exams_cubit.dart'
     as _i249;
+import '../../features/exam/presentation/view_models/qustion_view_model/quesion_view_model.dart'
+    as _i620;
 import '../../features/exam/presentation/view_models/subject_view_model/cubit/explore_cubit.dart'
     as _i621;
 import '../provider/app_config_provider.dart' as _i291;
@@ -85,20 +88,8 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i115.TokenService>(
       () => _i115.TokenService(prefs: gh<_i558.FlutterSecureStorage>()),
     );
-    gh.factory<_i660.ExamDataSource>(
-      () => _i387.ExamDataRemoteImp(gh<_i376.ExamApiService>()),
-    );
-    gh.factory<_i1067.ExamRepository>(
-      () => _i226.ExamRepositoryImp(gh<_i660.ExamDataSource>()),
-    );
-    gh.factory<_i1034.GetAllSubjectsUsecase>(
-      () => _i1034.GetAllSubjectsUsecase(gh<_i1067.ExamRepository>()),
-    );
-    gh.factory<_i330.GetExamsOnSubjectUsecase>(
-      () => _i330.GetExamsOnSubjectUsecase(gh<_i1067.ExamRepository>()),
-    );
-    gh.factory<_i249.ExamsCubit>(
-      () => _i249.ExamsCubit(gh<_i330.GetExamsOnSubjectUsecase>()),
+    gh.factory<_i660.ExamRemoteDataSource>(
+      () => _i387.ExamRemoteDataSourceImp(gh<_i376.ExamApiService>()),
     );
     gh.factory<_i984.AuthRemoteDataSource>(
       () => _i729.AuthRemoteDataSourceImp(
@@ -106,16 +97,26 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i115.TokenService>(),
       ),
     );
-    gh.factory<_i621.ExploreCubit>(
-      () => _i621.ExploreCubit(
-        getAllSubjectsUsecase: gh<_i1034.GetAllSubjectsUsecase>(),
-      ),
+    gh.factory<_i1067.ExamRepository>(
+      () => _i226.ExamRepositoryImp(gh<_i660.ExamRemoteDataSource>()),
     );
     gh.factory<_i939.AuthRepo>(
       () => _i751.AuthRepoImpl(gh<_i984.AuthRemoteDataSource>()),
     );
+    gh.factory<_i1034.GetAllSubjectsUsecase>(
+      () => _i1034.GetAllSubjectsUsecase(gh<_i1067.ExamRepository>()),
+    );
+    gh.factory<_i330.GetExamsOnSubjectUsecase>(
+      () => _i330.GetExamsOnSubjectUsecase(gh<_i1067.ExamRepository>()),
+    );
+    gh.factory<_i79.GetQuestionsUsecase>(
+      () => _i79.GetQuestionsUsecase(gh<_i1067.ExamRepository>()),
+    );
     gh.factory<_i232.SigninUsecase>(
       () => _i232.SigninUsecase(gh<_i939.AuthRepo>()),
+    );
+    gh.factory<_i249.ExamsCubit>(
+      () => _i249.ExamsCubit(gh<_i330.GetExamsOnSubjectUsecase>()),
     );
     gh.factory<_i894.ForgetPasswordUsecase>(
       () => _i894.ForgetPasswordUsecase(gh<_i939.AuthRepo>()),
@@ -129,8 +130,16 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i586.VerfityResetCodeUsecase>(
       () => _i586.VerfityResetCodeUsecase(gh<_i939.AuthRepo>()),
     );
+    gh.factory<_i620.QustionViewModel>(
+      () => _i620.QustionViewModel(gh<_i79.GetQuestionsUsecase>()),
+    );
     gh.factory<_i116.SigninCubit>(
       () => _i116.SigninCubit(gh<_i232.SigninUsecase>()),
+    );
+    gh.factory<_i621.ExploreCubit>(
+      () => _i621.ExploreCubit(
+        getAllSubjectsUsecase: gh<_i1034.GetAllSubjectsUsecase>(),
+      ),
     );
     gh.factory<_i401.SignupViewModel>(
       () => _i401.SignupViewModel(gh<_i749.SignupUseCase>()),

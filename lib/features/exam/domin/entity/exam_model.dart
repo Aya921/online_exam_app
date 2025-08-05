@@ -5,7 +5,7 @@ class ExamModel {
   String? subject;
   int? numberOfQuestions;
   bool? active;
-
+  //DateTime? createdAt;
   ExamModel({
     this.id,
     this.title,
@@ -13,5 +13,6 @@ class ExamModel {
     this.subject,
     this.numberOfQuestions,
     this.active,
+   // this.createdAt,
   });
 }

@@ -1,12 +1,16 @@
 import 'package:exam_app/core/route/app_routes.dart';
 import 'package:exam_app/features/auth/presentation/views/screen/forget_password_page.dart';
 import 'package:exam_app/features/auth/presentation/views/screen/login_page.dart';
-
 import 'package:exam_app/features/auth/presentation/views/screen/signup_page.dart';
+
 import 'package:exam_app/features/exam/domin/entity/subject_model.dart';
 import 'package:exam_app/features/exam/presentation/view/pages/exams_page.dart';
 import 'package:exam_app/features/exam/presentation/view/pages/main_page.dart';
 import 'package:exam_app/features/exam/presentation/view/pages/start_exam_page.dart';
+
+import 'package:exam_app/features/exam/presentation/view/pages/question_page.dart';
+
+
 
 import 'package:flutter/material.dart';
 
@@ -23,6 +27,7 @@ abstract class Routes {
       case AppRoutes.forgetPassword:
         return MaterialPageRoute(
           builder: (context) => const ForgetPasswordPage(),
+
         );
       case AppRoutes.main:
         return MaterialPageRoute(builder: (context) => const MainPage());
@@ -37,7 +42,12 @@ abstract class Routes {
             exam: (settings.arguments as Map<String, dynamic>)['exam'],
             subjectName: (settings.arguments as Map<String, dynamic>)['subjectName'],
           ),
+
+
         );
+      case AppRoutes.question:
+        return MaterialPageRoute(builder: (context) => const QuesionsPage());
+   
 
       default:
         return MaterialPageRoute(

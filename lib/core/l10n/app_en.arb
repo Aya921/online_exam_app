@@ -77,9 +77,35 @@
   "forgetPass": "Forget Password",
   "pleaseEnteryouEmailAtForgotPassPage": "Please enter your email associated to \n your account",
   "passwordResetSuccessfully": "Password reset successfully",
+
   "survey" : "Survey",
   "browseBySubject" : "Browse by subject",
   "minutes" : "Minutes",
   "questions" : "Questions",
   "noExamsAvailable" : "No exams available"
+
+  "exam":"Exam",
+  "viewScore":"view score",
+  "timeOut":"time out !!",
+  "unExpectedError":"unexpected error",
+  "finish":"finish",
+  "next":"Next",
+  "back":"Back",
+  "startAgain":"StartAgain",
+  "showResults":"ShowResults",
+  "incorrect":"Incorrect",
+  "correct":"correct",
+  "examscore":"Exam Score",
+  "question":"Question",
+  "ofWord":"of"
+
+  
+
+
+
+
+
+
+
+  
 }

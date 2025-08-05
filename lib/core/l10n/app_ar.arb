@@ -79,8 +79,21 @@
   "passwordResetSuccessfully": "تم إعادة تعيين كلمة المرور بنجاح",
   "survey": "اختبار",
   "browseBySubject": "تصفح حسب الموضوع",
-  "minutes" : "دقائق",
-  "questions" : "سؤال",
-  "noExamsAvailable" : "لا توجد امتحانات متاحة"
-
+  "minutes": "دقائق",
+  "questions": "سؤال",
+  "noExamsAvailable": "لا توجد امتحانات متاحة",
+  "exam": "امتحان",
+  "viewScore": "عرض النتيجة",
+  "timeOut": "انتهى الوقت!!",
+  "unExpectedError": "خطأ غير متوقع",
+  "finish": "إنهاء",
+  "next": "التالي",
+  "startAgain": "ابدأ من جديد",
+  "showResults": "عرض النتائج",
+  "incorrect": "إجابة خاطئة",
+  "correct": "إجابة صحيحة",
+  "examscore": "درجه الامتحان",
+  "question": "سؤال",
+  "ofWord": "من",
+  "back": "رجوع"
 }

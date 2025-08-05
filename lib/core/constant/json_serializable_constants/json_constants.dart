@@ -15,4 +15,28 @@ abstract class JsonConstants {
   static const String repassword = "rePassword";
   static const String resetCode = "resetCode";
   static const String newPassword = "newPassword";
+  static const String answer = "answer";
+  static const String key = "key";
+ 
+  static const String title = "title";
+  static const String duration = "duration";
+  static const String subject = "subject";
+  static const String numberOfQuestions = "numberOfQuestions";
+  static const String active = "active";
+
+  static const String answers = "answers";
+  static const String type = "type";
+
+  static const String question = "question";
+  static const String correct = "correct";
+ 
+  static const String exam = "exam";
+  
+  static const String questions = "questions";
+
+  static const String name = "name";
+  static const String icon = "icon";
+
+
+
 }

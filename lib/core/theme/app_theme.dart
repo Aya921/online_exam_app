@@ -42,6 +42,35 @@ abstract class AppThem {
           ),
         ),
       ),
+
+
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style:  ButtonStyle(
+          backgroundColor: const WidgetStatePropertyAll(AppColors.blue),
+          elevation: const WidgetStatePropertyAll(0), 
+          padding: const WidgetStatePropertyAll(
+            EdgeInsets.symmetric(horizontal: 60, vertical: 20),
+          ),
+          shape: WidgetStatePropertyAll(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+              side: const BorderSide(
+                color: Colors.transparent,
+                width: 1.5,
+              ),
+            ),
+          ),
+          textStyle:const  WidgetStatePropertyAll(
+             TextStyle(
+              fontWeight: FontWeight.w500,
+              fontSize: 18,
+         
+            ),
+          ),
+          foregroundColor: const WidgetStatePropertyAll(AppColors.white), 
+        ),
+      ),
+    
     );
   }
 

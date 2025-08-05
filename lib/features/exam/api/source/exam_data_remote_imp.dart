@@ -9,13 +9,11 @@ import 'package:exam_app/features/exam/domin/entity/question_model.dart';
 
 import 'package:injectable/injectable.dart';
 
-//  aya22saberr@gmail.com
-//  Elevate-2
-@Injectable(as: ExamDataSource)
-class ExamDataRemoteImp implements ExamDataSource {
+@Injectable(as: ExamRemoteDataSource)
+class ExamRemoteDataSourceImp implements ExamRemoteDataSource {
   final ExamApiService _apiService;
 
-  ExamDataRemoteImp(this._apiService);
+  ExamRemoteDataSourceImp(this._apiService);
 
   @override
   Future<ApiResult<List<QuestionsModel>>> getQuestions(String examId) async {

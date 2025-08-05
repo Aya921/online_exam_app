@@ -5,20 +5,15 @@ class QuestionState {
   String? errorMessage;
   bool isLoading;
   List<List<String?>?> studentAswers;
-
-  int? wrong;
-  int? correct;
   bool isTimeEnd;
-  int nQuestion;
+  int? seconds;
 
   QuestionState({
     this.questionsList,
     this.errorMessage,
     this.isLoading = true,
-    this.correct,
-    this.wrong,
     this.isTimeEnd = false,
-    this.nQuestion=0,
+    this.seconds,
 
     List<List<String?>?>? studentAswers,
   }) : studentAswers = studentAswers ?? [];
@@ -28,20 +23,20 @@ class QuestionState {
     List<QuestionsModel>? questionsList,
     String? errorMessage,
     List<List<String?>?>? studentAswers,
-    int? wrong,
-    int? correct,
+
     bool? isTimeEnd,
-    int? nQuestion
+      int? seconds
+    
+    
   }) {
     return QuestionState(
       isLoading: isLoading ?? this.isLoading,
       questionsList: questionsList ?? this.questionsList,
       errorMessage: errorMessage,
       studentAswers: studentAswers ?? this.studentAswers,
-      correct: correct,
-      wrong: wrong,
+
       isTimeEnd: isTimeEnd ?? this.isTimeEnd,
-      nQuestion: nQuestion??this.nQuestion
+      seconds: seconds??this.seconds
     );
   }
 }

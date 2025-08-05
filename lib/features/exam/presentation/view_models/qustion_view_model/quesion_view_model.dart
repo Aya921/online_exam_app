@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 
+import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
@@ -13,14 +14,14 @@ import 'package:exam_app/features/exam/presentation/view_models/qustion_view_mod
 @injectable
 class QustionViewModel extends Bloc<QuestionEvents, QuestionState> {
   final GetQuestionsUsecase _questionsUsecase;
+  Timer? _timer;
 
-
-  QustionViewModel(this._questionsUsecase)
-    : super(QuestionState()) {
+  QustionViewModel(this._questionsUsecase) : super(QuestionState()) {
     on<GetQuestionsEvent>(_getQuestions);
     on<UpdateStudentAnswerEvent>(_updateAnswers);
     on<EndTimeEvent>(_timeEnd);
- 
+    on<StartTimerEvent>(_startTimer);
+    on<TimeupdatedEvent>(_updateTime);
   }
 
   Future<void> _getQuestions(GetQuestionsEvent event, Emitter emit) async {
@@ -44,10 +45,36 @@ class QustionViewModel extends Bloc<QuestionEvents, QuestionState> {
     emit(state.copyWith(studentAswers: newStudentAnswer));
   }
 
- 
   void _timeEnd(EndTimeEvent event, Emitter emit) {
     emit(state.copyWith(isTimeEnd: true));
   }
 
-  
+  void _updateTime(TimeupdatedEvent event, Emitter emit) {
+    emit(state.copyWith(seconds: event.seconds));
+  }
+
+  void _startTimer(StartTimerEvent event, Emitter emit) async {
+    _timer?.cancel();
+    int seconds = event.duration * 60;
+    emit(state.copyWith(seconds: seconds));
+
+    _timer = Timer.periodic(const Duration(seconds: 1), (t) {
+      if (seconds > 0) {
+        seconds--;
+        print(seconds);
+
+        add(TimeupdatedEvent(seconds: seconds));
+      } else {
+        t.cancel();
+
+        add(EndTimeEvent());
+      }
+    });
+  }
+
+  @override
+  Future<void> close() {
+    _timer?.cancel();
+    return super.close();
+  }
 }

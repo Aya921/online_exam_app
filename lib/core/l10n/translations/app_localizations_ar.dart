@@ -246,4 +246,61 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get passwordResetSuccessfully => 'تم إعادة تعيين كلمة المرور بنجاح';
+
+  @override
+  String get survey => 'اختبار';
+
+  @override
+  String get browseBySubject => 'تصفح حسب الموضوع';
+
+  @override
+  String get minutes => 'دقائق';
+
+  @override
+  String get questions => 'سؤال';
+
+  @override
+  String get noExamsAvailable => 'لا توجد امتحانات متاحة';
+
+  @override
+  String get exam => 'امتحان';
+
+  @override
+  String get viewScore => 'عرض النتيجة';
+
+  @override
+  String get timeOut => 'انتهى الوقت!!';
+
+  @override
+  String get unExpectedError => 'خطأ غير متوقع';
+
+  @override
+  String get finish => 'إنهاء';
+
+  @override
+  String get next => 'التالي';
+
+  @override
+  String get back => 'رجوع';
+
+  @override
+  String get startAgain => 'ابدأ من جديد';
+
+  @override
+  String get showResults => 'عرض النتائج';
+
+  @override
+  String get incorrect => 'إجابة خاطئة';
+
+  @override
+  String get correct => 'إجابة صحيحة';
+
+  @override
+  String get examscore => 'درجه الامتحان';
+
+  @override
+  String get question => 'سؤال';
+
+  @override
+  String get ofWord => 'من';
 }

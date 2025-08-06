@@ -1,73 +1,50 @@
-### ✅ Pull Request: Merge `auth` → `development`
+### Merge exam feature (subject + question + exam modules) into development
 
-## What type of PR is this?
+## What type of PR is this? (check all applicable)
 
 - [x] Feature
-- [ ] Bug Fix
-- [ ] Refactor
-- [ ] Optimization
-- [ ] Documentation Update
-
----
 
 ## Description
 
-This PR introduces the full authentication module, including:
+This PR merges the `exam` branch into `development`.
 
-- **Login Screen**
-- **Signup Screen**
-- **Forgot Password Flow** (Send email → Verify code → Reset password)
-
-The authentication flow follows the **BLoC pattern** and **Clean Architecture** structure, and is fully integrated with the API. Form validations are handled locally in each screen with proper error handling.
-
----
+### Features included in this PR:
+- Added **Subject** feature: CRUD operations and integration.
+- Added **Question** feature: managing questions per subject/exam.
+- Added **Exam** feature: exam creation, assignment, and validation logic.
 
 ## Related Tickets & Documents
 
-- Closes #[your issue number if exists]
-- Part of the Authentication Module Implementation
+- Closes #[Put related issue numbers if available]
 
----
+## QA Instructions, Screenshots, Recordings
 
-## QA Instructions
+- Navigate to the "Subjects" page to test subject management.
+- Navigate to the "Questions" section under each subject to manage questions.
+- Go to "Exams" to test exam creation and linkage to subjects/questions.
 
-1. Open the app.
-2. Navigate to Login screen.
-   - Test with valid and invalid credentials.
-3. Click "Don't have an account?" → test the Signup form.
-   - Try with existing and new emails.
-4. Click "Forgot Password?" and follow the steps:
-   - Enter valid/invalid email.
-   - Verify with correct/incorrect code.
-   - Reset with matching passwords.
+Tested on:
+- [x] Chrome
+- [ ] Firefox
+- [ ] Safari
+- [ ] Edge
 
-### ✅ Expected Behavior
+### UI accessibility checklist
+- [x] Semantic HTML implemented
+- [x] Keyboard operability supported
+- [ ] Checked with axe DevTools
+- [ ] Color contrast tested
 
-- All forms should validate input and show errors.
-- Success/error messages should be clearly displayed.
-- Navigation between screens should work smoothly.
+## Added/updated tests?
 
----
+- [ ] Yes
+- [x] No, and this is why: tests not yet included, will be added in a separate PR
+- [ ] I need help with writing tests
 
-## Screenshots
+## [optional] Are there any post deployment tasks we need to perform?
 
+- Run database migration if applicable
 
-
----
-
-## Testing
-
-- [ ] Manual QA done
-- [ ] Unit tests (if added)
-- [ ] Need help writing tests
-
----
-
-## Deployment Notes
-
-- No breaking changes
-- Can be merged safely to `development`
-
----
+## [optional] What gif best describes this PR or how it makes you feel?
 
 

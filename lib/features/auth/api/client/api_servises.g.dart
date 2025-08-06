@@ -9,7 +9,9 @@ part of 'api_servises.dart';
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element,unnecessary_string_interpolations,unused_element_parameter
 
 class _ApiServises implements ApiServises {
-  _ApiServises(this._dio, {this.baseUrl, this.errorLogger});
+  _ApiServises(this._dio, {this.baseUrl, this.errorLogger}) {
+    baseUrl ??= 'https://exam.elevateegy.com/api/v1/auth/';
+  }
 
   final Dio _dio;
 

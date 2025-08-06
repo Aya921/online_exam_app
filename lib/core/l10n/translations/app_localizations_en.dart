@@ -246,4 +246,61 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get passwordResetSuccessfully => 'Password reset successfully';
+
+  @override
+  String get survey => 'Survey';
+
+  @override
+  String get browseBySubject => 'Browse by subject';
+
+  @override
+  String get minutes => 'Minutes';
+
+  @override
+  String get questions => 'Questions';
+
+  @override
+  String get noExamsAvailable => 'No exams available';
+
+  @override
+  String get exam => 'Exam';
+
+  @override
+  String get viewScore => 'view score';
+
+  @override
+  String get timeOut => 'time out !!';
+
+  @override
+  String get unExpectedError => 'unexpected error';
+
+  @override
+  String get finish => 'finish';
+
+  @override
+  String get next => 'Next';
+
+  @override
+  String get back => 'Back';
+
+  @override
+  String get startAgain => 'StartAgain';
+
+  @override
+  String get showResults => 'ShowResults';
+
+  @override
+  String get incorrect => 'Incorrect';
+
+  @override
+  String get correct => 'correct';
+
+  @override
+  String get examscore => 'Exam Score';
+
+  @override
+  String get question => 'Question';
+
+  @override
+  String get ofWord => 'of';
 }

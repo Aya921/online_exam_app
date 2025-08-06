@@ -36,9 +36,26 @@ import '../../features/auth/presentation/view_model/signin_cubit/signin_cubit.da
     as _i116;
 import '../../features/auth/presentation/view_model/signup_view_model/signup_view_model.dart'
     as _i401;
+import '../../features/exam/api/client/api_service.dart' as _i376;
+import '../../features/exam/api/source/exam_data_remote_imp.dart' as _i387;
+import '../../features/exam/data/repository/exam_repository_imp.dart' as _i226;
+import '../../features/exam/data/source/exam_data_source.dart' as _i660;
+import '../../features/exam/domin/repository/exam_repository.dart' as _i1067;
+import '../../features/exam/domin/usecase/get_all_subjects_usecase.dart'
+    as _i1034;
+import '../../features/exam/domin/usecase/get_exams_on_subject_usecase.dart'
+    as _i330;
+import '../../features/exam/domin/usecase/get_questions_usecase.dart' as _i79;
+import '../../features/exam/presentation/view_models/exams_view_model/cubit/exams_cubit.dart'
+    as _i249;
+import '../../features/exam/presentation/view_models/qustion_view_model/quesion_view_model.dart'
+    as _i620;
+import '../../features/exam/presentation/view_models/subject_view_model/cubit/explore_cubit.dart'
+    as _i621;
 import '../provider/app_config_provider.dart' as _i291;
 import 'modules/database_module.dart' as _i664;
 import 'modules/dio_module.dart' as _i983;
+import 'modules/token_interceptor.dart' as _i89;
 
 extension GetItInjectableX on _i174.GetIt {
   // initializes the registration of main-scope dependencies inside of GetIt
@@ -53,6 +70,7 @@ extension GetItInjectableX on _i174.GetIt {
       () => databaseModule.providesharedPreferences,
       preResolve: true,
     );
+    gh.factory<_i89.TokenInterceptor>(() => _i89.TokenInterceptor());
     gh.lazySingleton<_i558.FlutterSecureStorage>(
       () => databaseModule.flutterSecureStorage(),
     );
@@ -61,11 +79,17 @@ extension GetItInjectableX on _i174.GetIt {
       () => registerModule.prettyDioLoggerProvider(),
     );
     gh.factory<_i406.ApiServises>(() => _i406.ApiServises(gh<_i361.Dio>()));
+    gh.factory<_i376.ExamApiService>(
+      () => _i376.ExamApiService(gh<_i361.Dio>()),
+    );
     gh.singleton<_i291.AppConfigProvider>(
       () => _i291.AppConfigProvider(gh<_i460.SharedPreferences>()),
     );
     gh.factory<_i115.TokenService>(
       () => _i115.TokenService(prefs: gh<_i558.FlutterSecureStorage>()),
+    );
+    gh.factory<_i660.ExamRemoteDataSource>(
+      () => _i387.ExamRemoteDataSourceImp(gh<_i376.ExamApiService>()),
     );
     gh.factory<_i984.AuthRemoteDataSource>(
       () => _i729.AuthRemoteDataSourceImp(
@@ -73,14 +97,32 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i115.TokenService>(),
       ),
     );
+    gh.factory<_i1067.ExamRepository>(
+      () => _i226.ExamRepositoryImp(gh<_i660.ExamRemoteDataSource>()),
+    );
     gh.factory<_i939.AuthRepo>(
       () => _i751.AuthRepoImpl(gh<_i984.AuthRemoteDataSource>()),
+    );
+    gh.factory<_i1034.GetAllSubjectsUsecase>(
+      () => _i1034.GetAllSubjectsUsecase(gh<_i1067.ExamRepository>()),
+    );
+    gh.factory<_i330.GetExamsOnSubjectUsecase>(
+      () => _i330.GetExamsOnSubjectUsecase(gh<_i1067.ExamRepository>()),
+    );
+    gh.factory<_i79.GetQuestionsUsecase>(
+      () => _i79.GetQuestionsUsecase(gh<_i1067.ExamRepository>()),
     );
     gh.factory<_i232.SigninUsecase>(
       () => _i232.SigninUsecase(gh<_i939.AuthRepo>()),
     );
+    gh.factory<_i249.ExamsCubit>(
+      () => _i249.ExamsCubit(gh<_i330.GetExamsOnSubjectUsecase>()),
+    );
     gh.factory<_i894.ForgetPasswordUsecase>(
       () => _i894.ForgetPasswordUsecase(gh<_i939.AuthRepo>()),
+    );
+    gh.factory<_i929.ResetPasswordUsecase>(
+      () => _i929.ResetPasswordUsecase(gh<_i939.AuthRepo>()),
     );
     gh.factory<_i749.SignupUseCase>(
       () => _i749.SignupUseCase(gh<_i939.AuthRepo>()),
@@ -88,17 +130,26 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i586.VerfityResetCodeUsecase>(
       () => _i586.VerfityResetCodeUsecase(gh<_i939.AuthRepo>()),
     );
-    gh.factory<_i929.ResetPasswordUsecase>(
-      () => _i929.ResetPasswordUsecase(gh<_i939.AuthRepo>()),
-    );
-    gh.factory<_i1043.ForgetPasswordBloc>(
-      () => _i1043.ForgetPasswordBloc(gh<_i894.ForgetPasswordUsecase>()),
+    gh.factory<_i620.QustionViewModel>(
+      () => _i620.QustionViewModel(gh<_i79.GetQuestionsUsecase>()),
     );
     gh.factory<_i116.SigninCubit>(
       () => _i116.SigninCubit(gh<_i232.SigninUsecase>()),
     );
+    gh.factory<_i621.ExploreCubit>(
+      () => _i621.ExploreCubit(
+        getAllSubjectsUsecase: gh<_i1034.GetAllSubjectsUsecase>(),
+      ),
+    );
     gh.factory<_i401.SignupViewModel>(
       () => _i401.SignupViewModel(gh<_i749.SignupUseCase>()),
+    );
+    gh.factory<_i1043.ForgetPasswordBloc>(
+      () => _i1043.ForgetPasswordBloc(
+        gh<_i894.ForgetPasswordUsecase>(),
+        gh<_i929.ResetPasswordUsecase>(),
+        gh<_i586.VerfityResetCodeUsecase>(),
+      ),
     );
     return this;
   }

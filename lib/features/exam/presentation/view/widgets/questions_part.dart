@@ -1,5 +1,6 @@
 import 'package:exam_app/core/constant/constant.dart';
 import 'package:exam_app/core/l10n/translations/app_localizations.dart';
+import 'package:exam_app/core/route/app_routes.dart';
 import 'package:exam_app/core/theme/app_colors.dart';
 import 'package:exam_app/features/exam/domin/entity/question_model.dart';
 import 'package:exam_app/features/exam/presentation/view/widgets/custum_check_box.dart';
@@ -78,7 +79,11 @@ class _QuestionsPartState extends State<QuestionsPart> {
       },
       child: Scaffold(
         appBar: AppBar(
-          leading: const Icon(Icons.arrow_back_ios),
+          leading:IconButton(onPressed: (){
+            Navigator.pop(context);
+            }
+            
+            , icon: const Icon(Icons.arrow_back_ios)),
 
           title: Text(t.exam),
 

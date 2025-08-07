@@ -16,10 +16,12 @@ abstract class Endpoints {
   static const String verifyResetCodeEndPoint = 'verifyResetCode';
   static const String resetPasswordEndPoint = 'resetPassword';
 
-
   static const String subjects = 'subjects';
   static const String subject = 'subject';
 
   static const String check = 'check';
 
+  static const String profileData = 'profileData';
+  static const String editProfile = 'editProfile';
+  static const String changePassword = 'changePassword';
 }

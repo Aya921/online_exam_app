@@ -2,6 +2,7 @@ import 'package:exam_app/core/route/app_routes.dart';
 import 'package:exam_app/features/auth/presentation/views/screen/forget_password_page.dart';
 import 'package:exam_app/features/auth/presentation/views/screen/login_page.dart';
 import 'package:exam_app/features/auth/presentation/views/screen/signup_page.dart';
+import 'package:exam_app/features/exam/domin/entity/question_model.dart';
 
 import 'package:exam_app/features/exam/domin/entity/subject_model.dart';
 import 'package:exam_app/features/exam/presentation/view/pages/exams_page.dart';
@@ -9,6 +10,8 @@ import 'package:exam_app/features/exam/presentation/view/pages/main_page.dart';
 import 'package:exam_app/features/exam/presentation/view/pages/start_exam_page.dart';
 
 import 'package:exam_app/features/exam/presentation/view/pages/question_page.dart';
+import 'package:exam_app/features/result/presentation/view/pages/result_page.dart';
+import 'package:exam_app/features/result/presentation/view/pages/score_page.dart';
 
 
 
@@ -27,6 +30,11 @@ abstract class Routes {
       case AppRoutes.forgetPassword:
         return MaterialPageRoute(
           builder: (context) => const ForgetPasswordPage(),
+
+        );
+      case AppRoutes.result:
+        return MaterialPageRoute(
+          builder: (context) =>  const ResultPage(),
 
         );
       case AppRoutes.main:
@@ -48,6 +56,19 @@ abstract class Routes {
       case AppRoutes.question:
         return MaterialPageRoute(builder: (context) =>  QuesionsPage(emailId:settings.arguments as String,));
    
+        case AppRoutes.score:
+        final arg = settings.arguments as Map<String, dynamic>?;
+      
+
+        return MaterialPageRoute(
+          builder: (context) => ScorePage(
+            qustionList: arg!['questionList'] as List<QuestionsModel>,
+            studentanswers: arg['studentAnswer'] as List<List<String?>?>,
+            exam: arg['examModel'],
+            subjectName: arg['subjectName'],
+          
+          ),
+        );
 
       default:
         return MaterialPageRoute(

@@ -1,5 +1,5 @@
 import 'package:exam_app/core/constant/json_serializable_constants/json_constants.dart';
-import 'package:exam_app/features/profile/domin/entities/user_entity.dart';
+import 'package:exam_app/features/exam/domin/entity/user_entity.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'user_dto.g.dart';

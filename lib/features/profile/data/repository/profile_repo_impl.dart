@@ -1,7 +1,6 @@
 import 'package:exam_app/confing/api_result/api_result.dart';
 import 'package:exam_app/features/profile/api/model/change_password_body/change_password_body.dart';
 import 'package:exam_app/features/profile/data/sources/profile_api_servises.dart';
-import 'package:exam_app/features/profile/domin/entities/user_entity.dart';
 import 'package:exam_app/features/profile/domin/repository/profile_repo.dart';
 import 'package:injectable/injectable.dart';
 
@@ -20,8 +19,5 @@ class ProfileRepoImpl implements ProfileRepo {
     return await _profileRemoteDataSource.editProfile(body);
   }
 
-  @override
-  Future<ApiResult<UserEntity>> getProfileData() async {
-    return await _profileRemoteDataSource.getProfileData();
-  }
+
 }

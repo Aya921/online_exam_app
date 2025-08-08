@@ -12,6 +12,8 @@ abstract class AppRoutes {
 
   static const String question = 'question';
   static const String score = 'score';
+  static const String changePassword = 'changePassword';
+
 
 
 }

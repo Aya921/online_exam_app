@@ -10,7 +10,8 @@ part 'explore_state.dart';
 @injectable
 class ExploreCubit extends Cubit<ExploreState> {
   GetAllSubjectsUsecase getAllSubjectsUsecase;
-  ExploreCubit({required this.getAllSubjectsUsecase}) : super(ExploreInitial());
+
+  ExploreCubit({required this.getAllSubjectsUsecase,}) : super(ExploreInitial());
 
   Future<void> fetchAllSubjects() async {
     final result = await getAllSubjectsUsecase.invok();
@@ -23,4 +24,5 @@ class ExploreCubit extends Cubit<ExploreState> {
         break;
     }
   }
+  
 }

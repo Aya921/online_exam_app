@@ -9,45 +9,42 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ExplorePage extends StatelessWidget {
   ExplorePage({super.key});
-  final viewModel = getIt<ExploreCubit>();
+
 
   @override
   Widget build(BuildContext context) {
   final t = AppLocalizations.of(context);
-    return BlocProvider(
-      create: (context) => viewModel,
-      child: Scaffold(
-        appBar: AppBar(
-          scrolledUnderElevation: 0,
-          title: Text(
-            t!.survey,
-            style: Theme.of(
-              context,
-            ).textTheme.headlineMedium?.copyWith(fontWeight: FontWeight.w500),
-          ),
-          automaticallyImplyLeading: false,
+    return Scaffold(
+      appBar: AppBar(
+        scrolledUnderElevation: 0,
+        title: Text(
+          t!.survey,
+          style: Theme.of(
+            context,
+          ).textTheme.headlineMedium?.copyWith(fontWeight: FontWeight.w500),
         ),
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(height: 16),
-              const SearchTextField(),
-              const SizedBox(height: 40),
-
-              Text(
-                t.browseBySubject,
-                style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                  color: AppColors.black,
-                  fontWeight: FontWeight.w500,
-                ),
+        automaticallyImplyLeading: false,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(height: 16),
+            const SearchTextField(),
+            const SizedBox(height: 40),
+    
+            Text(
+              t.browseBySubject,
+              style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                color: AppColors.black,
+                fontWeight: FontWeight.w500,
               ),
-              const SizedBox(height: 8),
-
-              const CubitSubjectCardListView(),
-            ],
-          ),
+            ),
+            const SizedBox(height: 8),
+    
+            const CubitSubjectCardListView(),
+          ],
         ),
       ),
     );

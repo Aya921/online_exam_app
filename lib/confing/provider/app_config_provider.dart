@@ -7,6 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class AppConfigProvider extends ChangeNotifier {
   SharedPreferences sharedPreferences;
   AppConfigProvider(this.sharedPreferences);
+  
 
   String slelectedlocale = TranslationConstants.enLocaleKey;
 

@@ -4,8 +4,10 @@ import 'package:exam_app/core/l10n/translations/app_localizations.dart';
 import 'package:exam_app/confing/provider/app_config_provider.dart';
 import 'package:exam_app/core/route/app_routes.dart';
 import 'package:exam_app/core/route/routes.dart';
+import 'package:exam_app/core/services/token_service.dart';
 import 'package:exam_app/core/theme/app_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
@@ -37,7 +39,9 @@ class MyApp extends StatelessWidget {
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       theme: AppThem.ligtScheme,
-      initialRoute: AppRoutes.main,
+      initialRoute: getIt<TokenService>().isTokenSaved
+          ? AppRoutes.main 
+          : AppRoutes.login,
 
       onGenerateRoute: Routes.onGenerate,
     );

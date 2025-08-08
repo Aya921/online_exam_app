@@ -7,6 +7,7 @@ import 'package:exam_app/features/exam/data/source/exam_data_source.dart';
 import 'package:exam_app/features/exam/domin/entity/exam_model.dart';
 import 'package:exam_app/features/exam/domin/entity/subject_model.dart';
 import 'package:exam_app/features/exam/domin/entity/question_model.dart';
+import 'package:exam_app/features/exam/domin/entity/user_entity.dart';
 
 
 import 'package:injectable/injectable.dart';
@@ -66,6 +67,18 @@ class ExamRemoteDataSourceImp implements ExamRemoteDataSource {
       }
 
       return ApiFailedResult(errorMessage);
+    } catch (e) {
+      return ApiFailedResult(e.toString());
+    }
+  }
+
+  @override
+    Future<ApiResult<UserEntity>> getProfileData()  async {
+    try {
+      final user = await _apiService.getProfileData();
+      return ApiSucessResult(user.user!.ToUserEtntity());
+    } on DioException catch (e) {
+      return ApiFailedResult.fomDioException(e);
     } catch (e) {
       return ApiFailedResult(e.toString());
     }

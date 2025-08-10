@@ -66,8 +66,8 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
           if (state is ChangePasswordSuccess) {
             isLoading = false;
             ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
-                content: Text('Password changed successfully'),
+              SnackBar(
+                content: Text(t.passwordChangedSuccessfully),
                 backgroundColor: AppColors.green,
               ),
             );
@@ -85,7 +85,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                   size: 20,
                 ),
               ),
-              title: const Text('Reset password'),
+              title: Text(t.resetPassword),
             ),
             body: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -101,7 +101,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                         onChanged: () => _onFieldChanged(),
                         validator: (value) =>
                             validator.oldPasswordValidatiion(value),
-                        label: 'Current password',
+                        label: t.currentPassword,
                         obsecureTxt: true,
                       ),
                       const SizedBox(height: 24),
@@ -110,7 +110,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                         onChanged: () => _onFieldChanged(),
                         validator: (value) =>
                             validator.passwordValidation(value),
-                        label: 'New password',
+                        label: t.newPassword,
                         obsecureTxt: true,
                       ),
                       const SizedBox(height: 24),
@@ -121,7 +121,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                           _newPasswordController.text,
                           value,
                         ),
-                        label: 'Confirm password',
+                        label: t.confirmPassword,
                         obsecureTxt: true,
                       ),
                       const SizedBox(height: 54),
@@ -153,7 +153,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                             ? const CircularProgressIndicator(
                                 color: Colors.white,
                               )
-                            : const Text('Update'),
+                            : Text(t.update),
                       ),
                     ],
                   ),

@@ -1,14 +1,11 @@
-import 'package:exam_app/confing/di/di.dart';
 import 'package:exam_app/core/l10n/translations/app_localizations.dart';
 import 'package:exam_app/core/theme/app_colors.dart';
 import 'package:exam_app/features/exam/presentation/view/widgets/cubit_suject_card_list_view.dart';
 import 'package:exam_app/features/exam/presentation/view/widgets/search_text_field.dart';
-import 'package:exam_app/features/exam/presentation/view_models/subject_view_model/cubit/explore_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ExplorePage extends StatelessWidget {
-  ExplorePage({super.key});
+  const ExplorePage({super.key});
 
   @override
   Widget build(BuildContext context) {

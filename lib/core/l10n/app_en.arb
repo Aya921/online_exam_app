@@ -97,7 +97,16 @@
   "correct":"correct",
   "examscore":"Exam Score",
   "question":"Question",
-  "ofWord":"of"
+  "ofWord":"of" ,
+  "thisFieldIsRequired":"This field is required",
+  "invalidPasswordFormat": "Invalid password format",
+  "pleaseConfirmYourPassword":"Please confirm your password",
+  "profile" : "Profile",
+  "change" : "Change",
+  "profileUpdatedSuccessfully" : "Profile updated successfully!",
+  "update" : "Update",
+  "passwordChangedSuccessfully" : "Password changed successfully!",
+  "currentPassword" : "Current Password"
 
   
 

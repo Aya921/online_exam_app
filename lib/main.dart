@@ -7,7 +7,6 @@ import 'package:exam_app/core/route/routes.dart';
 import 'package:exam_app/core/services/token_service.dart';
 import 'package:exam_app/core/theme/app_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:provider/provider.dart';
 
 void main() async {

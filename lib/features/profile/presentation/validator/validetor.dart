@@ -9,10 +9,10 @@ class Validator {
 
   String? oldPasswordValidatiion(String? value) {
     if (value!.isEmpty) {
-      return 'this field is required';
+      return _appLocalizations.thisFieldIsRequired;
     }
       if (!passwordRegex.hasMatch(value)) {
-      return 'invalid password format';
+      return _appLocalizations.invalidPasswordFormat;
     }
     if (value.length < 6) {
       return _appLocalizations.passwordMinLengthError;
@@ -32,10 +32,10 @@ class Validator {
 
   String? isPasswordsMatch(String? password, String? confirmPassword) {
     if (confirmPassword == null || confirmPassword.isEmpty) {
-      return 'Please confirm your password';
+      return _appLocalizations.pleaseConfirmYourPassword;
     }
     if (password != confirmPassword) {
-      return 'Passwords do not match';
+      return _appLocalizations.passwordNotMatched;
     }
     return null; // valid
   }

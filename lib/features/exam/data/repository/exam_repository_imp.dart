@@ -1,4 +1,3 @@
-import 'package:dio/dio.dart';
 import 'package:exam_app/confing/api_result/api_result.dart';
 import 'package:exam_app/features/exam/data/source/exam_data_source.dart';
 import 'package:exam_app/features/exam/domin/entity/exam_model.dart';

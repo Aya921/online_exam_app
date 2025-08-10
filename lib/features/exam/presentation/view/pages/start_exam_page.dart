@@ -71,7 +71,7 @@ class StartExamPage extends StatelessWidget {
               const SizedBox(width: 8),
 
               Text(
-                '${exam.numberOfQuestions} ${t!.questions}',
+                '${exam.numberOfQuestions} ${t.questions}',
                 style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                   fontWeight: FontWeight.w500,
                   color: AppColors.black,

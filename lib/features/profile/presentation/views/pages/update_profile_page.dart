@@ -1,9 +1,8 @@
-import 'package:exam_app/confing/api_result/api_result.dart';
 import 'package:exam_app/confing/di/di.dart';
+import 'package:exam_app/core/l10n/translations/app_localizations.dart';
 import 'package:exam_app/core/route/app_routes.dart';
 import 'package:exam_app/core/theme/app_colors.dart';
 import 'package:exam_app/features/exam/domin/entity/user_entity.dart';
-import 'package:exam_app/features/exam/domin/usecase/get_all_subjects_usecase.dart';
 import 'package:exam_app/features/exam/domin/usecase/get_all_user_data_usecase.dart';
 import 'package:exam_app/features/profile/presentation/view_model/cubit/update_profile_cubit.dart';
 import 'package:exam_app/features/profile/presentation/views/pages/widgets/custom_text_form_filed.dart';
@@ -12,9 +11,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class UpdateProfilePage extends StatefulWidget {
-  UpdateProfilePage({super.key, required this.userEntity});
+UpdateProfilePage({super.key, required this.userEntity});
 
-  UserEntity userEntity;
+  final  UserEntity userEntity;
   final viewModel = getIt<UpdateProfileCubit>();
 
   @override
@@ -107,11 +106,12 @@ class _UpdateProfilePageState extends State<UpdateProfilePage> {
 
   @override
   Widget build(BuildContext context) {
+    final t = AppLocalizations.of(context)!;
     return BlocProvider(
       create: (context) => widget.viewModel,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Profile'),
+          title: Text(t.profile),
           automaticallyImplyLeading: false,
         ),
         body: Padding(
@@ -126,9 +126,8 @@ class _UpdateProfilePageState extends State<UpdateProfilePage> {
                 // Username
                 CustomTextFormField(
                   controller: userNameController,
-                  label: 'User name',
-                  hint: 'Enter your name',
-                  emptyFiledErrorMessage: 'Name cannot be empty',
+                  label: t.userName,
+                  hint: t.enterUserName,
                 ),
                 const SizedBox(height: 24),
 
@@ -138,18 +137,16 @@ class _UpdateProfilePageState extends State<UpdateProfilePage> {
                     Expanded(
                       child: CustomTextFormField(
                         controller: firstNameController,
-                        label: 'First name',
-                        hint: 'Enter your first name',
-                        emptyFiledErrorMessage: 'First name cannot be empty',
+                        label: t.firstName,
+                        hint: t.enterFirstName,
                       ),
                     ),
                     const SizedBox(width: 17),
                     Expanded(
                       child: CustomTextFormField(
                         controller: lastNameController,
-                        label: 'Last name',
-                        hint: 'Enter your last name',
-                        emptyFiledErrorMessage: 'Last name cannot be empty',
+                        label: t.lastName,
+                        hint: t.enterLastName,
                       ),
                     ),
                   ],
@@ -159,9 +156,8 @@ class _UpdateProfilePageState extends State<UpdateProfilePage> {
                 // Email
                 CustomTextFormField(
                   controller: emailController,
-                  label: 'Email',
-                  hint: 'Enter your email',
-                  emptyFiledErrorMessage: 'Email cannot be empty',
+                  label: t.email,
+                  hint: t.enterYourEmail,
                 ),
                 const SizedBox(height: 24),
 
@@ -171,9 +167,8 @@ class _UpdateProfilePageState extends State<UpdateProfilePage> {
                     CustomTextFormField(
                       obsecureTxt: true,
                       controller: passwordController,
-                      label: 'Password',
+                      label: t.password,
                       enabled: false,
-                      emptyFiledErrorMessage: 'Password cannot be empty',
                     ),
                     Positioned(
                       right: 16,
@@ -186,7 +181,7 @@ class _UpdateProfilePageState extends State<UpdateProfilePage> {
                           );
                         },
                         child: Text(
-                          'Change',
+                          t.change,
                           style: Theme.of(context).textTheme.bodyMedium!
                               .copyWith(
                                 color: AppColors.blue,
@@ -202,9 +197,8 @@ class _UpdateProfilePageState extends State<UpdateProfilePage> {
                 // Phone
                 CustomTextFormField(
                   controller: phoneController,
-                  label: 'Phone',
-                  hint: 'Enter your phone number',
-                  emptyFiledErrorMessage: 'Phone number cannot be empty',
+                  label: t.phoneLabel,
+                  hint: t.phoneHint,
                 ),
                 const SizedBox(height: 48),
 
@@ -217,9 +211,9 @@ class _UpdateProfilePageState extends State<UpdateProfilePage> {
                     if (state is UpdateProfileSuccessState) {
                       isLoading = false;
                       ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(
+                        SnackBar(
                           backgroundColor: AppColors.green,
-                          content: Text("Profile updated successfully!"),
+                          content: Text(t.profileUpdatedSuccessfully),
                         ),
                       );
                     }
@@ -257,7 +251,7 @@ class _UpdateProfilePageState extends State<UpdateProfilePage> {
                                 color: Colors.white,
                               ),
                             )
-                          : const Text("Update"),
+                          : Text(t.update),
                     );
                   },
                 ),

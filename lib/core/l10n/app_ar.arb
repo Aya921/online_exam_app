@@ -95,5 +95,14 @@
   "examscore": "درجه الامتحان",
   "question": "سؤال",
   "ofWord": "من",
-  "back": "رجوع"
+  "back": "رجوع",
+  "thisFieldIsRequired": "هذا الحقل مطلوب",
+  "invalidPasswordFormat": "تنسيق كلمة المرور غير صالح",
+  "pleaseConfirmYourPassword": "من فضلك قم بتاكيد كلمة المرور الخاصة بك",
+  "profile": "الملف الشخصي",
+  "change": "تغيير",
+  "profileUpdatedSuccessfully": "تم تحديث الملف الشخصي بنجاح!",
+  "update": "تحديث",
+  "passwordChangedSuccessfully": "تم تغيير كلمة المرور بنجاح!",
+  "currentPassword": "كلمة المرور الحالية"
 }

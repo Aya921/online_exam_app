@@ -10,6 +10,7 @@ import 'package:exam_app/features/profile/presentation/views/pages/update_profil
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+// ignore: must_be_immutable
 class MainPage extends StatefulWidget {
   MainPage({super.key});
   final viewModel = getIt<ExploreCubit>();
@@ -78,7 +79,7 @@ class _MainPageState extends State<MainPage> {
   Widget _currentPage(int index) {
     switch (index) {
       case 0:
-        return  ExplorePage();
+        return  const ExplorePage();
       case 1:
         return const Center(child: Text('Result Page'));
       case 2:
@@ -87,7 +88,7 @@ class _MainPageState extends State<MainPage> {
         }
         return UpdateProfilePage(userEntity: widget.userEntity);
       default:
-        return  ExplorePage();
+        return  const ExplorePage();
     }
   }
 }

@@ -7,4 +7,6 @@ import 'package:exam_app/features/result/domain/entities/student_answer.dart';
 abstract class ResultRepository {
   Future<ApiResult<CheckResponseModel>> getResult(StudentAnswer answersToCheck);
  Future<LocalResult<void>> saveResult(ResultModel resultModel);
+ Future<LocalResult<List<ResultModel>>> getLocalResult();
+
 }

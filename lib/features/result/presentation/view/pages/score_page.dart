@@ -1,11 +1,13 @@
 import 'dart:math';
 
 import 'package:exam_app/confing/di/di.dart';
+import 'package:exam_app/core/constant/pages_constants/page_constants.dart';
 import 'package:exam_app/core/l10n/translations/app_localizations.dart';
 import 'package:exam_app/core/route/app_routes.dart';
 import 'package:exam_app/features/exam/domin/entity/exam_model.dart';
 import 'package:exam_app/features/exam/domin/entity/question_model.dart';
 import 'package:exam_app/features/exam/presentation/view/widgets/row_score.dart';
+import 'package:exam_app/features/result/domain/entities/result_model.dart';
 import 'package:exam_app/features/result/presentation/view/widgets/custum_circular_percent.dart';
 import 'package:exam_app/features/result/presentation/view_Model/result_event.dart';
 import 'package:exam_app/features/result/presentation/view_Model/result_state.dart';
@@ -21,6 +23,7 @@ class ScorePage extends StatelessWidget {
   late List<List<String?>?> studentanswers;
   ExamModel exam;
   String subjectName;
+  int timeFinished;
 
   ScorePage({
     super.key,
@@ -28,6 +31,7 @@ class ScorePage extends StatelessWidget {
     required this.studentanswers,
     required this.exam,
     required this.subjectName,
+    required this.timeFinished,
   });
   late int? correct;
   late int? wrong;
@@ -42,7 +46,9 @@ class ScorePage extends StatelessWidget {
             Navigator.popAndPushNamed(
               context,
               AppRoutes.startExam,
-              arguments: {'exam': exam, 'subjectName': subjectName},
+              arguments: {
+                PageConstants.examArg: exam, 
+                PageConstants.subjectNameArg: subjectName},
             );
           },
           icon: const Icon(Icons.arrow_back_ios),
@@ -61,7 +67,12 @@ class ScorePage extends StatelessWidget {
               ),
             ),
 
-          child: BlocBuilder<ResultViewModel, ResultState>(
+          child: BlocConsumer<ResultViewModel, ResultState>(
+            listener: (context, state) {
+              if(state.isSaved==true){
+                Navigator.of(context).pushNamed(AppRoutes.result);
+              }
+            },
             builder: (context, state) {
               if (state.isLoading == true) {
                 return const Center(child: CircularProgressIndicator());
@@ -89,11 +100,11 @@ class ScorePage extends StatelessWidget {
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Padding(
-                      padding: EdgeInsets.symmetric(vertical: 30),
+                     Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 30),
                       child: Text(
-                        "Your Score",
-                        style: TextStyle(fontSize: 20, color: AppColors.black),
+                        t.yourScore,
+                        style:  Theme.of(context).textTheme.titleLarge,
                       ),
                     ),
 
@@ -140,9 +151,16 @@ class ScorePage extends StatelessWidget {
                             children: [
                               ElevatedButton(
                                 onPressed: () {
-                                  Navigator.of(
-                                    context,
-                                  ).pushNamed(AppRoutes.result);
+                                  _resultViewModel.add(
+                                    SaveResultEvent(
+                                      resultModel: ResultModel(
+                                        seconds: timeFinished,
+                                        correct: correct!,
+                                        questions: qustionList,
+                                        answers: state.checkResponseModel!,
+                                      ),
+                                    ),
+                                  );
                                 },
                                 child: Text(t.showResults),
                               ),
@@ -179,8 +197,9 @@ class ScorePage extends StatelessWidget {
               }
               if (state.errorMessage != null) {
                 return Text(state.errorMessage!);
-              } else {
-                return const Text("oops");
+              } 
+              else {
+                return  Text(t.unExpectedError);
               }
             },
           ),

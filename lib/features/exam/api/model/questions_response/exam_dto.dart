@@ -1,9 +1,10 @@
 import 'package:exam_app/features/exam/domin/entity/exam_model.dart';
+import 'package:isar/isar.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:exam_app/core/constant/json_serializable_constants/json_constants.dart';
 
 part 'exam_dto.g.dart';
-
+@embedded
 @JsonSerializable()
 class ExamDto {
   @JsonKey(name: JsonConstants.id)
@@ -50,6 +51,18 @@ class ExamDto {
       numberOfQuestions: numberOfQuestions,
       active: active,
       id: id,
+    );
+  }
+
+  static ExamDto toDto(ExamModel model) {
+    return ExamDto(
+      title: model.title,
+      duration: model.duration,
+      numberOfQuestions: model.numberOfQuestions,
+      active: model.active,
+      id: model.id
+
+    
     );
   }
 }

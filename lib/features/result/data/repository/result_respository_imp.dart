@@ -10,7 +10,6 @@ import 'package:exam_app/features/result/domain/entities/student_answer.dart';
 import 'package:exam_app/features/result/data/sources/result_remote_data_source.dart';
 import 'package:exam_app/features/result/domain/repository/result_repository.dart';
 
-
 import 'package:injectable/injectable.dart';
 
 @Injectable(as: ResultRepository)
@@ -19,8 +18,8 @@ class ResultRespositoryImp implements ResultRepository {
   final ResultLocalDataSource _resultLocalDataSource;
   ResultRespositoryImp(
     this._resultRemoteDataSource,
-    this._resultLocalDataSource
-     );
+    this._resultLocalDataSource,
+  );
 
   @override
   Future<ApiResult<CheckResponseModel>> getResult(
@@ -32,5 +31,12 @@ class ResultRespositoryImp implements ResultRepository {
   @override
   Future<LocalResult<void>> saveResult(ResultModel resultModel) async {
     return await _resultLocalDataSource.saveData(resultModel);
+  }
+
+  @override
+  Future<LocalResult<List<ResultModel>>> getLocalResult(
+    
+  ) async {
+    return await _resultLocalDataSource.getLocalResult();
   }
 }

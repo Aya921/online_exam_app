@@ -1,4 +1,5 @@
 import 'package:exam_app/core/constant/constant.dart';
+import 'package:exam_app/core/constant/pages_constants/page_constants.dart';
 import 'package:exam_app/core/l10n/translations/app_localizations.dart';
 import 'package:exam_app/core/route/app_routes.dart';
 import 'package:exam_app/core/theme/app_colors.dart';
@@ -23,7 +24,7 @@ class QuestionsPart extends StatefulWidget {
     super.key,
     this.questioinsListModel,
     required this.qustionViewModel,
-    required this.examId
+    required this.examId,
   });
 
   @override
@@ -55,10 +56,9 @@ class _QuestionsPartState extends State<QuestionsPart> {
 
     questioinsList = widget.questioinsListModel!;
     final examModel = questioinsList[pageIndex].exam;
-    final subjectModel=questioinsList[pageIndex].subject;
+    final subjectModel = questioinsList[pageIndex].subject;
     final answrers = questioinsList[pageIndex].answers;
     final question = questioinsList[pageIndex].question;
-
 
     final int numberOfQ = questioinsList.length + 1;
     final type = questioinsList[pageIndex].type;
@@ -206,16 +206,16 @@ class _QuestionsPartState extends State<QuestionsPart> {
                           });
                         } else {
                           Navigator.of(context).pushReplacementNamed(
-                                  AppRoutes.score,
-                                  arguments: {
-                                    'questionList':questioinsList,
-                                    'studentAnswer':studentAnswers,
-                                    'examModel':examModel,
-                                    'subjectName':subjectModel!.name
-                                    
-                                  }
-                                  
-                                );
+                            AppRoutes.score,
+                            arguments: {
+                              PageConstants.questionListArg: questioinsList,
+                              PageConstants.studentAnswerArg: studentAnswers,
+                              PageConstants.examModelArg: examModel,
+                              PageConstants.subjectNameArg: subjectModel!.name,
+                              PageConstants.timerArg:
+                                  widget.qustionViewModel.state.seconds,
+                            },
+                          );
                         }
                       },
 

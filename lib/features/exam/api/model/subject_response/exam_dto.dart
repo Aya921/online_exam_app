@@ -6,9 +6,9 @@ part 'exam_dto.g.dart';
 @embedded
 @JsonSerializable()
 class ExamDto {
-  Id id = Isar.autoIncrement;
+
   @JsonKey(name: '_id')
-  String? examId;
+  String? id;
   String? title;
   int? duration;
   String? subject;
@@ -17,7 +17,7 @@ class ExamDto {
   DateTime? createdAt;
 
   ExamDto({
-    this.examId,
+    this.id,
     this.title,
     this.duration,
     this.subject,
@@ -31,7 +31,7 @@ class ExamDto {
 
   ExamModel toExamModel() {
     return ExamModel(
-      id: examId,
+      id: id,
       title: title,
       duration: duration,
       subject: subject,
@@ -42,7 +42,7 @@ class ExamDto {
 
   static ExamDto toDto(ExamModel examModel) {
     return ExamDto(
-      examId: examModel.id,
+      id: examModel.id,
       title: examModel.title,
       duration: examModel.duration,
       subject: examModel.subject,

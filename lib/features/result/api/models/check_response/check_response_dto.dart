@@ -5,10 +5,11 @@
 import 'package:exam_app/features/result/api/models/check_response/correct_question_dto.dart';
 import 'package:exam_app/features/result/api/models/check_response/wrong_question_dto.dart';
 import 'package:exam_app/features/result/domain/entities/check_response_model.dart';
+import 'package:isar/isar.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'check_response_dto.g.dart';
-
+@embedded
 @JsonSerializable()
 class CheckResponseDto {
   @JsonKey(name: "message")
@@ -47,6 +48,21 @@ class CheckResponseDto {
       total: total,
       wrongQuestions: wrongQuestions!.map((q) => q.toModel()).toList(),
       correctQuestions: correctQuestions!.map((q) => q.toModel()).toList(),
+    );
+  }
+
+  static CheckResponseDto toDto(CheckResponseModel model) {
+    return CheckResponseDto(
+      message: model.message,
+      correct: model.correct,
+      wrong: model.wrong,
+      total: model.total,
+      wrongQuestions: model.wrongQuestions
+          ?.map((q) => WrongQuestionDto.toDto(q))
+          .toList(),
+      correctQuestions: model.correctQuestions
+          ?.map((q) => CorrectQuestionDto.toDto(q))
+          .toList(),
     );
   }
 }

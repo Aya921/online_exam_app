@@ -1,8 +1,9 @@
 import 'package:exam_app/features/result/domain/entities/correct_question_model.dart';
+import 'package:isar/isar.dart';
 
 import 'package:json_annotation/json_annotation.dart';
 part 'correct_question_dto.g.dart';
-
+@embedded
 @JsonSerializable()
 class CorrectQuestionDto {
   @JsonKey(name: "QID")
@@ -12,6 +13,7 @@ class CorrectQuestionDto {
   @JsonKey(name: "correctAnswer")
   String? correctAnswer;
   @JsonKey(name: "answers")
+  @ignore
   dynamic answers;
 
   CorrectQuestionDto({
@@ -33,6 +35,15 @@ class CorrectQuestionDto {
       question: question,
       correctAnswer: correctAnswer,
       answers: answers == null || (answers as Map).isEmpty ? [] : [],
+    );
+  }
+
+  static CorrectQuestionDto toDto(CorrectQuestionModel model) {
+    return CorrectQuestionDto(
+      qid: model.qid,
+      question: model.question,
+      correctAnswer: model.correctAnswer,
+      answers: model.answers,
     );
   }
 }

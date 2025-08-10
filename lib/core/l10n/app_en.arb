@@ -97,7 +97,15 @@
   "correct":"correct",
   "examscore":"Exam Score",
   "question":"Question",
-  "ofWord":"of"
+  "ofWord":"of",
+  "yourScore":"Your Score",
+
+
+  "answers":"Answers",
+  "results":"Results",
+  "answers_in":"answers in",
+  "min":"min"
+
 
   
 

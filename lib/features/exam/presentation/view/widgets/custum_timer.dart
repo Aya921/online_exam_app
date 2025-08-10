@@ -37,7 +37,7 @@ class CustumTimer extends StatelessWidget {
             ),
           );
         } else {
-          return const Text("no");
+          return const Text("");
         }
       },
     );

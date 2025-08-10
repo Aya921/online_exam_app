@@ -1,9 +1,12 @@
+import 'package:exam_app/core/constant/constant.dart';
 import 'package:exam_app/core/l10n/translations/app_localizations.dart';
 import 'package:exam_app/core/theme/app_colors.dart';
+import 'package:exam_app/features/result/domain/entities/result_model.dart';
 import 'package:flutter/material.dart';
 
 class ResultCard extends StatelessWidget {
-  const ResultCard({super.key});
+  const ResultCard({super.key,required this.resultList});
+  final ResultModel resultList;
   
 
   @override
@@ -30,7 +33,7 @@ class ResultCard extends StatelessWidget {
           child: Row(
             children: [
               const SizedBox(width: 24),
-              Image.asset('assets/images/exam.png'),
+              Image.asset(Constant.examImageUrl),
 
               Expanded(
                 child: Padding(
@@ -47,7 +50,7 @@ class ResultCard extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            "High Level",
+                            resultList.questions[0].exam!.title!,
                             style: Theme.of(context).textTheme.bodyLarge
                                 ?.copyWith(
                                   color: AppColors.black,
@@ -55,7 +58,7 @@ class ResultCard extends StatelessWidget {
                                 ),
                           ),
                           Text(
-                            '30 ${t!.minutes}',
+                            '${resultList.questions[0].exam!.duration!} ${t!.minutes}',
                             style: Theme.of(context).textTheme.bodyLarge
                                 ?.copyWith(color: AppColors.blue),
                           ),
@@ -63,14 +66,14 @@ class ResultCard extends StatelessWidget {
                       ),
 
                       Text(
-                        '${10} ${t.questions}',
+                        '${ resultList.questions[0].exam!.numberOfQuestions!} ${t.questions}',
                         style: Theme.of(
                           context,
                         ).textTheme.bodyMedium?.copyWith(color: AppColors.gray),
                       ),
                       const Spacer(),
                       Text(
-                        '18 correct answers in 25min',
+                        '${ resultList.correct} ${t.answers_in} ${(resultList.questions[0].exam!.duration!)-(resultList.seconds~/60)} ${t.min}',
                         style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                           color: AppColors.black,
                         ),

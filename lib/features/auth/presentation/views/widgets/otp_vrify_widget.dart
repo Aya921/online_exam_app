@@ -7,9 +7,8 @@ import 'package:exam_app/features/auth/presentation/views/widgets/login_footer.d
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-
 class OtpVrifyWidget extends StatelessWidget {
-   OtpVrifyWidget({
+  OtpVrifyWidget({
     required this.email,
     super.key,
     required TextEditingController otpController,
@@ -19,7 +18,7 @@ class OtpVrifyWidget extends StatelessWidget {
 
   final TextEditingController _otpController;
   final ValueNotifier<bool> pinErrorNotifier;
-   final ForgetPasswordBloc forgetPasswordBloc=getIt.get<ForgetPasswordBloc>();
+  final ForgetPasswordBloc forgetPasswordBloc = getIt.get<ForgetPasswordBloc>();
 
   @override
   Widget build(BuildContext context) {

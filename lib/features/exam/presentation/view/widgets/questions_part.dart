@@ -39,7 +39,9 @@ class _QuestionsPartState extends State<QuestionsPart> {
 
   @override
   void initState() {
-    widget.qustionViewModel.add(StartTimerEvent(duration: widget.questioinsListModel![0].exam!.duration!));
+    widget.qustionViewModel.add(
+      StartTimerEvent(duration: widget.questioinsListModel![0].exam!.duration!),
+    );
     super.initState();
   }
 
@@ -78,11 +80,12 @@ class _QuestionsPartState extends State<QuestionsPart> {
       },
       child: Scaffold(
         appBar: AppBar(
-          leading:IconButton(onPressed: (){
-            Navigator.pop(context);
-            }
-            
-            , icon: const Icon(Icons.arrow_back_ios)),
+          leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(Icons.arrow_back_ios),
+          ),
 
           title: Text(t.exam),
 

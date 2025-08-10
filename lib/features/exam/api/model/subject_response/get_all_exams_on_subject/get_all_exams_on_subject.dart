@@ -4,12 +4,11 @@ import 'package:json_annotation/json_annotation.dart';
 
 import '../exam_dto.dart';
 
-
 part 'get_all_exams_on_subject.g.dart';
 
 @JsonSerializable()
 class GetAllExamsOnSubject {
-  @JsonKey(name: JsonConstants.message) 
+  @JsonKey(name: JsonConstants.message)
   String? message;
   @JsonKey(name: JsonConstants.metadata)
   MetadataDto? metadata;

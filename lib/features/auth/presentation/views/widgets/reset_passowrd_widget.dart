@@ -7,27 +7,25 @@ import 'package:exam_app/features/auth/presentation/views/widgets/custom_form_fi
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-
 class ResetPasswordWidget extends StatelessWidget {
-   ResetPasswordWidget({
+  ResetPasswordWidget({
     super.key,
     required TextEditingController passwordController,
     required TextEditingController confirmPasswordController,
-   
   }) : _passwordController = passwordController,
-  _confirmPasswordController = confirmPasswordController;
+       _confirmPasswordController = confirmPasswordController;
 
   final TextEditingController _passwordController;
   final TextEditingController _confirmPasswordController;
-  final ForgetPasswordBloc forgetPasswordBloc=getIt.get<ForgetPasswordBloc>();
-  final GlobalKey<FormState>formKey=GlobalKey();
+  final ForgetPasswordBloc forgetPasswordBloc = getIt.get<ForgetPasswordBloc>();
+  final GlobalKey<FormState> formKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context)!;
     return Center(
       child: Form(
-        key:formKey ,
+        key: formKey,
         child: Column(
           children: [
             const SizedBox(height: 40),
@@ -39,9 +37,9 @@ class ResetPasswordWidget extends StatelessWidget {
                 color: Colors.black,
               ),
             ),
-        
+
             const SizedBox(height: 20),
-        
+
             const Text(
               'Please enter your code that send to your\n email address ',
               textAlign: TextAlign.center,
@@ -86,11 +84,11 @@ class ResetPasswordWidget extends StatelessWidget {
                     height: 50,
                     child: FilledButton(
                       onPressed: () {
-                      if(forgetPasswordBloc.validateForm(formKey)){
-                         context.read<ForgetPasswordBloc>().add(
-                          ResetPasswordEvent(_passwordController.text),
-                        );
-                      }
+                        if (forgetPasswordBloc.validateForm(formKey)) {
+                          context.read<ForgetPasswordBloc>().add(
+                            ResetPasswordEvent(_passwordController.text),
+                          );
+                        }
                       },
                       child: Text(
                         t.continue_button,

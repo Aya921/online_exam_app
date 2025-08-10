@@ -16,6 +16,7 @@ void main() async {
   await configureDependencies();
 
   await getIt<AppConfigProvider>().setSlectedLocale();
+  
   runApp(
     ChangeNotifierProvider.value(
       value: getIt<AppConfigProvider>(),
@@ -40,7 +41,7 @@ class MyApp extends StatelessWidget {
       supportedLocales: AppLocalizations.supportedLocales,
       theme: AppThem.ligtScheme,
       initialRoute: getIt<TokenService>().isTokenSaved
-          ? AppRoutes.main 
+          ? AppRoutes.main
           : AppRoutes.login,
 
       onGenerateRoute: Routes.onGenerate,

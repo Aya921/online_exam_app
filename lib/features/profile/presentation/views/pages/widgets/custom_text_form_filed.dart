@@ -1,6 +1,3 @@
-import 'dart:math';
-
-import 'package:exam_app/features/auth/presentation/validator/general_validation.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextFormField extends StatelessWidget {
@@ -9,7 +6,7 @@ class CustomTextFormField extends StatelessWidget {
   final String? hint;
   final VoidCallback?
   onChanged; //--> to make a button is not able to be clickabel until all fields is validate correctly
-  final String
+  final String?
   emptyFiledErrorMessage; // when empty field ---->  what message you want to show
   final String? Function(String?)? formFieldValidator;
   final TextEditingController? passwordCompareValue;
@@ -18,15 +15,15 @@ class CustomTextFormField extends StatelessWidget {
   final bool? obsecureTxt;
   final bool? enabled;
   final Widget? suffixwidget;
-  String? Function(String?)? validator;
+  final String? Function(String?)? validator;
 
-   CustomTextFormField({
+  const CustomTextFormField({
     super.key,
     this.controller,
     required this.label,
     this.hint,
     this.formFieldValidator,
-    required this.emptyFiledErrorMessage,
+    this.emptyFiledErrorMessage,
     this.passwordCompareValue,
     this.obsecureTxt,
     this.confirmPasswordFunction,
@@ -56,7 +53,7 @@ class CustomTextFormField extends StatelessWidget {
         hintText: hint,
         labelStyle: TextStyle(color: Theme.of(context).colorScheme.secondary),
       ),
-      validator: validator
+      validator: validator,
     );
   }
 }

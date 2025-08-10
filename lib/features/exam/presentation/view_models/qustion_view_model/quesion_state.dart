@@ -25,9 +25,7 @@ class QuestionState {
     List<List<String?>?>? studentAswers,
 
     bool? isTimeEnd,
-      int? seconds
-    
-    
+    int? seconds,
   }) {
     return QuestionState(
       isLoading: isLoading ?? this.isLoading,
@@ -36,7 +34,7 @@ class QuestionState {
       studentAswers: studentAswers ?? this.studentAswers,
 
       isTimeEnd: isTimeEnd ?? this.isTimeEnd,
-      seconds: seconds??this.seconds
+      seconds: seconds ?? this.seconds,
     );
   }
 }

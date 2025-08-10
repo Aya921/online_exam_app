@@ -8,6 +8,5 @@ abstract interface class ExamRemoteDataSource {
   Future<ApiResult<List<SubjectModel>>> getAllSubjects();
   Future<ApiResult<List<ExamModel>>> getExamONSubjectById(String subjectId);
   Future<ApiResult<List<QuestionsModel>>> getQuestions(String examId);
-    Future<ApiResult<UserEntity>> getProfileData();
-
+  Future<ApiResult<UserEntity>> getProfileData();
 }

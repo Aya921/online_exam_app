@@ -8,14 +8,12 @@ class LoginFooter extends StatelessWidget {
 
   final String secondrytText;
 
-
   const LoginFooter({
     super.key,
     required this.onpress,
-   
+
     required this.primaryText,
-    required this.secondrytText
-    
+    required this.secondrytText,
   });
 
   @override
@@ -26,7 +24,7 @@ class LoginFooter extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-         primaryText,
+          primaryText,
           style: textTheme.bodyLarge?.copyWith(color: AppColors.black),
         ),
         MouseRegion(

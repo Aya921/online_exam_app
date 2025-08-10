@@ -1,4 +1,3 @@
-
 import 'package:exam_app/core/theme/app_colors.dart';
 import 'package:exam_app/features/exam/presentation/view_models/qustion_view_model/quesion_state.dart';
 import 'package:exam_app/features/exam/presentation/view_models/qustion_view_model/quesion_view_model.dart';
@@ -8,7 +7,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CustumTimer extends StatelessWidget {
   final int duration;
-
 
   const CustumTimer({super.key, required this.duration});
 
@@ -21,12 +19,11 @@ class CustumTimer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-      late bool isHalfTimer = false;
+    late bool isHalfTimer = false;
     return BlocBuilder<QustionViewModel, QuestionState>(
       builder: (context, state) {
         if (state.seconds != null) {
-        
-          if (state.seconds == ((duration*60) ~/ 2)-1) {
+          if (state.seconds == ((duration * 60) ~/ 2) - 1) {
             isHalfTimer = true;
           }
           return Text(

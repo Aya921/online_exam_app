@@ -11,6 +11,4 @@ class ForgetPasswordUsecase {
   Future<ApiResult<void>> forgetPassword(ForgotPasswordRequset email) async {
     return await _authRepo.forgetPassword(email);
   }
-
-  
 }

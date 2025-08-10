@@ -1,5 +1,1 @@
-
-
-class ForgetPasswordValidators {
-
-}
+class ForgetPasswordValidators {}

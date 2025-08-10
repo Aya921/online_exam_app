@@ -1,4 +1,3 @@
-
 import 'package:exam_app/confing/api_result/api_result.dart';
 import 'package:exam_app/features/exam/domin/entity/user_entity.dart';
 import 'package:exam_app/features/exam/domin/repository/exam_repository.dart';
@@ -11,8 +10,7 @@ class GetAllUserDataUsecase {
 
   GetAllUserDataUsecase(this._examRepository);
 
-  Future<ApiResult<UserEntity>> call()async {
+  Future<ApiResult<UserEntity>> call() async {
     return await _examRepository.getProfileData();
   }
-
 }

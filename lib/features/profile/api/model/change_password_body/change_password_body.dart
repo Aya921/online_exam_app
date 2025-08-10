@@ -5,7 +5,7 @@ part 'change_password_body.g.dart';
 
 @JsonSerializable()
 class ChangePasswordBody {
-  @JsonKey(name:JsonConstants.oldPassword )
+  @JsonKey(name: JsonConstants.oldPassword)
   String? oldPassword;
   @JsonKey(name: JsonConstants.password)
   String? password;

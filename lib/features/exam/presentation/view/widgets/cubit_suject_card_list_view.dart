@@ -7,8 +7,8 @@ class CubitSubjectCardListView extends StatefulWidget {
   const CubitSubjectCardListView({super.key});
 
   @override
-  State<CubitSubjectCardListView> createState() => _CubitSubjectCardListViewState();
-  
+  State<CubitSubjectCardListView> createState() =>
+      _CubitSubjectCardListViewState();
 }
 
 class _CubitSubjectCardListViewState extends State<CubitSubjectCardListView> {
@@ -17,12 +17,13 @@ class _CubitSubjectCardListViewState extends State<CubitSubjectCardListView> {
     context.read<ExploreCubit>().fetchAllSubjects();
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ExploreCubit, ExploreState>(
       builder: (context, state) {
         if (state is ExploreSuccess) {
-          return  SujectCardListView( subjects: state.subjects,);
+          return SujectCardListView(subjects: state.subjects);
         } else if (state is ExploreFailed) {
           return Center(child: Text(state.errorMessage));
         } else {

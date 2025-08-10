@@ -18,6 +18,4 @@ class ProfileRepoImpl implements ProfileRepo {
   Future<ApiResult<void>> editProfile(Map<String, dynamic> body) async {
     return await _profileRemoteDataSource.editProfile(body);
   }
-
-
 }

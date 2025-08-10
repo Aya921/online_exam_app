@@ -145,9 +145,7 @@ class _LoginFormState extends State<LoginForm> {
                 onpress: () {
                   Navigator.pushNamed(context, AppRoutes.signup);
                 },
-                primaryText: AppLocalizations.of(
-                  context,
-                )!.dontHaveAccount,
+                primaryText: AppLocalizations.of(context)!.dontHaveAccount,
                 secondrytText: AppLocalizations.of(context)!.signUp,
               ),
             ],

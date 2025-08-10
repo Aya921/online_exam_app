@@ -20,17 +20,12 @@ class UpdateStudentAnswerEvent extends QuestionEvents {
 
 class StartTimerEvent extends QuestionEvents {
   int duration;
-  StartTimerEvent({
-    required this.duration,
-  });
-  
+  StartTimerEvent({required this.duration});
 }
 
 class EndTimeEvent extends QuestionEvents {}
 
 class TimeupdatedEvent extends QuestionEvents {
   int seconds;
-  TimeupdatedEvent({
-    required this.seconds,
-  });
+  TimeupdatedEvent({required this.seconds});
 }

@@ -26,8 +26,6 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
 
   final formKey = GlobalKey<FormState>();
 
-
-
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   final ValueNotifier<bool> pinErrorNotifier = ValueNotifier(false);
 
@@ -47,11 +45,7 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
       create: (BuildContext context) => viewModel,
       child: Scaffold(
         appBar: AppBar(
-          title: Text(
-            t.password,
-            
-           
-          ),
+          title: Text(t.password),
           leading: IconButton(
             onPressed: () => Navigator.pop(context),
             icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
@@ -97,7 +91,7 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
                   return ForgetPasswordWidget(
                     context,
                     emailController: _emailController,
-                   
+
                     autovalidateMode: autovalidateMode,
                   );
                 } else if (state.isOtpCorrect != true) {
@@ -108,7 +102,6 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
                   );
                 } else if (state.isOtpCorrect == true) {
                   return ResetPasswordWidget(
-                   
                     passwordController: _passwordController,
                     confirmPasswordController: _confirmPasswordController,
                   );
@@ -123,4 +116,3 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
     );
   }
 }
-

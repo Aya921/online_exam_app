@@ -1,3 +1,4 @@
+import 'package:exam_app/confing/api_result/api_result.dart';
 import 'package:exam_app/confing/di/di.dart';
 import 'package:exam_app/core/route/app_routes.dart';
 import 'package:exam_app/core/theme/app_colors.dart';
@@ -13,7 +14,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class UpdateProfilePage extends StatefulWidget {
   UpdateProfilePage({super.key, required this.userEntity});
 
-  final UserEntity userEntity;
+  UserEntity userEntity;
   final viewModel = getIt<UpdateProfileCubit>();
 
   @override
@@ -46,13 +47,14 @@ class _UpdateProfilePageState extends State<UpdateProfilePage> {
 
     _addFieldListeners();
   }
+
   bool get _areAllFieldsFilled {
-  return userNameController.text.trim().isNotEmpty &&
-      firstNameController.text.trim().isNotEmpty &&
-      lastNameController.text.trim().isNotEmpty &&
-      emailController.text.trim().isNotEmpty &&
-      phoneController.text.trim().isNotEmpty;
-}
+    return userNameController.text.trim().isNotEmpty &&
+        firstNameController.text.trim().isNotEmpty &&
+        lastNameController.text.trim().isNotEmpty &&
+        emailController.text.trim().isNotEmpty &&
+        phoneController.text.trim().isNotEmpty;
+  }
 
   void _addFieldListeners() {
     final fields = {
@@ -108,7 +110,10 @@ class _UpdateProfilePageState extends State<UpdateProfilePage> {
     return BlocProvider(
       create: (context) => widget.viewModel,
       child: Scaffold(
-        appBar: AppBar(title: const Text('Profile')),
+        appBar: AppBar(
+          title: const Text('Profile'),
+          automaticallyImplyLeading: false,
+        ),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
           child: SingleChildScrollView(
@@ -236,7 +241,7 @@ class _UpdateProfilePageState extends State<UpdateProfilePage> {
                                 updatedData,
                               );
                               context.read<GetAllUserDataUsecase>().call();
-                              context.read<GetAllSubjectsUsecase>().invok();                            }
+                            }
                           : null,
                       style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.blue,

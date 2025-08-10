@@ -17,17 +17,15 @@ class LoginScreen extends StatelessWidget {
       create: (context) => viewModel,
       child: Scaffold(
         appBar: AppBar(
-          leading: const Icon(Icons.arrow_back_ios_new, color: AppColors.black,size: 20,),
-          title: Text(
-            AppLocalizations.of(context)!.login,
-          
+          leading: const Icon(
+            Icons.arrow_back_ios_new,
+            color: AppColors.black,
+            size: 20,
           ),
+          title: Text(AppLocalizations.of(context)!.login),
         ),
         body: const SafeArea(
-          child: Padding(
-            padding: EdgeInsets.all(16 ),
-            child: LoginForm(),
-          ),
+          child: Padding(padding: EdgeInsets.all(16), child: LoginForm()),
         ),
       ),
     );

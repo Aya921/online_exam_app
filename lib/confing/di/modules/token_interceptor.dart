@@ -4,9 +4,7 @@ import 'package:exam_app/core/constant/constant.dart';
 import 'package:exam_app/core/services/token_service.dart';
 import 'package:injectable/injectable.dart';
 
-
 @injectable
-
 class TokenInterceptor extends Interceptor {
   final TokenService tokenService = getIt.get<TokenService>();
   @override

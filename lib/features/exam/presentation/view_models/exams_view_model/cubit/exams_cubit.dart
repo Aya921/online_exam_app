@@ -17,7 +17,7 @@ class ExamsCubit extends Cubit<ExamsState> {
     final result = await _examsOnSubjectUsecase.invok(subjectId);
     switch (result) {
       case final ApiSucessResult<List<ExamModel>> successResult:
-        emit(ExamsSuccess(exams: successResult.sucessResult ));
+        emit(ExamsSuccess(exams: successResult.sucessResult));
         break;
       case final ApiFailedResult errorResult:
         emit(ExamsFailed(errorMessage: errorResult.errorMessage));

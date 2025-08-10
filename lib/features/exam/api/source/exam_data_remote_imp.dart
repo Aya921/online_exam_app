@@ -9,7 +9,6 @@ import 'package:exam_app/features/exam/domin/entity/subject_model.dart';
 import 'package:exam_app/features/exam/domin/entity/question_model.dart';
 import 'package:exam_app/features/exam/domin/entity/user_entity.dart';
 
-
 import 'package:injectable/injectable.dart';
 
 @Injectable(as: ExamRemoteDataSource)
@@ -23,7 +22,10 @@ class ExamRemoteDataSourceImp implements ExamRemoteDataSource {
     try {
       final response = await _apiService.getAllSubjects();
       final List<SubjectModel> subjects =
-          response.subjects?.map((suject) => suject.toSubjectModel()).toList() ?? [];
+          response.subjects
+              ?.map((suject) => suject.toSubjectModel())
+              .toList() ??
+          [];
 
       return ApiSucessResult(subjects);
     } on DioException catch (e) {
@@ -34,7 +36,9 @@ class ExamRemoteDataSourceImp implements ExamRemoteDataSource {
   }
 
   @override
-  Future<ApiResult<List<ExamModel>>> getExamONSubjectById(String subjectId) async {
+  Future<ApiResult<List<ExamModel>>> getExamONSubjectById(
+    String subjectId,
+  ) async {
     try {
       final response = await _apiService.getAllExamsOnSubjects(subjectId);
       final List<ExamModel> exams =
@@ -51,10 +55,15 @@ class ExamRemoteDataSourceImp implements ExamRemoteDataSource {
   @override
   Future<ApiResult<List<QuestionsModel>>> getQuestions(String examId) async {
     try {
-      final questionsResponseList = await _apiService.getQuestions(exam: examId);
+      final questionsResponseList = await _apiService.getQuestions(
+        exam: examId,
+      );
 
       final questionModelList =
-          questionsResponseList.questions?.map((question) => question.toModel()).toList() ?? [];
+          questionsResponseList.questions
+              ?.map((question) => question.toModel())
+              .toList() ??
+          [];
 
       return ApiSucessResult(questionModelList);
     } on DioException catch (e) {
@@ -73,7 +82,7 @@ class ExamRemoteDataSourceImp implements ExamRemoteDataSource {
   }
 
   @override
-    Future<ApiResult<UserEntity>> getProfileData()  async {
+  Future<ApiResult<UserEntity>> getProfileData() async {
     try {
       final user = await _apiService.getProfileData();
       return ApiSucessResult(user.user!.ToUserEtntity());

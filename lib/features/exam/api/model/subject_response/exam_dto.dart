@@ -24,7 +24,8 @@ class ExamDto {
     this.createdAt,
   });
 
-  factory ExamDto.fromJson(Map<String, dynamic> json) => _$ExamDtoFromJson(json);
+  factory ExamDto.fromJson(Map<String, dynamic> json) =>
+      _$ExamDtoFromJson(json);
 
   ExamModel toExamModel() {
     return ExamModel(

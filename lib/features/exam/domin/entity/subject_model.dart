@@ -4,6 +4,5 @@ class SubjectModel {
   String? icon;
   //DateTime? createdAt;
 
-
   SubjectModel({this.id, this.name, this.icon});
 }

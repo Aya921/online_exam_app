@@ -18,9 +18,14 @@ class SujectCardListView extends StatelessWidget {
             padding: const EdgeInsets.only(top: 16),
             child: GestureDetector(
               onTap: () {
-                Navigator.pushNamed(context, AppRoutes.exams , arguments: subjects[index]);
+                Navigator.pushNamed(
+                  context,
+                  AppRoutes.exams,
+                  arguments: subjects[index],
+                );
               },
-              child: SubjectCard(subject: subjects[index])),
+              child: SubjectCard(subject: subjects[index]),
+            ),
           );
         },
       ),

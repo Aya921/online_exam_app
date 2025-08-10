@@ -20,7 +20,9 @@ class ExamRepositoryImp implements ExamRepository {
   }
 
   @override
-  Future<ApiResult<List<ExamModel>>> getExamsOnSubjectById(String subjectId) async {
+  Future<ApiResult<List<ExamModel>>> getExamsOnSubjectById(
+    String subjectId,
+  ) async {
     return await _examDataSource.getExamONSubjectById(subjectId);
   }
 
@@ -28,6 +30,7 @@ class ExamRepositoryImp implements ExamRepository {
   Future<ApiResult<List<QuestionsModel>>> getQuestions(String examId) async {
     return await _examDataSource.getQuestions(examId);
   }
+
   @override
   Future<ApiResult<UserEntity>> getProfileData() async {
     return await _examDataSource.getProfileData();

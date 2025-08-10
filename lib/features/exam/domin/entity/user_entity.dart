@@ -10,6 +10,7 @@ class UserEntity {
     this.firstName,
     this.lastName,
     this.email,
-    this.phone, String? id,
+    this.phone,
+    String? id,
   });
 }

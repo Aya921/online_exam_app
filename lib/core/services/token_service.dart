@@ -13,7 +13,7 @@ class TokenService {
     required FlutterSecureStorage prefs,
     required SharedPreferences sharedPreferences,
   }) : _prefs = prefs,
-      _sharedPreferences = sharedPreferences;
+       _sharedPreferences = sharedPreferences;
 
   bool get isTokenSaved =>
       _sharedPreferences.getBool(Constant.isTokenSaved) ?? false;

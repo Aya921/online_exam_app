@@ -77,9 +77,7 @@ class AuthRemoteDataSourceImp implements AuthRemoteDataSource {
     try {
       await _apiServises.forgetPassword(ForgetPasswordRequestDto.toDto(email));
       return ApiSucessResult(null);
-    } 
-    
-    on DioException catch (e) {
+    } on DioException catch (e) {
       final data = e.response?.data;
       String errorMessage = e.toString();
 
@@ -89,17 +87,19 @@ class AuthRemoteDataSourceImp implements AuthRemoteDataSource {
       }
 
       return ApiFailedResult(errorMessage);
-
-     
     } catch (e) {
       return ApiFailedResult(e.toString());
     }
   }
 
   @override
-  Future<ApiResult<void>> resetPassword(ResetPasswordRequest resetPassword) async {
+  Future<ApiResult<void>> resetPassword(
+    ResetPasswordRequest resetPassword,
+  ) async {
     try {
-      final  result = await _apiServises.resetPassword(ResetPasswordDto.toDto(resetPassword));
+      final result = await _apiServises.resetPassword(
+        ResetPasswordDto.toDto(resetPassword),
+      );
       if (result.token != null) {
         await _tokenService.saveToken(result.token!);
       }
@@ -122,11 +122,9 @@ class AuthRemoteDataSourceImp implements AuthRemoteDataSource {
   @override
   Future<ApiResult<void>> verifyResetCode(VerifyResetCodeRequest code) async {
     try {
-      await _apiServises.verifyResetCode(
-        VerifyResetCodeRequestDto.toDto(code)
-      );
+      await _apiServises.verifyResetCode(VerifyResetCodeRequestDto.toDto(code));
       return ApiSucessResult(null);
-    }   on DioException catch (e) {
+    } on DioException catch (e) {
       final data = e.response?.data;
       String errorMessage = e.toString();
 

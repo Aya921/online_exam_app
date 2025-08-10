@@ -5,7 +5,7 @@ part 'subject_dto.g.dart';
 
 @JsonSerializable()
 class SubjectDto {
- @JsonKey(name: JsonConstants.id)
+  @JsonKey(name: JsonConstants.id)
   String? id;
 
   @JsonKey(name: JsonConstants.name)
@@ -25,6 +25,6 @@ class SubjectDto {
   Map<String, dynamic> toJson() => _$SubjectDtoToJson(this);
 
   SubjectModel toModel() {
-    return SubjectModel(name: name, icon: icon,id: id);
+    return SubjectModel(name: name, icon: icon, id: id);
   }
 }

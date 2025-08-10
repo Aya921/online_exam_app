@@ -10,10 +10,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class ExplorePage extends StatelessWidget {
   ExplorePage({super.key});
 
-
   @override
   Widget build(BuildContext context) {
-  final t = AppLocalizations.of(context);
+    final t = AppLocalizations.of(context);
     return Scaffold(
       appBar: AppBar(
         scrolledUnderElevation: 0,
@@ -33,7 +32,7 @@ class ExplorePage extends StatelessWidget {
             const SizedBox(height: 16),
             const SearchTextField(),
             const SizedBox(height: 40),
-    
+
             Text(
               t.browseBySubject,
               style: Theme.of(context).textTheme.headlineMedium?.copyWith(
@@ -42,12 +41,11 @@ class ExplorePage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 8),
-    
+
             const CubitSubjectCardListView(),
           ],
         ),
       ),
     );
-    
   }
 }

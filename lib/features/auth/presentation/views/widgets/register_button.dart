@@ -64,9 +64,8 @@ class RegisterButton extends StatelessWidget {
             if (signinCubit!.checkValidation()) {
               signinCubit!.signIn(signInRequest!);
             }
-          } 
-          
-          
+          }
+
           // else if (forgotPasswordViewModel != null &&
           //     forgotPasswordRequest != null) {
           //   forgotPasswordViewModel!.add(
@@ -74,8 +73,8 @@ class RegisterButton extends StatelessWidget {
           //       ForgotPasswordRequset(email: controller1!.text.trim()),
           //     ),
           //   );
-          // } 
-          
+          // }
+
           // else if (resetPasswordViewModel != null) {
           //   resetPasswordViewModel!.add(
           //     ResetNewPasswordEvent(

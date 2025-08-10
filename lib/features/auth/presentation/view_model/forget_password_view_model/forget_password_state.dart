@@ -9,8 +9,6 @@ class ForgetPasswordState {
   String? errorEmail = '';
   String? errorPassword = '';
 
-  
-
   ForgetPasswordState({
     this.isvrifyCodeSent = false,
     this.isOtpCorrect = false,
@@ -18,7 +16,7 @@ class ForgetPasswordState {
     this.errorOtp = '',
     this.errorEmail = '',
     this.errorPassword = '',
-  this.isPasswordReset = false,
+    this.isPasswordReset = false,
   });
 
   ForgetPasswordState copyWith({

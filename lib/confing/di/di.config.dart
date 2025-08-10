@@ -64,6 +64,8 @@ import '../../features/profile/domin/usecases/change_password_usecase.dart'
     as _i246;
 import '../../features/profile/domin/usecases/update_user_data_usecase.dart'
     as _i753;
+import '../../features/profile/presentation/view_model/cubit/change_password_cubit.dart'
+    as _i348;
 import '../../features/profile/presentation/view_model/cubit/update_profile_cubit.dart'
     as _i1029;
 import '../provider/app_config_provider.dart' as _i291;
@@ -112,7 +114,10 @@ extension GetItInjectableX on _i174.GetIt {
       () => _i387.ExamRemoteDataSourceImp(gh<_i376.ExamApiService>()),
     );
     gh.factory<_i525.ProfileRemoteDataSource>(
-      () => _i34.ProfileRemoteDataImp(gh<_i36.ProfileApiServises>()),
+      () => _i34.ProfileRemoteDataImp(
+        gh<_i36.ProfileApiServises>(),
+        gh<_i115.TokenService>(),
+      ),
     );
     gh.factory<_i984.AuthRemoteDataSource>(
       () => _i729.AuthRemoteDataSourceImp(
@@ -175,6 +180,11 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i753.UpdateUserDataUsecase>(
       () => _i753.UpdateUserDataUsecase(gh<_i1009.ProfileRepo>()),
+    );
+    gh.factory<_i348.ChangePasswordCubit>(
+      () => _i348.ChangePasswordCubit(
+        changePasswordUsecase: gh<_i246.ChangePasswordUsecase>(),
+      ),
     );
     gh.factory<_i401.SignupViewModel>(
       () => _i401.SignupViewModel(gh<_i749.SignupUseCase>()),

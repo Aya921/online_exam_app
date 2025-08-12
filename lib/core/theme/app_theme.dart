@@ -4,6 +4,14 @@ import 'package:flutter/material.dart';
 abstract class AppThem {
   static ThemeData getTheme(ColorScheme colorScheme) {
     return ThemeData(
+     textTheme: TextTheme(
+        bodyLarge: TextStyle(fontSize: 16, color: colorScheme.secondary),
+        bodyMedium: TextStyle(fontSize: 14, color: colorScheme.secondary),
+        bodySmall: TextStyle(fontSize: 12, color: colorScheme.secondary),
+        titleLarge: TextStyle(fontSize: 20, color: colorScheme.secondary),
+        titleMedium: TextStyle(fontSize: 18, color: colorScheme.secondary),
+        titleSmall: TextStyle(fontSize: 16, color: colorScheme.secondary),
+      ),
       appBarTheme: const AppBarTheme(titleTextStyle: TextStyle(fontSize: 30,color: AppColors.black)),
       colorScheme: colorScheme,
       inputDecorationTheme: InputDecorationTheme(
@@ -49,7 +57,7 @@ abstract class AppThem {
           backgroundColor: const WidgetStatePropertyAll(AppColors.blue),
           elevation: const WidgetStatePropertyAll(0), 
           padding: const WidgetStatePropertyAll(
-            EdgeInsets.symmetric(horizontal: 60, vertical: 20),
+            EdgeInsets.symmetric(horizontal: 40, vertical: 15),
           ),
           shape: WidgetStatePropertyAll(
             RoundedRectangleBorder(

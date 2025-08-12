@@ -21,6 +21,9 @@ version: 1.0.0+1
 environment:
   sdk: ^3.8.0
 
+
+
+
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
 # consider running `flutter pub upgrade --major-versions`. Alternatively,
@@ -39,8 +42,6 @@ dependencies:
   retrofit: ^4.6.0
   json_annotation: ^4.9.0
   dartz:
-
-
   flutter_localizations:
     sdk: flutter
   intl: any
@@ -59,6 +60,18 @@ dependencies:
 
   percent_indicator: ^4.2.5
   percent_indicator_circle: ^0.0.5
+  isar:
+    hosted:
+      name: isar
+      url: https://pub.isar-community.dev/
+    version: ^3.0.0
+  isar_flutter_libs:
+    hosted:
+      name: isar_flutter_libs
+      url: https://pub.isar-community.dev/
+    version: ^3.0.0
+
+  
 
 
 
@@ -67,8 +80,16 @@ dev_dependencies:
     sdk: flutter
   injectable_generator:
   build_runner:
-  retrofit_generator: ^9.6.0
-  json_serializable: ^6.9.5
+  json_serializable: ^6.8.0
+  isar_generator:
+    hosted:
+      name: isar_generator
+      url: https://pub.isar-community.dev/
+    version: ^3.0.0
+  retrofit_generator: '>=8.0.0 <10.0.0' 
+
+  
+
 
 
   # The "flutter_lints" package below contains a set of recommended lints to

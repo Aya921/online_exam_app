@@ -1,4 +1,5 @@
 import 'package:exam_app/core/constant/constant.dart';
+import 'package:exam_app/core/constant/pages_constants/page_constants.dart';
 import 'package:exam_app/core/l10n/translations/app_localizations.dart';
 import 'package:exam_app/core/route/app_routes.dart';
 import 'package:exam_app/core/theme/app_colors.dart';
@@ -17,11 +18,13 @@ import 'package:percent_indicator/linear_percent_indicator.dart';
 class QuestionsPart extends StatefulWidget {
   List<QuestionsModel>? questioinsListModel;
   QustionViewModel qustionViewModel;
+  String examId;
 
   QuestionsPart({
     super.key,
     this.questioinsListModel,
     required this.qustionViewModel,
+    required this.examId,
   });
 
   @override
@@ -40,7 +43,9 @@ class _QuestionsPartState extends State<QuestionsPart> {
 
   @override
   void initState() {
-    widget.qustionViewModel.add(StartTimerEvent(duration: widget.questioinsListModel![0].exam!.duration!));
+    widget.qustionViewModel.add(
+      StartTimerEvent(duration: widget.questioinsListModel![0].exam!.duration!),
+    );
     super.initState();
   }
 
@@ -51,6 +56,7 @@ class _QuestionsPartState extends State<QuestionsPart> {
 
     questioinsList = widget.questioinsListModel!;
     final examModel = questioinsList[pageIndex].exam;
+    final subjectModel = questioinsList[pageIndex].subject;
     final answrers = questioinsList[pageIndex].answers;
     final question = questioinsList[pageIndex].question;
 
@@ -79,11 +85,12 @@ class _QuestionsPartState extends State<QuestionsPart> {
       },
       child: Scaffold(
         appBar: AppBar(
-          leading:IconButton(onPressed: (){
-            Navigator.pop(context);
-            }
-            
-            , icon: const Icon(Icons.arrow_back_ios)),
+          leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(Icons.arrow_back_ios),
+          ),
 
           title: Text(t.exam),
 
@@ -198,7 +205,17 @@ class _QuestionsPartState extends State<QuestionsPart> {
                             qNumber++;
                           });
                         } else {
-                          //navigator
+                          Navigator.of(context).pushReplacementNamed(
+                            AppRoutes.score,
+                            arguments: {
+                              PageConstants.questionListArg: questioinsList,
+                              PageConstants.studentAnswerArg: studentAnswers,
+                              PageConstants.examModelArg: examModel,
+                              PageConstants.subjectNameArg: subjectModel!.name,
+                              PageConstants.timerArg:
+                                  widget.qustionViewModel.state.seconds,
+                            },
+                          );
                         }
                       },
 

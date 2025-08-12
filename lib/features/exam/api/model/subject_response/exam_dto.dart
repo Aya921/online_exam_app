@@ -1,10 +1,12 @@
 import 'package:exam_app/features/exam/domin/entity/exam_model.dart';
+import 'package:isar/isar.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'exam_dto.g.dart';
-
+@embedded
 @JsonSerializable()
 class ExamDto {
+
   @JsonKey(name: '_id')
   String? id;
   String? title;
@@ -24,7 +26,8 @@ class ExamDto {
     this.createdAt,
   });
 
-  factory ExamDto.fromJson(Map<String, dynamic> json) => _$ExamDtoFromJson(json);
+  factory ExamDto.fromJson(Map<String, dynamic> json) =>
+      _$ExamDtoFromJson(json);
 
   ExamModel toExamModel() {
     return ExamModel(
@@ -34,6 +37,17 @@ class ExamDto {
       subject: subject,
       numberOfQuestions: numberOfQuestions,
       active: active,
+    );
+  }
+
+  static ExamDto toDto(ExamModel examModel) {
+    return ExamDto(
+      id: examModel.id,
+      title: examModel.title,
+      duration: examModel.duration,
+      subject: examModel.subject,
+      numberOfQuestions: examModel.numberOfQuestions,
+      active: examModel.active,
     );
   }
 

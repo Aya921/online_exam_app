@@ -1,4 +1,4 @@
-### Merge exam feature (subject + question + exam modules) into development
+### Merge Result feature into development
 
 ## What type of PR is this? (check all applicable)
 
@@ -9,9 +9,8 @@
 This PR merges the `exam` branch into `development`.
 
 ### Features included in this PR:
-- Added **Subject** feature: CRUD operations and integration.
-- Added **Question** feature: managing questions per subject/exam.
-- Added **Exam** feature: exam creation, assignment, and validation logic.
+- Added **Result** feature: ShowResults and save it in Isar database.
+
 
 ## Related Tickets & Documents
 
@@ -19,9 +18,12 @@ This PR merges the `exam` branch into `development`.
 
 ## QA Instructions, Screenshots, Recordings
 
-- Navigate to the "Subjects" page to test subject management.
-- Navigate to the "Questions" section under each subject to manage questions.
-- Go to "Exams" to test exam creation and linkage to subjects/questions.
+- Complete an exam to trigger result generation.
+
+- Check that the result data is available via the ResultModel instance.
+
+- Verify correct/wrong answer counts are correct.
+
 
 Tested on:
 - [x] Chrome

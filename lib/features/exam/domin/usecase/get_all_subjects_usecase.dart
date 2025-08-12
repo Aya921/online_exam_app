@@ -8,5 +8,5 @@ class GetAllSubjectsUsecase {
   final ExamRepository _examRepository;
   GetAllSubjectsUsecase(this._examRepository);
   Future<ApiResult<List<SubjectModel>>> invok() async =>
-     await  _examRepository.getAllSubjects();
+      await _examRepository.getAllSubjects();
 }

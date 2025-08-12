@@ -31,9 +31,7 @@ class CustomTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      style: TextStyle(
-        color: Theme.of(context).colorScheme.secondary,
-      ),
+      style: TextStyle(color: Theme.of(context).colorScheme.secondary),
       controller: controller,
       obscureText: obsecureTxt ?? false,
       onChanged: (_) {
@@ -41,12 +39,12 @@ class CustomTextFormField extends StatelessWidget {
           onChanged!();
         }
       },
-      
+
       decoration: InputDecoration(
-        
-        labelText: label, hintText: hint , labelStyle: TextStyle(
-        color: Theme.of(context).colorScheme.secondary,
-        )),
+        labelText: label,
+        hintText: hint,
+        labelStyle: TextStyle(color: Theme.of(context).colorScheme.secondary),
+      ),
       validator: (value) {
         final generalError = GeneralValidation.emptyValidation(
           value,

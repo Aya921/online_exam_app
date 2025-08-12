@@ -74,14 +74,15 @@ class _SignUpPageState extends State<SignUpPage> {
     return BlocProvider(
       create: (context) => signupViewModel,
       child: Scaffold(
-        appBar:
-        
-        
-         AppBar(
-          title: Text(t.signup,),
+        appBar: AppBar(
+          title: Text(t.signup),
           leading: IconButton(
             onPressed: () => Navigator.pop(context),
-            icon: const Icon(Icons.arrow_back_ios_new, color: Colors.black,size: 20,),
+            icon: const Icon(
+              Icons.arrow_back_ios_new,
+              color: Colors.black,
+              size: 20,
+            ),
           ),
         ),
         body: Padding(
@@ -131,9 +132,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   Row(
                     children: [
                       Expanded(
-                        child: 
-                        
-                        CustomTextFormField(
+                        child: CustomTextFormField(
                           controller: _firstNameController,
                           label: t.firstNameLabel,
                           hint: t.firstNameHint,

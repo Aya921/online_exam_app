@@ -27,7 +27,7 @@ class _ExamCardListViewState extends State<CubitExamCardListView> {
 
   @override
   Widget build(BuildContext context) {
-     final t = AppLocalizations.of(context)!;
+    final t = AppLocalizations.of(context)!;
     return BlocBuilder<ExamsCubit, ExamsState>(
       builder: (context, state) {
         if (state is ExamsLoading) {
@@ -35,7 +35,7 @@ class _ExamCardListViewState extends State<CubitExamCardListView> {
         }
         if (state is ExamsSuccess) {
           if (state.exams.isEmpty) {
-            return  Center(child: Text(t.noExamsAvailable));
+            return Center(child: Text(t.noExamsAvailable));
           }
           return Column(
             children: [

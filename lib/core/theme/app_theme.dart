@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 abstract class AppThem {
   static ThemeData getTheme(ColorScheme colorScheme) {
     return ThemeData(
-     textTheme: TextTheme(
+      textTheme: TextTheme(
         bodyLarge: TextStyle(fontSize: 16, color: colorScheme.secondary),
         bodyMedium: TextStyle(fontSize: 14, color: colorScheme.secondary),
         bodySmall: TextStyle(fontSize: 12, color: colorScheme.secondary),
@@ -12,12 +12,14 @@ abstract class AppThem {
         titleMedium: TextStyle(fontSize: 18, color: colorScheme.secondary),
         titleSmall: TextStyle(fontSize: 16, color: colorScheme.secondary),
       ),
-      appBarTheme: const AppBarTheme(titleTextStyle: TextStyle(fontSize: 30,color: AppColors.black)),
+      appBarTheme: const AppBarTheme(
+        scrolledUnderElevation: 0,
+        titleTextStyle: TextStyle(fontSize: 30, color: AppColors.black),
+      ),
       colorScheme: colorScheme,
       inputDecorationTheme: InputDecorationTheme(
         floatingLabelBehavior: FloatingLabelBehavior.always,
         hintStyle: const TextStyle(fontSize: 12, color: AppColors.lightGray),
-
         labelStyle: const TextTheme(
           bodyMedium: TextStyle(color: AppColors.gray, fontSize: 14),
         ).bodyMedium,
@@ -50,35 +52,25 @@ abstract class AppThem {
           ),
         ),
       ),
-
-
       elevatedButtonTheme: ElevatedButtonThemeData(
-        style:  ButtonStyle(
+        style: ButtonStyle(
           backgroundColor: const WidgetStatePropertyAll(AppColors.blue),
-          elevation: const WidgetStatePropertyAll(0), 
+          elevation: const WidgetStatePropertyAll(0),
           padding: const WidgetStatePropertyAll(
             EdgeInsets.symmetric(horizontal: 40, vertical: 15),
           ),
           shape: WidgetStatePropertyAll(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
-              side: const BorderSide(
-                color: Colors.transparent,
-                width: 1.5,
-              ),
+              side: const BorderSide(color: Colors.transparent, width: 1.5),
             ),
           ),
-          textStyle:const  WidgetStatePropertyAll(
-             TextStyle(
-              fontWeight: FontWeight.w500,
-              fontSize: 18,
-         
-            ),
+          textStyle: const WidgetStatePropertyAll(
+            TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
           ),
-          foregroundColor: const WidgetStatePropertyAll(AppColors.white), 
+          foregroundColor: const WidgetStatePropertyAll(AppColors.white),
         ),
       ),
-    
     );
   }
 

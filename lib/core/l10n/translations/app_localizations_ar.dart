@@ -303,4 +303,32 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get ofWord => 'من';
+
+  @override
+  String get thisFieldIsRequired => 'هذا الحقل مطلوب';
+
+  @override
+  String get invalidPasswordFormat => 'تنسيق كلمة المرور غير صالح';
+
+  @override
+  String get pleaseConfirmYourPassword =>
+      'من فضلك قم بتاكيد كلمة المرور الخاصة بك';
+
+  @override
+  String get profile => 'الملف الشخصي';
+
+  @override
+  String get change => 'تغيير';
+
+  @override
+  String get profileUpdatedSuccessfully => 'تم تحديث الملف الشخصي بنجاح!';
+
+  @override
+  String get update => 'تحديث';
+
+  @override
+  String get passwordChangedSuccessfully => 'تم تغيير كلمة المرور بنجاح!';
+
+  @override
+  String get currentPassword => 'كلمة المرور الحالية';
 }

@@ -26,7 +26,6 @@ class ForgetPasswordBloc
     on<SendResetEmailEvent>(_forgetPassword);
     on<VerifyCodeEvent>(_vrifyCode);
     on<ResetPasswordEvent>(_resetPassword);
- 
   }
 
   void _forgetPassword(

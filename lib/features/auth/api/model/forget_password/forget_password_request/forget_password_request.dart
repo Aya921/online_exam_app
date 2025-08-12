@@ -17,7 +17,6 @@ class ForgetPasswordRequestDto {
 
   Map<String, dynamic> toJson() => _$ForgetPasswordRequestDtoToJson(this);
 
-
   static ForgetPasswordRequestDto toDto(ForgotPasswordRequset request) {
     return ForgetPasswordRequestDto(email: request.email);
   }

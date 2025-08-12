@@ -13,6 +13,6 @@ class ExamModel {
     this.subject,
     this.numberOfQuestions,
     this.active,
-   // this.createdAt,
+    // this.createdAt,
   });
 }

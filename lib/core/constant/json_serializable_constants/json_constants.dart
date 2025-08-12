@@ -24,7 +24,7 @@ abstract class JsonConstants {
   static const String exams = "exams";
   static const String answer = "answer";
   static const String key = "key";
- 
+
   static const String title = "title";
   static const String duration = "duration";
   static const String subject = "subject";
@@ -36,14 +36,14 @@ abstract class JsonConstants {
 
   static const String question = "question";
   static const String correct = "correct";
- 
+
   static const String exam = "exam";
-  
+
   static const String questions = "questions";
 
   static const String name = "name";
   static const String icon = "icon";
+  static const String oldPassword = "oldPassword";
 
-
-
+  static const String rePassword = "rePassword";
 }

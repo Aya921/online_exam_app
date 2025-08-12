@@ -1,6 +1,5 @@
 import 'package:exam_app/confing/api_result/api_result.dart';
 
-
 import 'package:exam_app/features/auth/domin/entities/forgot_password_req.dart';
 import 'package:exam_app/features/auth/domin/entities/reset_password_req.dart';
 import 'package:exam_app/features/auth/domin/entities/signin_req.dart';
@@ -34,7 +33,9 @@ class AuthRepoImpl implements AuthRepo {
   }
 
   @override
-  Future<ApiResult<void>> resetPassword(ResetPasswordRequest resetPassword) async {
+  Future<ApiResult<void>> resetPassword(
+    ResetPasswordRequest resetPassword,
+  ) async {
     return await _authRemoteDataSource.resetPassword(resetPassword);
   }
 

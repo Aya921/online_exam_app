@@ -30,9 +30,8 @@ Future<dynamic> showMyDialog(
             InkWell(
               onTap: () {
                 qustionViewModel.state.copyWith(isTimeEnd: false);
-
               },
-              child: ElevatedButton(onPressed: (){}, child: Text(t.viewScore))
+              child: ElevatedButton(onPressed: () {}, child: Text(t.viewScore)),
             ),
           ],
         ),

@@ -1,6 +1,4 @@
-
 import 'package:exam_app/core/l10n/translations/app_localizations.dart';
-
 
 import 'package:exam_app/features/exam/presentation/view/widgets/custum_show_dialog.dart';
 import 'package:exam_app/features/exam/presentation/view/widgets/questions_part.dart';
@@ -46,11 +44,9 @@ class _QuesionsPageState extends State<QuesionsPage> {
 
     return BlocProvider(
       create: (context) =>
-          qustionViewModel
-            ..add(GetQuestionsEvent(emailId: widget.emailId)),
+          qustionViewModel..add(GetQuestionsEvent(emailId: widget.emailId)),
 
       child: BlocBuilder<QustionViewModel, QuestionState>(
-
         builder: (context, state) {
           if (state.isLoading) {
             return const Scaffold(
@@ -76,6 +72,7 @@ class _QuesionsPageState extends State<QuesionsPage> {
             return QuestionsPart(
               qustionViewModel: qustionViewModel,
               questioinsListModel: state.questionsList,
+
               examId: widget.emailId,
             
             );
@@ -87,5 +84,3 @@ class _QuesionsPageState extends State<QuesionsPage> {
     );
   }
 }
-
-

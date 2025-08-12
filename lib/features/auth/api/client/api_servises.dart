@@ -17,7 +17,6 @@ import 'package:retrofit/retrofit.dart';
 
 part 'api_servises.g.dart';
 
-
 @RestApi(baseUrl: Endpoints.apiUrl + Endpoints.auth)
 @injectable
 abstract class ApiServises {

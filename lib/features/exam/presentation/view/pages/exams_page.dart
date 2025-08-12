@@ -36,9 +36,10 @@ class ExamsPage extends StatelessWidget {
         ),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: CubitExamCardListView(subjectId: subject.id! , 
-            subjectName: subject.name!),
-            
+          child: CubitExamCardListView(
+            subjectId: subject.id!,
+            subjectName: subject.name!,
+          ),
         ),
       ),
     );

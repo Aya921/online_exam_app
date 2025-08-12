@@ -43,6 +43,8 @@ import '../../features/exam/data/source/exam_data_source.dart' as _i660;
 import '../../features/exam/domin/repository/exam_repository.dart' as _i1067;
 import '../../features/exam/domin/usecase/get_all_subjects_usecase.dart'
     as _i1034;
+import '../../features/exam/domin/usecase/get_all_user_data_usecase.dart'
+    as _i901;
 import '../../features/exam/domin/usecase/get_exams_on_subject_usecase.dart'
     as _i330;
 import '../../features/exam/domin/usecase/get_questions_usecase.dart' as _i79;
@@ -52,6 +54,20 @@ import '../../features/exam/presentation/view_models/qustion_view_model/quesion_
     as _i620;
 import '../../features/exam/presentation/view_models/subject_view_model/cubit/explore_cubit.dart'
     as _i621;
+import '../../features/profile/api/client/api_servises.dart' as _i36;
+import '../../features/profile/api/sources/profile_remote_data_imp.dart'
+    as _i34;
+import '../../features/profile/data/repository/profile_repo_impl.dart' as _i265;
+import '../../features/profile/data/sources/profile_api_servises.dart' as _i525;
+import '../../features/profile/domin/repository/profile_repo.dart' as _i1009;
+import '../../features/profile/domin/usecases/change_password_usecase.dart'
+    as _i246;
+import '../../features/profile/domin/usecases/update_user_data_usecase.dart'
+    as _i753;
+import '../../features/profile/presentation/view_model/cubit/change_password_cubit.dart'
+    as _i348;
+import '../../features/profile/presentation/view_model/cubit/update_profile_cubit.dart'
+    as _i1029;
 import '../provider/app_config_provider.dart' as _i291;
 import 'modules/database_module.dart' as _i664;
 import 'modules/dio_module.dart' as _i983;
@@ -82,14 +98,26 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i376.ExamApiService>(
       () => _i376.ExamApiService(gh<_i361.Dio>()),
     );
+    gh.factory<_i36.ProfileApiServises>(
+      () => _i36.ProfileApiServises(gh<_i361.Dio>()),
+    );
+    gh.factory<_i115.TokenService>(
+      () => _i115.TokenService(
+        prefs: gh<_i558.FlutterSecureStorage>(),
+        sharedPreferences: gh<_i460.SharedPreferences>(),
+      ),
+    );
     gh.singleton<_i291.AppConfigProvider>(
       () => _i291.AppConfigProvider(gh<_i460.SharedPreferences>()),
     );
-    gh.factory<_i115.TokenService>(
-      () => _i115.TokenService(prefs: gh<_i558.FlutterSecureStorage>()),
-    );
     gh.factory<_i660.ExamRemoteDataSource>(
       () => _i387.ExamRemoteDataSourceImp(gh<_i376.ExamApiService>()),
+    );
+    gh.factory<_i525.ProfileRemoteDataSource>(
+      () => _i34.ProfileRemoteDataImp(
+        gh<_i36.ProfileApiServises>(),
+        gh<_i115.TokenService>(),
+      ),
     );
     gh.factory<_i984.AuthRemoteDataSource>(
       () => _i729.AuthRemoteDataSourceImp(
@@ -111,6 +139,12 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i79.GetQuestionsUsecase>(
       () => _i79.GetQuestionsUsecase(gh<_i1067.ExamRepository>()),
+    );
+    gh.factory<_i901.GetAllUserDataUsecase>(
+      () => _i901.GetAllUserDataUsecase(gh<_i1067.ExamRepository>()),
+    );
+    gh.factory<_i1009.ProfileRepo>(
+      () => _i265.ProfileRepoImpl(gh<_i525.ProfileRemoteDataSource>()),
     );
     gh.factory<_i232.SigninUsecase>(
       () => _i232.SigninUsecase(gh<_i939.AuthRepo>()),
@@ -141,8 +175,22 @@ extension GetItInjectableX on _i174.GetIt {
         getAllSubjectsUsecase: gh<_i1034.GetAllSubjectsUsecase>(),
       ),
     );
+    gh.factory<_i246.ChangePasswordUsecase>(
+      () => _i246.ChangePasswordUsecase(gh<_i1009.ProfileRepo>()),
+    );
+    gh.factory<_i753.UpdateUserDataUsecase>(
+      () => _i753.UpdateUserDataUsecase(gh<_i1009.ProfileRepo>()),
+    );
+    gh.factory<_i348.ChangePasswordCubit>(
+      () => _i348.ChangePasswordCubit(
+        changePasswordUsecase: gh<_i246.ChangePasswordUsecase>(),
+      ),
+    );
     gh.factory<_i401.SignupViewModel>(
       () => _i401.SignupViewModel(gh<_i749.SignupUseCase>()),
+    );
+    gh.factory<_i1029.UpdateProfileCubit>(
+      () => _i1029.UpdateProfileCubit(gh<_i753.UpdateUserDataUsecase>()),
     );
     gh.factory<_i1043.ForgetPasswordBloc>(
       () => _i1043.ForgetPasswordBloc(

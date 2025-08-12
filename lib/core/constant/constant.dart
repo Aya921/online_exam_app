@@ -5,6 +5,6 @@ abstract class Constant {
  
   static const String singleChoice = "single_choice";
 
-
+  static const String isTokenSaved = 'isTokenSaved';
 
 }

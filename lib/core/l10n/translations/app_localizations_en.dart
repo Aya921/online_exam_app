@@ -303,4 +303,31 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get ofWord => 'of';
+
+  @override
+  String get thisFieldIsRequired => 'This field is required';
+
+  @override
+  String get invalidPasswordFormat => 'Invalid password format';
+
+  @override
+  String get pleaseConfirmYourPassword => 'Please confirm your password';
+
+  @override
+  String get profile => 'Profile';
+
+  @override
+  String get change => 'Change';
+
+  @override
+  String get profileUpdatedSuccessfully => 'Profile updated successfully!';
+
+  @override
+  String get update => 'Update';
+
+  @override
+  String get passwordChangedSuccessfully => 'Password changed successfully!';
+
+  @override
+  String get currentPassword => 'Current Password';
 }

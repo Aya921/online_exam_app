@@ -7,22 +7,20 @@ import 'package:exam_app/features/auth/presentation/views/widgets/custom_form_fi
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-
 // ignore: must_be_immutable
 class ForgetPasswordWidget extends StatelessWidget {
   ForgetPasswordWidget(
     BuildContext context, {
     super.key,
     required this.emailController,
-  
+
     required this.autovalidateMode,
   });
   final TextEditingController emailController;
-  final GlobalKey<FormState> formKey=GlobalKey();
+  final GlobalKey<FormState> formKey = GlobalKey();
   AutovalidateMode autovalidateMode;
 
-  
-  final ForgetPasswordBloc forgetPasswordBloc=getIt.get<ForgetPasswordBloc>();
+  final ForgetPasswordBloc forgetPasswordBloc = getIt.get<ForgetPasswordBloc>();
 
   @override
   Widget build(BuildContext context) {
@@ -40,9 +38,9 @@ class ForgetPasswordWidget extends StatelessWidget {
               color: Colors.black,
             ),
           ),
-      
+
           const SizedBox(height: 20),
-      
+
           const Text(
             'Please enter your email associated to\n your account',
             textAlign: TextAlign.center,
@@ -74,7 +72,7 @@ class ForgetPasswordWidget extends StatelessWidget {
                         context.read<ForgetPasswordBloc>().add(
                           SendResetEmailEvent(emailController.text.trim()),
                         );
-      
+
                         autovalidateMode = AutovalidateMode.disabled;
                       } else {
                         autovalidateMode = AutovalidateMode.always;

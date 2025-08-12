@@ -79,3 +79,4 @@ lib/features/auth/api/model/signup_request/signup_request_dto.g.dart
 lib/features/auth/api/model/signup_response/signup_response.g.dart
 lib/features/auth/api/model/verify_reset_code_request/verify_reset_code_request.g.dart
 
+lib/features/auth/api/client/api_servises.g.dart

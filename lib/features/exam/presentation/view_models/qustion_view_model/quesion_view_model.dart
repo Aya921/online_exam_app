@@ -61,7 +61,7 @@ class QustionViewModel extends Bloc<QuestionEvents, QuestionState> {
     _timer = Timer.periodic(const Duration(seconds: 1), (t) {
       if (seconds > 0) {
         seconds--;
-        print(seconds);
+      
 
         add(TimeupdatedEvent(seconds: seconds));
       } else {

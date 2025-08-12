@@ -72,6 +72,9 @@ class _QuesionsPageState extends State<QuesionsPage> {
             return QuestionsPart(
               qustionViewModel: qustionViewModel,
               questioinsListModel: state.questionsList,
+
+              examId: widget.emailId,
+            
             );
           } else {
             return Text(t.unExpectedError);

@@ -4,6 +4,14 @@ import 'package:flutter/material.dart';
 abstract class AppThem {
   static ThemeData getTheme(ColorScheme colorScheme) {
     return ThemeData(
+      textTheme: TextTheme(
+        bodyLarge: TextStyle(fontSize: 16, color: colorScheme.secondary),
+        bodyMedium: TextStyle(fontSize: 14, color: colorScheme.secondary),
+        bodySmall: TextStyle(fontSize: 12, color: colorScheme.secondary),
+        titleLarge: TextStyle(fontSize: 20, color: colorScheme.secondary),
+        titleMedium: TextStyle(fontSize: 18, color: colorScheme.secondary),
+        titleSmall: TextStyle(fontSize: 16, color: colorScheme.secondary),
+      ),
       appBarTheme: const AppBarTheme(
         scrolledUnderElevation: 0,
         titleTextStyle: TextStyle(fontSize: 30, color: AppColors.black),
@@ -12,7 +20,6 @@ abstract class AppThem {
       inputDecorationTheme: InputDecorationTheme(
         floatingLabelBehavior: FloatingLabelBehavior.always,
         hintStyle: const TextStyle(fontSize: 12, color: AppColors.lightGray),
-
         labelStyle: const TextTheme(
           bodyMedium: TextStyle(color: AppColors.gray, fontSize: 14),
         ).bodyMedium,
@@ -45,13 +52,12 @@ abstract class AppThem {
           ),
         ),
       ),
-
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ButtonStyle(
           backgroundColor: const WidgetStatePropertyAll(AppColors.blue),
           elevation: const WidgetStatePropertyAll(0),
           padding: const WidgetStatePropertyAll(
-            EdgeInsets.symmetric(horizontal: 60, vertical: 20),
+            EdgeInsets.symmetric(horizontal: 40, vertical: 15),
           ),
           shape: WidgetStatePropertyAll(
             RoundedRectangleBorder(

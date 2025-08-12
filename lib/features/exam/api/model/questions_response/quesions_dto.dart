@@ -8,11 +8,13 @@ import 'package:exam_app/features/exam/api/model/questions_response/subject_dto.
 import 'package:exam_app/features/exam/domin/entity/question_model.dart';
 
 import 'package:exam_app/features/exam/domin/entity/subject_model.dart';
+
+import 'package:isar/isar.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:exam_app/core/constant/json_serializable_constants/json_constants.dart';
 
 part 'quesions_dto.g.dart';
-
+@embedded
 @JsonSerializable()
 class QuestionsDto {
   @JsonKey(name: JsonConstants.answers)
@@ -54,6 +56,7 @@ class QuestionsDto {
       _$QuestionsDtoFromJson(json);
 
   Map<String, dynamic> toJson() => _$QuestionsDtoToJson(this);
+
   QuestionsModel toModel() {
     return QuestionsModel(
       answers: answers!.map((dto) => dto.toModel()).toList(),
@@ -63,6 +66,21 @@ class QuestionsDto {
       exam: exam!.toModel(),
       id: id,
       subject: subject?.toModel() ?? SubjectModel(),
+    );
+  }
+
+  static QuestionsDto toDto(QuestionsModel model) {
+    return QuestionsDto(
+     type: model.type,
+     question: model.question,
+     correct: model.correct,
+     id: model.id,
+     exam: ExamDto.toDto(model.exam!),
+     subject: SubjectDto.toDto(model.subject!),
+     answers: model.answers!.map((answer)=>QuestionsAnswersDto.toDto(answer)).toList()
+
+
+
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:exam_app/core/constant/constant.dart';
+import 'package:exam_app/core/constant/pages_constants/page_constants.dart';
 import 'package:exam_app/core/l10n/translations/app_localizations.dart';
 import 'package:exam_app/core/theme/app_colors.dart';
 import 'package:exam_app/features/exam/domin/entity/question_model.dart';
@@ -16,11 +17,13 @@ import 'package:percent_indicator/linear_percent_indicator.dart';
 class QuestionsPart extends StatefulWidget {
   List<QuestionsModel>? questioinsListModel;
   QustionViewModel qustionViewModel;
+  String examId;
 
   QuestionsPart({
     super.key,
     this.questioinsListModel,
     required this.qustionViewModel,
+    required this.examId,
   });
 
   @override
@@ -52,6 +55,7 @@ class _QuestionsPartState extends State<QuestionsPart> {
 
     questioinsList = widget.questioinsListModel!;
     final examModel = questioinsList[pageIndex].exam;
+    final subjectModel = questioinsList[pageIndex].subject;
     final answrers = questioinsList[pageIndex].answers;
     final question = questioinsList[pageIndex].question;
 
@@ -200,7 +204,17 @@ class _QuestionsPartState extends State<QuestionsPart> {
                             qNumber++;
                           });
                         } else {
-                          //navigator
+                          Navigator.of(context).pushReplacementNamed(
+                            AppRoutes.score,
+                            arguments: {
+                              PageConstants.questionListArg: questioinsList,
+                              PageConstants.studentAnswerArg: studentAnswers,
+                              PageConstants.examModelArg: examModel,
+                              PageConstants.subjectNameArg: subjectModel!.name,
+                              PageConstants.timerArg:
+                                  widget.qustionViewModel.state.seconds,
+                            },
+                          );
                         }
                       },
 

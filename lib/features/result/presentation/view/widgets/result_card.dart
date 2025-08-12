@@ -33,7 +33,7 @@ class ResultCard extends StatelessWidget {
           child: Row(
             children: [
               const SizedBox(width: 24),
-              Image.asset(Constant.examImageUrl),
+              Image.asset("assets/images/exam.png"),
 
               Expanded(
                 child: Padding(

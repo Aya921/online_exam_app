@@ -1,3 +1,4 @@
+import 'package:exam_app/core/constant/constant.dart';
 import 'package:exam_app/core/l10n/translations/app_localizations.dart';
 import 'package:exam_app/core/theme/app_colors.dart';
 import 'package:exam_app/features/exam/domin/entity/exam_model.dart';
@@ -31,7 +32,7 @@ class ExamCard extends StatelessWidget {
           child: Row(
             children: [
               const SizedBox(width: 24),
-              Image.asset('assets/images/exam.png'),
+              Image.asset(Constant.examImageUrl),
 
               Expanded(
                 child: Padding(

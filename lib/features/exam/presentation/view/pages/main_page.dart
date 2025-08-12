@@ -7,6 +7,7 @@ import 'package:exam_app/features/exam/presentation/view/pages/explore_page.dart
 import 'package:exam_app/features/exam/presentation/view/widgets/cutom_nav_bar.dart';
 import 'package:exam_app/features/exam/presentation/view_models/subject_view_model/cubit/explore_cubit.dart';
 import 'package:exam_app/features/profile/presentation/views/pages/update_profile_page.dart';
+import 'package:exam_app/features/result/presentation/view/pages/result_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -27,7 +28,6 @@ class _MainPageState extends State<MainPage> {
   void onTabChanged(int index) async {
     setState(() => currentIndex = index);
 
-  
     if (index == 2) {
       await _fetchUserData();
     }
@@ -59,7 +59,7 @@ class _MainPageState extends State<MainPage> {
   @override
   void initState() {
     super.initState();
-    _fetchUserData(); 
+    _fetchUserData();
   }
 
   @override
@@ -79,16 +79,16 @@ class _MainPageState extends State<MainPage> {
   Widget _currentPage(int index) {
     switch (index) {
       case 0:
-        return  const ExplorePage();
+        return const ExplorePage();
       case 1:
-        return const Center(child: Text('Result Page'));
+        return  ResultPage();
       case 2:
         if (isLoadingUser) {
           return const Center(child: CircularProgressIndicator());
         }
         return UpdateProfilePage(userEntity: widget.userEntity);
       default:
-        return  const ExplorePage();
+        return const ExplorePage();
     }
   }
 }
